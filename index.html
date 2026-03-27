@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Style Workshop — Interior Design, Sydney</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── RESET & BASE ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --dusty-blue:  #708894;
+      --dark-teal:   #1E3051;
+      --warm-grey:   #B8B8A0;
+      --warm-tan:    #B8B7A3;
+      --olive-sage:  #646B5F;
+      --off-white:   #F5F3EF;
+      --logo-dark:   #838A8F;
+      --logo-light:  #A8AEB3;
+      --black:       #1A1A1A;
+      --mid-grey:    #404040;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--off-white);
+      color: var(--black);
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ──────────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 28px 60px;
+      transition: background 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(245, 243, 239, 0.97);
+      padding: 18px 60px;
+      border-bottom: 1px solid rgba(174, 176, 172, 0.3);
+    }
+    .nav-logo {
+      display: flex; flex-direction: column; align-items: center;
+      text-decoration: none; gap: 2px;
+    }
+    .nav-logo .monogram {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 400;
+      color: var(--logo-dark);
+      letter-spacing: 0.08em;
+      line-height: 1;
+    }
+    .nav-logo .monogram .s { color: var(--logo-light); }
+    .nav-logo .studio-name {
+      font-family: 'Jost', sans-serif;
+      font-size: 9px; font-weight: 400;
+      color: var(--logo-dark);
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex; gap: 44px; list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px; font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.55);
+      transition: color 0.2s, text-shadow 0.2s;
+    }
+    nav.scrolled .nav-links a { color: var(--dark-teal); text-shadow: none; font-weight: 600; }
+    .nav-links a:hover { color: var(--warm-tan); text-shadow: 0 1px 8px rgba(0,0,0,0.4); }
+    nav.scrolled .nav-links a:hover { color: var(--dusty-blue); }
+    .nav-cta {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #ffffff;
+      border: 1.5px solid rgba(255,255,255,0.85);
+      padding: 10px 22px;
+      text-decoration: none;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.45);
+      transition: all 0.25s;
+    }
+    nav.scrolled .nav-cta {
+      color: var(--dark-teal);
+      border-color: var(--dark-teal);
+    }
+    .nav-cta:hover { background: var(--off-white); color: var(--dark-teal) !important; border-color: var(--off-white); }
+
+    /* ─── HERO ─────────────────────────────────────────────────────── */
+    .hero {
+      height: 100vh; min-height: 700px;
+      position: relative; overflow: hidden;
+      display: flex; align-items: flex-end;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('tsw_hero.webp');
+      background-size: cover;
+      background-position: center 30%;
+    }
+    /* Dark overlay for text legibility */
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right,
+        rgba(20, 45, 60, 0.72) 0%,
+        rgba(20, 45, 60, 0.45) 55%,
+        rgba(20, 45, 60, 0.15) 100%);
+    }
+    .hero-room {
+      position: absolute; inset: 0;
+      overflow: hidden;
+    }
+    .hero-room::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(20,40,55,0.6) 0%, transparent 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 60px 80px;
+      max-width: 680px;
+    }
+    .hero-tag {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--warm-tan);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .hero-tag::before {
+      content: ''; display: block;
+      width: 32px; height: 1px;
+      background: var(--warm-tan);
+    }
+    .hero-h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 5.5vw, 72px);
+      font-weight: 400; line-height: 1.1;
+      color: var(--off-white);
+      letter-spacing: 0.01em;
+      margin-bottom: 28px;
+    }
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--warm-tan);
+    }
+    .hero-sub {
+      font-family: 'Jost', sans-serif;
+      font-size: 16px; font-weight: 400;
+      line-height: 1.7;
+      color: rgba(245, 243, 239, 0.85);
+      margin-bottom: 44px;
+      max-width: 440px;
+    }
+    .hero-actions { display: flex; gap: 20px; align-items: center; }
+    .btn-primary {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 400;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      background: var(--dusty-blue);
+      color: var(--off-white);
+      border: none; padding: 16px 36px;
+      cursor: pointer; text-decoration: none;
+      transition: background 0.25s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--dark-teal); }
+    .btn-ghost {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 400;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--off-white);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(245,243,239,0.5);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--off-white); }
+    .hero-scroll {
+      position: absolute; right: 60px; bottom: 80px; z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+    .hero-scroll span {
+      font-family: 'Jost', sans-serif;
+      font-size: 9px; font-weight: 400;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(245,243,239,0.5);
+      writing-mode: vertical-rl;
+    }
+    .hero-scroll::after {
+      content: ''; width: 1px; height: 50px;
+      background: linear-gradient(to bottom, rgba(245,243,239,0.5), transparent);
+    }
+
+    /* ─── SECTION COMMONS ──────────────────────────────────────────── */
+    section { padding: 100px 60px; }
+    .section-tag {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--dusty-blue);
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .section-tag::before {
+      content: ''; display: block;
+      width: 24px; height: 1px;
+      background: var(--dusty-blue);
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 3.8vw, 52px);
+      font-weight: 400; line-height: 1.15;
+      color: var(--dark-teal);
+      letter-spacing: 0.02em;
+    }
+    .section-body {
+      font-family: 'Jost', sans-serif;
+      font-size: 17px; font-weight: 400; line-height: 1.8;
+      color: var(--mid-grey);
+      max-width: 580px;
+    }
+    .thin-rule {
+      width: 40px; height: 1px;
+      background: var(--warm-grey);
+      margin: 32px 0;
+    }
+
+    /* ─── ABOUT / INTRO STRIP ──────────────────────────────────────── */
+    .intro-strip {
+      background: var(--dark-teal);
+      padding: 80px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 60px;
+    }
+    .intro-stat {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .intro-stat .number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px; font-weight: 400;
+      color: var(--off-white);
+      line-height: 1;
+    }
+    .intro-stat .label {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 300;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--warm-tan);
+    }
+    .intro-stat .desc {
+      font-family: 'Jost', sans-serif;
+      font-size: 14px; font-weight: 400; line-height: 1.7;
+      color: rgba(245,243,239,0.75);
+      margin-top: 4px;
+    }
+
+    /* ─── PORTFOLIO GRID ───────────────────────────────────────────── */
+    .portfolio { background: var(--off-white); }
+    .portfolio-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; margin-bottom: 56px;
+    }
+    .portfolio-header-left { max-width: 480px; }
+    .view-all {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--dusty-blue);
+      text-decoration: none;
+      border-bottom: 1px solid var(--dusty-blue);
+      padding-bottom: 2px;
+      transition: opacity 0.2s;
+    }
+    .view-all:hover { opacity: 0.6; }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+    .project-card {
+      position: relative; overflow: hidden;
+      cursor: pointer;
+    }
+    .project-card:first-child {
+      grid-row: 1 / 3;
+    }
+    .project-img {
+      width: 100%; height: 100%; min-height: 280px;
+      display: block; transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .project-card:first-child .project-img { min-height: 580px; }
+    .project-card:hover .project-img { transform: scale(1.03); }
+    /* Placeholder images using CSS gradients evoking interior scenes */
+    .img-1 { background-image: url('tsw_hero.webp'); background-size: cover; background-position: center; }
+    .img-2 { background-image: url('tsw_img_1.webp'); background-size: cover; background-position: center; }
+    .img-3 { background-image: url('tsw_img_2.webp'); background-size: cover; background-position: center; }
+    .img-4 { background-image: url('tsw_img_3.webp'); background-size: cover; background-position: center; }
+    .img-5 { background-image: url('tsw_img_4.webp'); background-size: cover; background-position: center; }
+    .project-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(30,61,82,0.75) 0%, transparent 55%);
+      opacity: 0; transition: opacity 0.4s;
+      display: flex; align-items: flex-end;
+      padding: 32px;
+    }
+    .project-card:hover .project-overlay { opacity: 1; }
+    .project-info { color: var(--off-white); }
+    .project-info .pname {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; font-weight: 400;
+      margin-bottom: 4px;
+    }
+    .project-info .ploc {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 300;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--warm-tan);
+    }
+    .project-label {
+      position: absolute; top: 20px; left: 20px;
+      font-family: 'Jost', sans-serif;
+      font-size: 9px; font-weight: 400;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--off-white);
+      background: rgba(30,61,82,0.55);
+      padding: 6px 12px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ─── SERVICES / PACKAGES ──────────────────────────────────────── */
+    .services { background: #EEE9E1; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 64px;
+    }
+    .service-card {
+      background: var(--off-white);
+      padding: 40px 32px;
+      position: relative;
+      transition: background 0.3s;
+    }
+    /* ─── ADD-ONS ───────────────────────────────────────────────────── */
+    .addons-section {
+      margin-top: 2px;
+      background: var(--dark-teal);
+      padding: 48px 60px;
+    }
+    .addons-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 36px;
+    }
+    .addons-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px; font-weight: 400;
+      color: var(--off-white);
+    }
+    .addons-sub {
+      font-family: 'Jost', sans-serif;
+      font-size: 13px; font-weight: 400;
+      color: rgba(245,243,239,0.7);
+      max-width: 360px; text-align: right; line-height: 1.6;
+    }
+    .addons-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 2px;
+    }
+    .addon-item {
+      background: rgba(255,255,255,0.05);
+      padding: 24px 22px;
+      transition: background 0.25s;
+    }
+    .addon-item:hover { background: rgba(255,255,255,0.09); }
+    .addon-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px; font-weight: 400;
+      color: var(--off-white);
+      margin-bottom: 8px; line-height: 1.3;
+    }
+    .addon-desc {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px; font-weight: 400; line-height: 1.7;
+      color: rgba(245,243,239,0.7);
+      margin-bottom: 14px;
+    }
+    .addon-price {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--warm-tan);
+    }
+    .services-note {
+      margin-top: 2px;
+      background: #EEE9E1;
+      padding: 28px 60px;
+      display: flex; align-items: center; justify-content: space-between; gap: 40px;
+    }
+    .services-note p {
+      font-family: 'Jost', sans-serif;
+      font-size: 14px; font-weight: 400; line-height: 1.8;
+      color: var(--mid-grey);
+    }
+    .services-note p strong {
+      font-weight: 400; color: var(--dark-teal);
+    }
+    .services-note-gift {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--dusty-blue);
+      white-space: nowrap;
+      text-decoration: none;
+      border-bottom: 1px solid var(--dusty-blue);
+      padding-bottom: 2px;
+    }
+    .service-card:hover { background: #fff; }
+    .service-card.featured {
+      background: var(--dark-teal);
+    }
+    .service-card.featured:hover { background: #254E6A; }
+    .service-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px; font-weight: 400;
+      color: var(--dusty-blue);
+      letter-spacing: 0.2em;
+      margin-bottom: 24px;
+    }
+    .service-card.featured .service-num { color: var(--warm-tan); }
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px; font-weight: 400;
+      color: var(--dark-teal);
+      margin-bottom: 12px; line-height: 1.25;
+    }
+    .service-card.featured .service-name { color: var(--off-white); }
+    .service-tag {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 400;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--dusty-blue);
+      margin-bottom: 20px;
+    }
+    .service-card.featured .service-tag { color: var(--warm-tan); }
+    .service-desc {
+      font-family: 'Jost', sans-serif;
+      font-size: 14px; font-weight: 400; line-height: 1.8;
+      color: var(--mid-grey);
+      margin-bottom: 32px;
+    }
+    .service-card.featured .service-desc { color: rgba(245,243,239,0.7); }
+    .service-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px; font-weight: 400;
+      color: var(--dark-teal);
+      margin-bottom: 6px;
+    }
+    .service-card.featured .service-price { color: var(--off-white); }
+    .service-price-note {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px; font-weight: 400;
+      color: var(--olive-sage);
+      margin-bottom: 32px;
+      letter-spacing: 0.04em;
+    }
+    .service-card.featured .service-price-note { color: rgba(245,243,239,0.45); }
+    .service-includes {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 10px;
+      margin-bottom: 40px;
+    }
+    .service-includes li {
+      font-family: 'Jost', sans-serif;
+      font-size: 13px; font-weight: 400; line-height: 1.55;
+      color: var(--mid-grey);
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .service-card.featured .service-includes li { color: rgba(245,243,239,0.85); }
+    .service-includes li::before {
+      content: '–'; color: var(--dusty-blue);
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .service-card.featured .service-includes li::before { color: var(--warm-tan); }
+    .service-includes .includes-ref {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 400;
+      font-style: italic;
+      color: var(--dusty-blue);
+      letter-spacing: 0.04em;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(126,138,148,0.25);
+      margin-bottom: 2px;
+    }
+    .service-includes .includes-ref::before { display: none; }
+    .service-card.featured .service-includes .includes-ref {
+      color: rgba(245,243,239,0.6);
+      border-bottom-color: rgba(245,243,239,0.2);
+    }
+    .btn-service {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      text-decoration: none;
+      padding: 13px 28px;
+      transition: all 0.25s;
+    }
+    .btn-service-outline {
+      color: var(--dark-teal);
+      border: 1px solid var(--dark-teal);
+    }
+    .btn-service-outline:hover {
+      background: var(--dark-teal); color: var(--off-white);
+    }
+    .btn-service-solid {
+      background: var(--dusty-blue); color: var(--off-white);
+      border: 1px solid var(--dusty-blue);
+    }
+    .btn-service-solid:hover { background: var(--off-white); color: var(--dark-teal); }
+    .service-badge {
+      position: absolute; top: 24px; right: 24px;
+      background: var(--dusty-blue);
+      color: var(--off-white);
+      font-family: 'Jost', sans-serif;
+      font-size: 8px; font-weight: 400;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      padding: 5px 10px;
+    }
+
+    /* ─── PROCESS STRIP ────────────────────────────────────────────── */
+    .process {
+      background: var(--off-white);
+      padding: 100px 60px;
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 48px;
+      margin-top: 64px;
+    }
+    .process-step {
+      display: flex; flex-direction: column; gap: 16px;
+      position: relative;
+    }
+    .process-step:not(:last-child)::after {
+      content: '';
+      position: absolute; top: 16px; right: -24px;
+      width: 48px; height: 1px;
+      background: var(--warm-grey);
+    }
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px; font-weight: 400;
+      color: var(--logo-light);
+      line-height: 1;
+    }
+    .step-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px; font-weight: 400;
+      color: var(--dark-teal);
+    }
+    .step-desc {
+      font-family: 'Jost', sans-serif;
+      font-size: 14px; font-weight: 400; line-height: 1.8;
+      color: var(--mid-grey);
+    }
+
+    /* ─── ABOUT / EMILY ────────────────────────────────────────────── */
+    .about {
+      background: var(--dark-teal);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding: 0;
+      min-height: 600px;
+    }
+    .about-image {
+      position: relative; overflow: hidden; min-height: 600px;
+    }
+    .about-img-bg {
+      width: 100%; height: 100%;
+      background: linear-gradient(150deg, #3A5A6E 0%, #4D7088 30%, #7E8A94 60%, #BDB7A2 85%, #C8BFB0 100%);
+      /* Suggest a portrait */
+    }
+    .about-img-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 45% 70% at 50% 35%, rgba(189,183,162,0.25) 0%, transparent 70%),
+        linear-gradient(to bottom, transparent 40%, rgba(30,61,82,0.3) 100%);
+    }
+    .about-photo-caption {
+      position: absolute; bottom: 28px; left: 28px;
+      font-family: 'Jost', sans-serif;
+      font-size: 9px; font-weight: 300;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(245,243,239,0.55);
+    }
+    .about-content {
+      padding: 80px 70px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .about-content .section-tag { color: var(--warm-tan); }
+    .about-content .section-tag::before { background: var(--warm-tan); }
+    .about-content .section-title { color: var(--off-white); }
+    .about-content .thin-rule { background: rgba(174,176,172,0.3); }
+    .about-content .section-body { color: rgba(245,243,239,0.85); max-width: 100%; }
+    .about-sig {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px; font-style: italic;
+      color: var(--warm-tan);
+      margin-top: 36px;
+    }
+
+    /* ─── TESTIMONIAL ──────────────────────────────────────────────── */
+    .testimonial {
+      background: var(--off-white);
+      text-align: center;
+      padding: 100px 60px;
+    }
+    .testimonial-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 400; font-style: italic;
+      color: var(--dark-teal);
+      line-height: 1.6;
+      max-width: 720px; margin: 0 auto 36px;
+    }
+    .testimonial-attr {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 300;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--dusty-blue);
+    }
+    .testimonial-dots {
+      display: flex; justify-content: center; gap: 8px;
+      margin-top: 48px;
+    }
+    .testimonial-dots span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--warm-grey);
+    }
+    .testimonial-dots span.active { background: var(--dusty-blue); }
+
+    /* ─── INSTAGRAM STRIP ──────────────────────────────────────────── */
+    .instagram {
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+    }
+    .ig-tile {
+      aspect-ratio: 1;
+      position: relative; overflow: hidden;
+      cursor: pointer;
+    }
+    .ig-tile:hover .ig-overlay { opacity: 1; }
+    .ig-bg-1 { background-image: url('tsw_img_4.webp'); background-size: cover; background-position: center; }
+    .ig-bg-2 { background-image: url('tsw_hero.webp'); background-size: cover; background-position: center 20%; }
+    .ig-bg-3 { background-image: url('tsw_img_3.webp'); background-size: cover; background-position: center; }
+    .ig-bg-4 { background-image: url('tsw_img_2.webp'); background-size: cover; background-position: center; }
+    .ig-bg-5 { background-image: url('tsw_img_1.webp'); background-size: cover; background-position: center; }
+    .ig-bg-6 { background-image: url('tsw_hero.webp'); background-size: cover; background-position: 60% center; }
+    .ig-overlay {
+      position: absolute; inset: 0;
+      background: rgba(30,61,82,0.6);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .ig-overlay svg { color: white; width: 24px; height: 24px; }
+    .ig-header {
+      background: var(--off-white);
+      padding: 48px 60px 32px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .ig-header-left .ig-handle {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 400;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--dusty-blue); text-decoration: none;
+    }
+    .ig-header-left .ig-caption {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 400;
+      color: var(--dark-teal);
+      margin-top: 6px;
+    }
+    .ig-follow {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--dark-teal);
+      border: 1px solid var(--dark-teal);
+      padding: 12px 24px;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .ig-follow:hover { background: var(--dark-teal); color: var(--off-white); }
+
+    /* ─── ENQUIRY FORM ─────────────────────────────────────────────── */
+    .enquiry {
+      background: var(--off-white);
+      padding: 100px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .enquiry-left .section-body { max-width: 100%; margin-top: 28px; }
+    .enquiry-contact-info {
+      margin-top: 48px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .enquiry-contact-info a {
+      font-family: 'Jost', sans-serif;
+      font-size: 14px; font-weight: 400;
+      color: var(--dark-teal); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .enquiry-contact-info a:hover { color: var(--dusty-blue); }
+    .enquiry-contact-info .ci-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--dusty-blue);
+      margin-top: 8px;
+    }
+    .enquiry-form { display: flex; flex-direction: column; gap: 0; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .form-field {
+      display: flex; flex-direction: column;
+      padding-bottom: 32px;
+    }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field label {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--dusty-blue);
+      margin-bottom: 10px;
+    }
+    .form-field input,
+    .form-field textarea {
+      font-family: 'Jost', sans-serif;
+      font-size: 15px; font-weight: 400;
+      color: var(--dark-teal);
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(30,48,81,0.2);
+      padding: 8px 0;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: rgba(30,48,81,0.3);
+      font-weight: 300;
+    }
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-bottom-color: var(--dark-teal);
+    }
+    .form-field textarea { resize: none; min-height: 80px; line-height: 1.6; }
+    .form-radio-group {
+      display: flex; flex-direction: column; gap: 0;
+      padding-bottom: 32px;
+    }
+    .form-radio-group.full { grid-column: 1 / -1; }
+    .form-radio-group > label {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--dusty-blue);
+      margin-bottom: 14px;
+      display: block;
+    }
+    .radio-options {
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    .radio-options label {
+      display: flex; align-items: center; gap: 8px;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px; font-weight: 400;
+      color: var(--dark-teal);
+      cursor: pointer;
+      padding: 8px 16px;
+      border: 1px solid rgba(30,48,81,0.2);
+      transition: all 0.2s;
+    }
+    .radio-options input[type="radio"] { display: none; }
+    .radio-options input[type="radio"]:checked + span,
+    .radio-options label:has(input:checked) {
+      background: var(--dark-teal);
+      color: var(--off-white);
+      border-color: var(--dark-teal);
+    }
+    .radio-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 18px;
+      border: 1px solid rgba(30,48,81,0.2);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px; font-weight: 400;
+      color: var(--dark-teal);
+    }
+    .radio-pill input { display: none; }
+    .radio-pill:hover { border-color: var(--dark-teal); }
+    .radio-pill.selected,
+    .radio-pill:has(input:checked) {
+      background: var(--dark-teal);
+      color: var(--off-white);
+      border-color: var(--dark-teal);
+    }
+    .form-divider {
+      width: 100%; height: 1px;
+      background: rgba(30,48,81,0.1);
+      margin: 8px 0 32px;
+    }
+    .btn-submit {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      background: var(--dark-teal);
+      color: var(--off-white);
+      border: none;
+      padding: 18px 48px;
+      cursor: pointer;
+      transition: background 0.25s;
+      align-self: flex-start;
+      margin-top: 8px;
+    }
+    .btn-submit:hover { background: var(--dusty-blue); }
+    .form-note {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px; font-weight: 400;
+      color: rgba(30,48,81,0.4);
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    /* ─── CONTACT CTA ──────────────────────────────────────────────── */
+    .contact-cta {
+      background: var(--dusty-blue);
+      padding: 100px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 60px;
+    }
+    .cta-left .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 400; line-height: 1.2;
+      color: var(--off-white);
+      margin-bottom: 16px;
+    }
+    .cta-left .cta-sub {
+      font-family: 'Jost', sans-serif;
+      font-size: 16px; font-weight: 400; line-height: 1.7;
+      color: rgba(245,243,239,0.85);
+      max-width: 460px;
+    }
+    .cta-right { display: flex; flex-direction: column; gap: 14px; min-width: 200px; }
+    .btn-cta-white {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 400;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      background: var(--off-white); color: var(--dark-teal);
+      border: 1px solid var(--off-white);
+      padding: 16px 36px; text-align: center;
+      text-decoration: none; transition: all 0.25s;
+      display: block;
+    }
+    .btn-cta-white:hover { background: var(--dark-teal); color: var(--off-white); border-color: var(--dark-teal); }
+    .btn-cta-outline-white {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 400;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--off-white); border: 1px solid rgba(245,243,239,0.5);
+      padding: 16px 36px; text-align: center;
+      text-decoration: none; transition: all 0.25s; display: block;
+    }
+    .btn-cta-outline-white:hover { border-color: var(--off-white); background: rgba(245,243,239,0.1); }
+
+    /* ─── FOOTER ───────────────────────────────────────────────────── */
+    footer {
+      background: var(--dark-teal);
+      padding: 64px 60px 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+    .footer-brand .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 400;
+      color: rgba(245,243,239,0.9);
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+    .footer-brand .footer-logo .s { color: rgba(168,174,179,0.7); }
+    .footer-brand .footer-studio {
+      font-family: 'Jost', sans-serif;
+      font-size: 8px; font-weight: 300;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: rgba(245,243,239,0.4);
+      margin-bottom: 20px;
+    }
+    .footer-brand .footer-strapline {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 300;
+      color: rgba(245,243,239,0.5);
+      letter-spacing: 0.15em;
+      margin-bottom: 24px;
+    }
+    .footer-brand p {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px; font-weight: 300; line-height: 1.8;
+      color: rgba(245,243,239,0.45);
+      max-width: 260px;
+    }
+    .footer-col h4 {
+      font-family: 'Jost', sans-serif;
+      font-size: 9px; font-weight: 400;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--warm-tan);
+      margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px; font-weight: 300;
+      color: rgba(245,243,239,0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--off-white); }
+    .footer-bottom {
+      border-top: 1px solid rgba(174,176,172,0.15);
+      padding-top: 28px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-bottom p {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 300;
+      color: rgba(245,243,239,0.3);
+      letter-spacing: 0.05em;
+    }
+    .footer-social {
+      display: flex; gap: 20px;
+    }
+    .footer-social a {
+      font-family: 'Jost', sans-serif;
+      font-size: 9px; font-weight: 400;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: rgba(245,243,239,0.4);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-social a:hover { color: var(--warm-tan); }
+
+    /* ─── PROTOTYPE NOTICE ─────────────────────────────────────────── */
+    .proto-notice {
+      position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      background: var(--dark-teal);
+      color: var(--off-white);
+      font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 300;
+      letter-spacing: 0.1em;
+      padding: 14px 22px;
+      border-left: 3px solid var(--dusty-blue);
+      max-width: 260px; line-height: 1.6;
+    }
+    .proto-notice strong {
+      display: block;
+      font-weight: 400;
+      color: var(--warm-tan);
+      margin-bottom: 4px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-size: 10px;
+    }
+
+    /* ─── CUSTOM PACKAGE CARD ─────────────────────────────────────────── */
+    .service-card-custom {
+      margin-top: 2px;
+      background: #EAE5DC;
+      padding: 48px 48px;
+      display: grid;
+      grid-template-columns: 1.8fr 1.4fr 0.7fr;
+      gap: 52px;
+      align-items: start;
+    }
+    .service-card-custom .service-num { color: var(--olive-sage); }
+    .service-card-custom .service-name { font-size: 26px; }
+    .service-card-custom .service-tag { color: var(--olive-sage); }
+    .service-card-custom .service-desc { color: var(--mid-grey); }
+    .service-card-custom .service-price { color: var(--dark-teal); }
+    .service-card-custom .service-price-note { color: var(--olive-sage); }
+    .custom-combos-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--olive-sage);
+      margin-bottom: 16px;
+    }
+    .service-card-custom .service-includes li { color: var(--mid-grey); }
+    .service-card-custom .service-includes li::before { color: var(--olive-sage); }
+    .custom-cta {
+      display: flex; flex-direction: column;
+      justify-content: flex-end; height: 100%;
+      padding-top: 60px;
+    }
+    .btn-service-sage {
+      color: var(--olive-sage);
+      border: 1px solid var(--olive-sage);
+    }
+    .btn-service-sage:hover { background: var(--olive-sage); color: var(--off-white); }
+
+    /* ─── RESPONSIVE ───────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
+      .nav-links { display: none; }
+      section { padding: 70px 24px; }
+      .hero-content { padding: 0 24px 60px; }
+      .hero-scroll { right: 24px; }
+      .intro-strip { grid-template-columns: 1fr; padding: 60px 24px; gap: 36px; }
+      .portfolio-grid { grid-template-columns: 1fr 1fr; }
+      .portfolio-grid .project-card:first-child { grid-row: 1; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .addons-grid { grid-template-columns: 1fr 1fr 1fr; }
+      .addons-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .addons-sub { text-align: left; }
+      .services-note { flex-direction: column; align-items: flex-start; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .about { grid-template-columns: 1fr; }
+      .about-image { min-height: 400px; }
+      .contact-cta { flex-direction: column; padding: 70px 24px; }
+      .instagram { grid-template-columns: repeat(3, 1fr); }
+      .instagram .ig-tile:nth-child(n+4) { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .footer-bottom { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ──────────────────────────────────────────────────── -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <img src="tsw_logo.webp" alt="The Style Workshop" id="tsw-logo-nav" style="height:72px; width:auto; display:block;" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="#portfolio">Projects</a></li>
+    <li><a href="#services">Packages</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Journal</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Book a Consultation</a>
+</nav>
+
+<!-- ─── HERO ────────────────────────────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-room"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Sydney Interior Design</div>
+    <h1 class="hero-h1">Beautifully<br><em>Considered Spaces</em></h1>
+    <p class="hero-sub">Emily Webster transforms Sydney homes into considered, liveable interiors — from curated room refreshes to full residential projects.</p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">Explore Packages</a>
+      <a href="#portfolio" class="btn-ghost">View Projects</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span></div>
+</section>
+
+<!-- ─── INTRO STATS ──────────────────────────────────────────────────── -->
+<div class="intro-strip">
+  <div class="intro-stat">
+    <div class="number">12+</div>
+    <div class="label">Years Experience</div>
+    <div class="desc">Delivering considered residential interiors across Sydney's most discerning suburbs.</div>
+  </div>
+  <div class="intro-stat">
+    <div class="number">140</div>
+    <div class="label">Projects Completed</div>
+    <div class="desc">From kitchen transformations in Mosman to whole-home redesigns in Paddington.</div>
+  </div>
+  <div class="intro-stat">
+    <div class="number">4</div>
+    <div class="label">Ways to Work Together</div>
+    <div class="desc">Four pre-paid packages designed to meet you wherever you are in your design journey.</div>
+  </div>
+</div>
+
+<!-- ─── PORTFOLIO ────────────────────────────────────────────────────── -->
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-header">
+    <div class="portfolio-header-left">
+      <div class="section-tag">Selected Work</div>
+      <h2 class="section-title">Projects that speak<br>for themselves</h2>
+    </div>
+    <a href="#" class="view-all">View All Projects</a>
+  </div>
+  <div class="portfolio-grid">
+    <div class="project-card">
+      <div class="project-img img-1"></div>
+      <div class="project-label">Full Residence</div>
+      <div class="project-overlay">
+        <div class="project-info">
+          <div class="pname">Woollahra Residence</div>
+          <div class="ploc">Eastern Suburbs · Full Interior</div>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-img img-2"></div>
+      <div class="project-label">Living & Dining</div>
+      <div class="project-overlay">
+        <div class="project-info">
+          <div class="pname">Mosman Terrace</div>
+          <div class="ploc">North Shore · Living Room</div>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-img img-3"></div>
+      <div class="project-label">Master Suite</div>
+      <div class="project-overlay">
+        <div class="project-info">
+          <div class="pname">Paddington Cottage</div>
+          <div class="ploc">Inner East · Bedroom Suite</div>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-img img-4"></div>
+      <div class="project-overlay">
+        <div class="project-info">
+          <div class="pname">Balmain Kitchen</div>
+          <div class="ploc">Inner West · Kitchen &amp; Dining</div>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-img img-5"></div>
+      <div class="project-overlay">
+        <div class="project-info">
+          <div class="pname">Double Bay Apartment</div>
+          <div class="ploc">Eastern Suburbs · Full Apartment</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES / PACKAGES ──────────────────────────────────────────── -->
+<section class="services" id="services">
+  <div class="section-tag">Pre-Paid Design Services &amp; Experiences</div>
+  <h2 class="section-title">Choose how you'd like<br>to work together</h2>
+  <div style="margin-top:12px;">
+    <p class="section-body">Good design should feel effortless — and so should commissioning it. Each package offers a defined scope, a clear investment, and the same meticulous attention that defines every project we work on. All packages are valid for 12 months and can be gifted.</p>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-name">The Initial Consultation</div>
+      <div class="service-tag">Refine your ideas · Unlock your home's potential</div>
+      <p class="service-desc">The ideal starting point — whether you're beginning a renovation, struggling with a room that isn't working, or simply unsure where to begin. In 90 minutes, we'll clarify your direction and give you the confidence to move forward.</p>
+      <div class="service-price">$695</div>
+      <div class="service-price-note">incl. GST · Priority scheduling within 5 business days</div>
+      <ul class="service-includes">
+        <li>90-minute in-home consultation</li>
+        <li>Layout and spatial planning advice</li>
+        <li>Open Q&amp;A — ask anything design-related</li>
+        <li>Written recommendations &amp; visual reference within 3 business days</li>
+      </ul>
+      <a href="#" class="btn-service btn-service-outline">Purchase Online</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-name">The Room Edit</div>
+      <div class="service-tag">A considered redesign of a single space</div>
+      <p class="service-desc">A complete design concept for one room — carefully curated to bring cohesion, refinement, and a clear visual direction. Everything you need to move forward with purpose, without the overwhelm of an open-ended brief.</p>
+      <div class="service-price">$1,750</div>
+      <div class="service-price-note">incl. GST · One round of revisions included</div>
+      <ul class="service-includes">
+        <li class="includes-ref">Everything in The Initial Consultation, plus:</li>
+        <li>Concept direction and look &amp; feel document</li>
+        <li>Colour palette and material selections</li>
+        <li>Furniture and styling recommendations</li>
+        <li>Curated shopping edit — 6–10 key pieces with supplier links</li>
+      </ul>
+      <a href="#" class="btn-service btn-service-outline">Purchase Online</a>
+    </div>
+
+    <div class="service-card featured">
+      <div class="service-badge">Most Complete</div>
+      <div class="service-num">03</div>
+      <div class="service-name">The Design Edit</div>
+      <div class="service-tag">Everything you need to transform your space</div>
+      <p class="service-desc">A fully resolved interior design service for one room — taken from initial brief through to a complete, actionable design you can hand to a supplier or trade and execute with confidence.</p>
+      <div class="service-price">$2,400</div>
+      <div class="service-price-note">incl. GST · Includes 30-min follow-up call</div>
+      <ul class="service-includes">
+        <li class="includes-ref">Everything in The Room Edit, plus:</li>
+        <li>Full finishes schedule — materials, textures &amp; surfaces</li>
+        <li>Lighting selections included</li>
+        <li>Trade pricing across all shopping edit recommendations</li>
+        <li>One revision round</li>
+        <li>30-minute follow-up call to implement with confidence</li>
+      </ul>
+      <a href="#" class="btn-service btn-service-solid">Purchase Online</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-name">The Signature Styling Experience</div>
+      <div class="service-tag">A complete transformation — hands on, entirely yours</div>
+      <p class="service-desc">Our most immersive package. Designed for those who want their space truly transformed — with access to trade-only showrooms, exclusive and one-of-a-kind pieces, and Emily's hands-on involvement at every stage.</p>
+      <div class="service-price">$3,950</div>
+      <div class="service-price-note">incl. GST · Discovery call to confirm scope</div>
+      <ul class="service-includes">
+        <li class="includes-ref">Everything in The Design Edit, plus:</li>
+        <li>Pre-project questionnaire to capture your full vision</li>
+        <li>Access to trade-only showrooms &amp; exclusive suppliers</li>
+        <li>Access to unique, one-of-a-kind pieces unavailable through retail</li>
+        <li>Post-styling summary &amp; care guide</li>
+      </ul>
+      <a href="#" class="btn-service btn-service-outline">Book a Discovery Call</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── ADD-ONS ───────────────────────────────────────────────────────── -->
+<div class="addons-section">
+  <div class="addons-header">
+    <div class="addons-title">Enhance any package</div>
+    <div class="addons-sub">Each addition can be combined with any core package to extend the scope, deepen the finish, or take a single-room project whole-home.</div>
+  </div>
+  <div class="addons-grid">
+    <div class="addon-item">
+      <div class="addon-name">The Finishing Layer</div>
+      <div class="addon-desc">The final styling elements that bring warmth and cohesion. The finishing 10% that transforms a room from designed to lived-in.</div>
+      <div class="addon-price">From $430 incl. GST</div>
+    </div>
+    <div class="addon-item">
+      <div class="addon-name">Furniture Selection Upgrade</div>
+      <div class="addon-desc">Access to curated, trade and one-off pieces unavailable through retail. Elevate your interior with selections sourced exclusively for you.</div>
+      <div class="addon-price">From $650 incl. GST</div>
+    </div>
+    <div class="addon-item">
+      <div class="addon-name">Sourcing &amp; Procurement</div>
+      <div class="addon-desc">End-to-end coordination of ordering, suppliers and deliveries. We manage the process so you don't have to follow a single email thread.</div>
+      <div class="addon-price">From $550 incl. GST</div>
+    </div>
+    <div class="addon-item">
+      <div class="addon-name">Artwork &amp; Objects Curation</div>
+      <div class="addon-desc">A carefully considered collection of artwork and decorative objects selected to add personality, depth and a sense of the collected.</div>
+      <div class="addon-price">From $450 incl. GST</div>
+    </div>
+    <div class="addon-item">
+      <div class="addon-name">Lighting Design</div>
+      <div class="addon-desc">Layered lighting recommendations designed to enhance atmosphere and functionality — one of the most transformative elements in any room.</div>
+      <div class="addon-price">From $550 incl. GST</div>
+    </div>
+    <div class="addon-item">
+      <div class="addon-name">Additional Rooms</div>
+      <div class="addon-desc">Extend your design across multiple spaces for a cohesive whole-home result. Combines seamlessly with any core package.</div>
+      <div class="addon-price">From $750 incl. GST per room</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SERVICES NOTE ─────────────────────────────────────────────────── -->
+<div class="services-note">
+  <p><strong>Not sure which package is right for you?</strong> Book a complimentary 15-minute discovery call — no obligation. We'll clarify exactly what you need. Additional services beyond any package scope are available at <strong>$275/hr incl. GST</strong>. Priority scheduling confirmed within 5 business days of purchase.</p>
+  <a href="mailto:emily@thestyleworkshop.com.au" class="services-note-gift">Gift a design experience →</a>
+</div>
+
+<!-- ─── PROCESS ──────────────────────────────────────────────────────── -->
+<section class="process" id="process">
+  <div class="section-tag">How It Works</div>
+  <h2 class="section-title">A considered process,<br>from first contact to final result</h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-title">Discovery</div>
+      <p class="step-desc">We begin with a conversation about your space, lifestyle, and vision — so the design feels genuinely yours, not borrowed from a magazine.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-title">Concept Design</div>
+      <p class="step-desc">Emily develops a mood board, spatial layout, and material palette tailored to your home and brief. You see the full direction before anything is committed.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-title">Refinement</div>
+      <p class="step-desc">We refine together — adjusting until the design feels exactly right. Nothing moves forward without your confidence in the direction.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-title">Delivery &amp; Support</div>
+      <p class="step-desc">You receive a complete, actionable package — shopping lists, supplier contacts, and room-by-room instructions. Ongoing support is available as needed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT EMILY ──────────────────────────────────────────────────── -->
+<div class="about" id="about">
+  <div class="about-image">
+    <div class="about-img-bg"></div>
+    <div class="about-photo-caption">Emily Webster · Principal Designer</div>
+  </div>
+  <div class="about-content">
+    <div class="section-tag">About Emily</div>
+    <h2 class="section-title">Design that begins<br>with listening</h2>
+    <div class="thin-rule"></div>
+    <p class="section-body">Emily Webster founded The Style Workshop after a decade working across Sydney's leading residential studios. Her approach is collaborative and unhurried — she believes the best interiors are a direct reflection of the people who live in them.</p>
+    <br>
+    <p class="section-body">Based in Sydney and working across the Eastern Suburbs, North Shore, and Inner West, Emily specialises in residential interiors that balance considered aesthetics with the realities of everyday life.</p>
+    <div class="about-sig">Emily Webster</div>
+  </div>
+</div>
+
+<!-- ─── TESTIMONIAL ──────────────────────────────────────────────────── -->
+<section class="testimonial">
+  <div class="section-tag" style="justify-content:center;">Client Feedback</div>
+  <blockquote class="testimonial-quote">
+    "Emily has an extraordinary ability to take a brief and translate it into something that feels entirely personal. Our home finally feels like it belongs to us."
+  </blockquote>
+  <div class="testimonial-attr">Sarah &amp; James K. · Woollahra · Full Residence</div>
+  <div class="testimonial-dots">
+    <span class="active"></span>
+    <span></span>
+    <span></span>
+  </div>
+</section>
+
+<!-- ─── INSTAGRAM ────────────────────────────────────────────────────── -->
+<div id="contact">
+  <div class="ig-header">
+    <div class="ig-header-left">
+      <a href="#" class="ig-handle">@thestyleworkshop</a>
+      <div class="ig-caption">Follow along on Instagram</div>
+    </div>
+    <a href="#" class="ig-follow">Follow</a>
+  </div>
+  <div class="instagram">
+    <div class="ig-tile ig-bg-1">
+      <div class="ig-overlay">
+        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/></svg>
+      </div>
+    </div>
+    <div class="ig-tile ig-bg-2"><div class="ig-overlay"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/></svg></div></div>
+    <div class="ig-tile ig-bg-3"><div class="ig-overlay"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/></svg></div></div>
+    <div class="ig-tile ig-bg-4"><div class="ig-overlay"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/></svg></div></div>
+    <div class="ig-tile ig-bg-5"><div class="ig-overlay"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/></svg></div></div>
+    <div class="ig-tile ig-bg-6"><div class="ig-overlay"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/></svg></div></div>
+  </div>
+</div>
+
+<!-- ─── ENQUIRY FORM ───────────────────────────────────────────────────── -->
+<section class="enquiry" id="enquiry">
+  <div class="enquiry-left">
+    <div class="section-tag">Get in Touch</div>
+    <h2 class="section-title">Let's talk about your space</h2>
+    <p class="section-body">Thank you for considering The Style Workshop. By completing the questionnaire below we can properly review the requirements of your project and ensure we recommend the right experience for you.</p>
+    <p class="section-body" style="margin-top:16px;">We reply within two business days.</p>
+    <div class="enquiry-contact-info">
+      <div class="ci-label">Studio Contact</div>
+      <a href="mailto:emily@thestyleworkshop.com.au">emily@thestyleworkshop.com.au</a>
+      <a href="tel:0407487498">0407 487 498</a>
+    </div>
+  </div>
+
+  <form class="enquiry-form" onsubmit="return false;">
+    <div class="form-row">
+      <div class="form-field">
+        <label for="eq-name">Your Name</label>
+        <input type="text" id="eq-name" placeholder="Full name" />
+      </div>
+      <div class="form-field">
+        <label for="eq-phone">Contact Number</label>
+        <input type="tel" id="eq-phone" placeholder="Phone number" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-field full">
+        <label for="eq-email">Email Address</label>
+        <input type="email" id="eq-email" placeholder="email@address.com" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-field full">
+        <label for="eq-suburb">Project Location</label>
+        <input type="text" id="eq-suburb" placeholder="Suburb, Sydney" />
+      </div>
+    </div>
+
+    <div class="form-divider"></div>
+
+    <div class="form-radio-group full">
+      <label>Which package are you interested in?</label>
+      <div class="radio-options" id="rg-package">
+        <label class="radio-pill"><input type="radio" name="package" value="consultation" /><span>The Initial Consultation</span></label>
+        <label class="radio-pill"><input type="radio" name="package" value="room-edit" /><span>The Room Edit</span></label>
+        <label class="radio-pill"><input type="radio" name="package" value="design-edit" /><span>The Design Edit</span></label>
+        <label class="radio-pill"><input type="radio" name="package" value="signature" /><span>The Signature Experience</span></label>
+        <label class="radio-pill"><input type="radio" name="package" value="unsure" /><span>Not sure yet</span></label>
+      </div>
+    </div>
+
+    <div class="form-radio-group full">
+      <label>Which best describes your project?</label>
+      <div class="radio-options" id="rg-type">
+        <label class="radio-pill"><input type="radio" name="projtype" value="new-build" /><span>New Build</span></label>
+        <label class="radio-pill"><input type="radio" name="projtype" value="renovation" /><span>Renovation</span></label>
+        <label class="radio-pill"><input type="radio" name="projtype" value="styling" /><span>Styling Only</span></label>
+        <label class="radio-pill"><input type="radio" name="projtype" value="unsure" /><span>Not sure yet</span></label>
+      </div>
+    </div>
+
+    <div class="form-radio-group full">
+      <label>How did you hear about us?</label>
+      <div class="radio-options" id="rg-source">
+        <label class="radio-pill"><input type="radio" name="source" value="referral" /><span>Referral</span></label>
+        <label class="radio-pill"><input type="radio" name="source" value="instagram" /><span>Instagram</span></label>
+        <label class="radio-pill"><input type="radio" name="source" value="google" /><span>Google</span></label>
+        <label class="radio-pill"><input type="radio" name="source" value="houzz" /><span>Houzz</span></label>
+        <label class="radio-pill"><input type="radio" name="source" value="press" /><span>Press / Media</span></label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-field full">
+        <label for="eq-message">Tell us about your project</label>
+        <textarea id="eq-message" rows="4" placeholder="Share any details about your space, what you're hoping to achieve, and any questions you have for Emily."></textarea>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-submit">Send Enquiry</button>
+    <p class="form-note">We reply within two business days. All enquiries are confidential.</p>
+  </form>
+</section>
+
+<!-- ─── CONTACT CTA ────────────────────────────────────────────────────── -->
+<div class="contact-cta">
+  <div class="cta-left">
+    <div class="cta-title">Not ready to enquire?<br>Browse our packages first.</div>
+    <p class="cta-sub">Each package is designed to meet you wherever you are in your design journey — from a single room to a complete home transformation.</p>
+    <p style="margin-top:16px;font-family:'Jost',sans-serif;font-size:13px;font-weight:400;color:rgba(245,243,239,0.65);letter-spacing:0.05em;">emily@thestyleworkshop.com.au &nbsp;·&nbsp; 0407 487 498</p>
+  </div>
+  <div class="cta-right">
+    <a href="#services" class="btn-cta-white">View Packages</a>
+    <a href="#enquiry" class="btn-cta-outline-white">Send an Enquiry</a>
+  </div>
+</div>
+
+<!-- ─── FOOTER ────────────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="tsw_logo.webp" alt="The Style Workshop" style="height:64px; width:auto; display:block; margin-bottom:8px; opacity:0.85; filter:brightness(0) invert(1) opacity(0.7);" />
+      <div class="footer-strapline">Design · Finishes · Interiors</div>
+      <p>A Sydney interior design studio specialising in considered residential interiors — from curated room refreshes to full residential projects.</p>
+      <p style="margin-top:16px;"><a href="mailto:emily@thestyleworkshop.com.au" style="color:rgba(245,243,239,0.55);text-decoration:none;">emily@thestyleworkshop.com.au</a></p>
+      <p><a href="tel:0407487498" style="color:rgba(245,243,239,0.55);text-decoration:none;">0407 487 498</a></p>
+    </div>
+    <div class="footer-col">
+      <h4>Studio</h4>
+      <ul>
+        <li><a href="#">About Emily</a></li>
+        <li><a href="#">Our Process</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Work</h4>
+      <ul>
+        <li><a href="#">All Projects</a></li>
+        <li><a href="#">Residential</a></li>
+        <li><a href="#">Before &amp; After</a></li>
+        <li><a href="#">Journal</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Room Refresh</a></li>
+        <li><a href="#">Room Design</a></li>
+        <li><a href="#">Home Consultation</a></li>
+        <li><a href="#">Full Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 The Style Workshop · Emily Webster · Sydney, Australia · ABN XX XXX XXX XXX</p>
+    <div class="footer-social">
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+      <a href="#">Houzz</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── PROTOTYPE NOTICE ──────────────────────────────────────────────── -->
+<div class="proto-notice">
+  <strong>Design Prototype</strong>
+  Built on Emily's live photography and brand. Ready to deploy to Vercel — just add Stripe for packages.
+</div>
+
+<script>
+  // Sticky nav scroll behaviour
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  // Radio pill toggle — visual selected state
+  document.querySelectorAll('.radio-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      const radio = pill.querySelector('input[type="radio"]');
+      const group = pill.closest('.radio-options');
+      group.querySelectorAll('.radio-pill').forEach(p => p.classList.remove('selected'));
+      radio.checked = true;
+      pill.classList.add('selected');
+    });
+  });
+</script>
+</body>
+</html>
