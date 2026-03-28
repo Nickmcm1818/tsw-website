@@ -186,13 +186,25 @@
       flex-shrink: 0;
     }
     #tsw-logo-nav {
-      height: 130px; width: auto; display: block;
+      height: 96px; width: auto; display: block;
       filter: brightness(0) invert(1);
       transition: filter 0.4s, height 0.4s;
     }
     nav.scrolled #tsw-logo-nav {
-      height: 100px;
+      height: 78px;
       filter: none;
+    }
+    .nav-tagline {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.88);
+      margin-top: 2px;
+      transition: color 0.4s;
+    }
+    nav.scrolled .nav-tagline {
+      color: var(--logo-dark);
     }
     .nav-logo .monogram {
       font-family: 'Cormorant Garamond', serif;
@@ -1258,8 +1270,9 @@
     @media (max-width: 900px) {
       nav { padding: 14px 24px; }
       nav.scrolled { padding: 10px 24px; }
-      #tsw-logo-nav { height: 90px; }
-      nav.scrolled #tsw-logo-nav { height: 72px; }
+      #tsw-logo-nav { height: 72px; }
+      nav.scrolled #tsw-logo-nav { height: 60px; }
+      .nav-tagline { font-size: 8px; letter-spacing: 0.18em; }
       .nav-links { display: none; }
       section { padding: 70px 24px; }
       .hero-content { padding: 0 24px 60px; }
@@ -1290,6 +1303,7 @@
 <nav id="mainNav">
   <a href="#" class="nav-logo">
     <img src="tsw_logo_transparent.webp" alt="The Style Workshop" id="tsw-logo-nav" />
+    <span class="nav-tagline">Design &middot; Finishes &middot; Interiors</span>
   </a>
   <ul class="nav-links">
     <li><a href="#portfolio">Projects</a></li>
