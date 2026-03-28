@@ -982,6 +982,73 @@
     }
     .footer-social a:hover { color: var(--warm-tan); }
 
+    /* ─── SERVICES OVERVIEW ────────────────────────────────────────── */
+    .services-overview {
+      background: var(--off-white);
+      padding: 100px 60px;
+    }
+    .services-overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 64px;
+    }
+    .sov-card {
+      background: #fff;
+      padding: 52px 44px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 2px solid var(--dusty-blue);
+    }
+    .sov-card.alt {
+      background: var(--dark-teal);
+      border-top-color: var(--warm-tan);
+    }
+    .sov-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 44px; font-weight: 400;
+      color: rgba(112,136,148,0.18);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .sov-card.alt .sov-num { color: rgba(245,243,239,0.12); }
+    .sov-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px; font-weight: 400;
+      color: var(--dark-teal);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .sov-card.alt .sov-title { color: var(--off-white); }
+    .sov-desc {
+      font-family: 'Jost', sans-serif;
+      font-size: 15px; font-weight: 400; line-height: 1.8;
+      color: var(--mid-grey);
+      margin-bottom: 32px;
+    }
+    .sov-card.alt .sov-desc { color: rgba(245,243,239,0.75); }
+    .sov-list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 10px;
+      margin-bottom: 0;
+    }
+    .sov-list li {
+      font-family: 'Jost', sans-serif;
+      font-size: 13px; font-weight: 400; line-height: 1.6;
+      color: var(--mid-grey);
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .sov-card.alt .sov-list li { color: rgba(245,243,239,0.8); }
+    .sov-list li::before {
+      content: '·';
+      color: var(--dusty-blue);
+      flex-shrink: 0;
+      font-size: 18px;
+      line-height: 1.3;
+    }
+    .sov-card.alt .sov-list li::before { color: var(--warm-tan); }
+
     /* ─── PROTOTYPE NOTICE ─────────────────────────────────────────── */
     .proto-notice {
       position: fixed; bottom: 24px; right: 24px; z-index: 200;
@@ -1057,6 +1124,7 @@
       .addons-sub { text-align: left; }
       .services-note { flex-direction: column; align-items: flex-start; }
       .process-steps { grid-template-columns: 1fr 1fr; }
+      .services-overview-grid { grid-template-columns: 1fr; }
       .about { grid-template-columns: 1fr; }
       .about-image { min-height: 400px; }
       .contact-cta { flex-direction: column; padding: 70px 24px; }
@@ -1076,12 +1144,12 @@
   </a>
   <ul class="nav-links">
     <li><a href="#portfolio">Projects</a></li>
-    <li><a href="#services">Packages</a></li>
+    <li><a href="#services">Services</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#contact">Journal</a></li>
+    <li><a href="#enquiry">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Book a Consultation</a>
+  <a href="#enquiry" class="nav-cta">Book a Consultation</a>
 </nav>
 
 <!-- ─── HERO ────────────────────────────────────────────────────────── -->
@@ -1091,9 +1159,9 @@
   <div class="hero-content">
     <div class="hero-tag">Sydney Interior Design</div>
     <h1 class="hero-h1">Beautifully<br><em>Considered Spaces</em></h1>
-    <p class="hero-sub">Emily Webster transforms Sydney homes into considered, liveable interiors — from curated room refreshes to full residential projects.</p>
+    <p class="hero-sub">A boutique interior design studio on Sydney's Lower North Shore — creating considered, liveable interiors from curated room refreshes to full residential projects.</p>
     <div class="hero-actions">
-      <a href="#services" class="btn-primary">Explore Packages</a>
+      <a href="#services" class="btn-primary">Our Services</a>
       <a href="#portfolio" class="btn-ghost">View Projects</a>
     </div>
   </div>
@@ -1103,9 +1171,9 @@
 <!-- ─── INTRO STATS ──────────────────────────────────────────────────── -->
 <div class="intro-strip">
   <div class="intro-stat">
-    <div class="number">12+</div>
+    <div class="number">17+</div>
     <div class="label">Years Experience</div>
-    <div class="desc">Delivering considered residential interiors across Sydney's most discerning suburbs.</div>
+    <div class="desc">Founded in 2009, delivering considered residential interiors across Sydney's most discerning suburbs.</div>
   </div>
   <div class="intro-stat">
     <div class="number">140</div>
@@ -1118,6 +1186,45 @@
     <div class="desc">Four pre-paid packages designed to meet you wherever you are in your design journey.</div>
   </div>
 </div>
+
+<!-- ─── SERVICES OVERVIEW ─────────────────────────────────────────────── -->
+<section class="services-overview" id="services">
+  <div class="section-tag">Our Services</div>
+  <h2 class="section-title">Two ways to transform<br>your home</h2>
+  <div style="margin-top:12px;">
+    <p class="section-body">Whether you're undertaking a full renovation or looking to bring greater cohesion and beauty to an existing space, The Style Workshop offers a complete and considered service — guiding you step by step, and making the process simple and enjoyable.</p>
+  </div>
+  <div class="services-overview-grid">
+
+    <div class="sov-card">
+      <div class="sov-num">01</div>
+      <div class="sov-title">Interior Design</div>
+      <p class="sov-desc">A comprehensive design service for renovations, new builds and significant whole-home projects. We work alongside your existing team or connect you with our trusted network of skilled trades and craftspeople to ensure every detail is delivered smoothly.</p>
+      <ul class="sov-list">
+        <li>Spatial planning and review of floor plans</li>
+        <li>Preparation of detailed joinery drawings and full documentation</li>
+        <li>Colour, finishes and material palette development</li>
+        <li>Coordination with trades, suppliers and consultants</li>
+        <li>Furniture, lighting and soft furnishing selection</li>
+        <li>End-to-end project management from concept to completion</li>
+      </ul>
+    </div>
+
+    <div class="sov-card alt">
+      <div class="sov-num">02</div>
+      <div class="sov-title">Interior Decoration &amp; Styling</div>
+      <p class="sov-desc">A refined decoration service for clients who want their space to feel more beautiful, cohesive and personally considered — without a full structural renovation. We love working with pieces you already own, blending them with vintage and one-of-a-kind finds.</p>
+      <ul class="sov-list">
+        <li>Furniture (new and vintage), lighting and soft furnishing selection and procurement</li>
+        <li>Custom upholstery and window treatment design</li>
+        <li>Colour consultation and material palette development</li>
+        <li>Art styling and decorative object curation</li>
+        <li>Coordination of delivery, installation and final styling of your home</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
 
 <!-- ─── PORTFOLIO ────────────────────────────────────────────────────── -->
 <section class="portfolio" id="portfolio">
@@ -1180,12 +1287,12 @@
   </div>
 </section>
 
-<!-- ─── SERVICES / PACKAGES ──────────────────────────────────────────── -->
-<section class="services" id="services">
-  <div class="section-tag">Pre-Paid Design Services &amp; Experiences</div>
-  <h2 class="section-title">Choose how you'd like<br>to work together</h2>
+<!-- ─── PACKAGES ──────────────────────────────────────────────────────── -->
+<section class="services" id="packages">
+  <div class="section-tag">Pre-Paid Design Packages</div>
+  <h2 class="section-title">A defined scope,<br>a clear investment</h2>
   <div style="margin-top:12px;">
-    <p class="section-body">Good design should feel effortless — and so should commissioning it. Each package offers a defined scope, a clear investment, and the same meticulous attention that defines every project we work on. All packages are valid for 12 months and can be gifted.</p>
+    <p class="section-body">For those who prefer a structured, pre-paid approach, our design packages offer a defined scope with the same meticulous attention that defines every project we work on. All packages are valid for 12 months from purchase and can be gifted.</p>
   </div>
   <div class="services-grid">
 
@@ -1303,7 +1410,7 @@
 
 <!-- ─── SERVICES NOTE ─────────────────────────────────────────────────── -->
 <div class="services-note">
-  <p><strong>Not sure which package is right for you?</strong> Book a complimentary 15-minute discovery call — no obligation. We'll clarify exactly what you need. Additional services beyond any package scope are available at <strong>$275/hr incl. GST</strong>. Priority scheduling confirmed within 5 business days of purchase.</p>
+  <p><strong>Not sure which package is right for you?</strong> Book a complimentary discovery call — no obligation, just an honest conversation about your project. Additional services beyond any package scope are available at <strong>$275/hr incl. GST</strong>. Priority scheduling confirmed within 5 business days of purchase.</p>
   <a href="mailto:emily@thestyleworkshop.com.au" class="services-note-gift">Gift a design experience →</a>
 </div>
 
@@ -1314,23 +1421,23 @@
   <div class="process-steps">
     <div class="process-step">
       <div class="step-num">01</div>
-      <div class="step-title">Discovery</div>
-      <p class="step-desc">We begin with a conversation about your space, lifestyle, and vision — so the design feels genuinely yours, not borrowed from a magazine.</p>
+      <div class="step-title">Discovery Call</div>
+      <p class="step-desc">Every project begins with a free discovery call to discuss your project, timelines and budget expectations — no obligation, just an honest conversation.</p>
     </div>
     <div class="process-step">
       <div class="step-num">02</div>
-      <div class="step-title">Concept Design</div>
-      <p class="step-desc">Emily develops a mood board, spatial layout, and material palette tailored to your home and brief. You see the full direction before anything is committed.</p>
+      <div class="step-title">On-Site Consultation</div>
+      <p class="step-desc">Emily visits your home (from our Mosman studio) to walk through the space together, understand your style, requirements and aspirations in person.</p>
     </div>
     <div class="process-step">
       <div class="step-num">03</div>
-      <div class="step-title">Refinement</div>
-      <p class="step-desc">We refine together — adjusting until the design feels exactly right. Nothing moves forward without your confidence in the direction.</p>
+      <div class="step-title">Design Proposal</div>
+      <p class="step-desc">Following the initial visit, we provide a detailed fee proposal based on the scope of your project — clear, transparent and tailored to what you actually need.</p>
     </div>
     <div class="process-step">
       <div class="step-num">04</div>
-      <div class="step-title">Delivery &amp; Support</div>
-      <p class="step-desc">You receive a complete, actionable package — shopping lists, supplier contacts, and room-by-room instructions. Ongoing support is available as needed.</p>
+      <div class="step-title">Design &amp; Delivery</div>
+      <p class="step-desc">From concept development through to final styling, we manage every detail — furniture, finishes, trades and suppliers — so you can simply enjoy the result.</p>
     </div>
   </div>
 </section>
@@ -1345,9 +1452,11 @@
     <div class="section-tag">About Emily</div>
     <h2 class="section-title">Design that begins<br>with listening</h2>
     <div class="thin-rule"></div>
-    <p class="section-body">Emily Webster founded The Style Workshop after a decade working across Sydney's leading residential studios. Her approach is collaborative and unhurried — she believes the best interiors are a direct reflection of the people who live in them.</p>
+    <p class="section-body">Founded in 2009 by Emily Webster, The Style Workshop is a boutique interior design studio based on Sydney's Lower North Shore. Our work is guided by enduring principles — quality, authenticity and comfort. We believe great design should not only look beautiful, but feel effortless to live in.</p>
     <br>
-    <p class="section-body">Based in Sydney and working across the Eastern Suburbs, North Shore, and Inner West, Emily specialises in residential interiors that balance considered aesthetics with the realities of everyday life.</p>
+    <p class="section-body">We love bringing homes to life through carefully considered furniture, textiles, finishes and thoughtfully layered lighting. We also enjoy working with pieces our clients already own, blending them with carefully sourced vintage and one-of-a-kind items to create spaces that feel personal, collected and unique.</p>
+    <br>
+    <p class="section-body">As a full-service studio, we manage every stage of the design journey — from the initial concept through to the final styling. Our process is collaborative, transparent and considered, allowing clients to enjoy watching their vision come together without unnecessary complexity.</p>
     <div class="about-sig">Emily Webster</div>
   </div>
 </div>
@@ -1370,10 +1479,10 @@
 <div id="contact">
   <div class="ig-header">
     <div class="ig-header-left">
-      <a href="#" class="ig-handle">@thestyleworkshop</a>
+      <a href="https://www.instagram.com/styleworkshop" target="_blank" rel="noopener" class="ig-handle">@styleworkshop</a>
       <div class="ig-caption">Follow along on Instagram</div>
     </div>
-    <a href="#" class="ig-follow">Follow</a>
+    <a href="https://www.instagram.com/styleworkshop" target="_blank" rel="noopener" class="ig-follow">Follow</a>
   </div>
   <div class="instagram">
     <div class="ig-tile ig-bg-1">
@@ -1392,14 +1501,15 @@
 <!-- ─── ENQUIRY FORM ───────────────────────────────────────────────────── -->
 <section class="enquiry" id="enquiry">
   <div class="enquiry-left">
-    <div class="section-tag">Get in Touch</div>
+    <div class="section-tag">How We Start</div>
     <h2 class="section-title">Let's talk about your space</h2>
-    <p class="section-body">Thank you for considering The Style Workshop. By completing the questionnaire below we can properly review the requirements of your project and ensure we recommend the right experience for you.</p>
+    <p class="section-body">We commence every project with a free discovery call to discuss your project, timelines and budget expectations. If your requirements align with our availability and services, we will arrange an initial consultation meeting on site with you.</p>
+    <p class="section-body" style="margin-top:16px;">Please complete the enquiry form or contact us directly — we look forward to working with you on your next project.</p>
     <p class="section-body" style="margin-top:16px;">We reply within two business days.</p>
     <div class="enquiry-contact-info">
       <div class="ci-label">Studio Contact</div>
       <a href="mailto:emily@thestyleworkshop.com.au">emily@thestyleworkshop.com.au</a>
-      <a href="tel:0407487498">0407 487 498</a>
+      <a href="tel:+61407487498">+61 407 487 498</a>
     </div>
   </div>
 
@@ -1481,7 +1591,7 @@
     <p style="margin-top:16px;font-family:'Jost',sans-serif;font-size:13px;font-weight:400;color:rgba(245,243,239,0.65);letter-spacing:0.05em;">emily@thestyleworkshop.com.au &nbsp;·&nbsp; 0407 487 498</p>
   </div>
   <div class="cta-right">
-    <a href="#services" class="btn-cta-white">View Packages</a>
+    <a href="#packages" class="btn-cta-white">View Packages</a>
     <a href="#enquiry" class="btn-cta-outline-white">Send an Enquiry</a>
   </div>
 </div>
@@ -1491,45 +1601,45 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <img src="tsw_logo.webp" alt="The Style Workshop" style="height:64px; width:auto; display:block; margin-bottom:8px; opacity:0.85; filter:brightness(0) invert(1) opacity(0.7);" />
-      <div class="footer-strapline">Design · Finishes · Interiors</div>
-      <p>A Sydney interior design studio specialising in considered residential interiors — from curated room refreshes to full residential projects.</p>
+      <div class="footer-strapline">Design · Decoration · Styling</div>
+      <p>A boutique interior design studio on Sydney's Lower North Shore, specialising in considered residential interiors — from curated room refreshes to full residential projects.</p>
       <p style="margin-top:16px;"><a href="mailto:emily@thestyleworkshop.com.au" style="color:rgba(245,243,239,0.55);text-decoration:none;">emily@thestyleworkshop.com.au</a></p>
       <p><a href="tel:0407487498" style="color:rgba(245,243,239,0.55);text-decoration:none;">0407 487 498</a></p>
     </div>
     <div class="footer-col">
       <h4>Studio</h4>
       <ul>
-        <li><a href="#">About Emily</a></li>
-        <li><a href="#">Our Process</a></li>
-        <li><a href="#">Press</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#about">About Emily</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="https://www.instagram.com/styleworkshop" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="#enquiry">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Work</h4>
       <ul>
-        <li><a href="#">All Projects</a></li>
-        <li><a href="#">Residential</a></li>
-        <li><a href="#">Before &amp; After</a></li>
-        <li><a href="#">Journal</a></li>
+        <li><a href="#portfolio">Selected Projects</a></li>
+        <li><a href="#services">Interior Design</a></li>
+        <li><a href="#services">Decoration &amp; Styling</a></li>
+        <li><a href="#packages">Design Packages</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
-        <li><a href="#">Room Refresh</a></li>
-        <li><a href="#">Room Design</a></li>
-        <li><a href="#">Home Consultation</a></li>
-        <li><a href="#">Full Service</a></li>
+        <li><a href="#services">Interior Design</a></li>
+        <li><a href="#services">Decoration &amp; Styling</a></li>
+        <li><a href="#packages">Design Packages</a></li>
+        <li><a href="#enquiry">Free Discovery Call</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 The Style Workshop · Emily Webster · Sydney, Australia · ABN XX XXX XXX XXX</p>
     <div class="footer-social">
-      <a href="#">Instagram</a>
-      <a href="#">Pinterest</a>
-      <a href="#">Houzz</a>
+      <a href="https://www.instagram.com/styleworkshop" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/styleworkshop70" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.pinterest.com.au/styleworkshop/" target="_blank" rel="noopener">Pinterest</a>
     </div>
   </div>
 </footer>
