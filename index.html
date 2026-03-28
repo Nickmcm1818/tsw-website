@@ -171,17 +171,28 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 28px 60px;
-      transition: background 0.4s, padding 0.4s;
+      padding: 18px 60px;
+      transition: background 0.4s, padding 0.4s, box-shadow 0.4s;
     }
     nav.scrolled {
       background: rgba(245, 243, 239, 0.97);
-      padding: 18px 60px;
+      padding: 12px 60px;
       border-bottom: 1px solid rgba(174, 176, 172, 0.3);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
     }
     .nav-logo {
       display: flex; flex-direction: column; align-items: center;
       text-decoration: none; gap: 2px;
+      flex-shrink: 0;
+    }
+    #tsw-logo-nav {
+      height: 96px; width: auto; display: block;
+      filter: drop-shadow(0 1px 4px rgba(0,0,0,0.18));
+      transition: filter 0.4s, height 0.4s;
+    }
+    nav.scrolled #tsw-logo-nav {
+      height: 78px;
+      filter: none;
     }
     .nav-logo .monogram {
       font-family: 'Cormorant Garamond', serif;
@@ -1245,8 +1256,10 @@
 
     /* ─── RESPONSIVE ───────────────────────────────────────────────── */
     @media (max-width: 900px) {
-      nav { padding: 20px 24px; }
-      nav.scrolled { padding: 14px 24px; }
+      nav { padding: 14px 24px; }
+      nav.scrolled { padding: 10px 24px; }
+      #tsw-logo-nav { height: 72px; }
+      nav.scrolled #tsw-logo-nav { height: 60px; }
       .nav-links { display: none; }
       section { padding: 70px 24px; }
       .hero-content { padding: 0 24px 60px; }
@@ -1276,7 +1289,7 @@
 <!-- ─── NAVIGATION ──────────────────────────────────────────────────── -->
 <nav id="mainNav">
   <a href="#" class="nav-logo">
-    <img src="tsw_logo.webp" alt="The Style Workshop" id="tsw-logo-nav" style="height:72px; width:auto; display:block;" />
+    <img src="tsw_logo_transparent.webp" alt="The Style Workshop" id="tsw-logo-nav" />
   </a>
   <ul class="nav-links">
     <li><a href="#portfolio">Projects</a></li>
@@ -1748,7 +1761,7 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <img src="tsw_logo.webp" alt="The Style Workshop" style="height:64px; width:auto; display:block; margin-bottom:8px; opacity:0.85; filter:brightness(0) invert(1) opacity(0.7);" />
+      <img src="tsw_logo_transparent.webp" alt="The Style Workshop" style="height:72px; width:auto; display:block; margin-bottom:8px; filter:brightness(0) invert(1) opacity(0.75);" />
       <div class="footer-strapline">Design · Decoration · Styling</div>
       <p>A boutique interior design studio on Sydney's Lower North Shore, specialising in considered residential interiors — from curated room refreshes to full residential projects.</p>
       <p style="margin-top:16px;"><a href="mailto:emily@thestyleworkshop.com.au" style="color:rgba(245,243,239,0.55);text-decoration:none;">emily@thestyleworkshop.com.au</a></p>
