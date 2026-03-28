@@ -430,7 +430,7 @@
       margin-top: 4px;
     }
 
-    /* ─── PORTFOLIO GRID ───────────────────────────────────────────── */
+    /* ─── PORTFOLIO / PROJECTS ─────────────────────────────────────── */
     .portfolio { background: var(--off-white); }
     .portfolio-header {
       display: flex; justify-content: space-between;
@@ -448,61 +448,223 @@
       transition: opacity 0.2s;
     }
     .view-all:hover { opacity: 0.6; }
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      grid-template-rows: auto auto;
-      gap: 16px;
-    }
-    .project-card {
+
+    /* Hero project card (full-width, tall) */
+    .projects-hero {
       position: relative; overflow: hidden;
-      cursor: pointer;
+      cursor: pointer; margin-bottom: 16px;
+      height: 580px;
     }
-    .project-card:first-child {
-      grid-row: 1 / 3;
-    }
-    .project-img {
-      width: 100%; height: 100%; min-height: 280px;
-      display: block; transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
-    }
-    .project-card:first-child .project-img { min-height: 580px; }
-    .project-card:hover .project-img { transform: scale(1.03); }
-    /* Placeholder images using CSS gradients evoking interior scenes */
-    .img-1 { background-image: url('tsw_hero.webp'); background-size: cover; background-position: center; }
-    .img-2 { background-image: url('tsw_img_1.webp'); background-size: cover; background-position: center; }
-    .img-3 { background-image: url('tsw_img_2.webp'); background-size: cover; background-position: center; }
-    .img-4 { background-image: url('tsw_img_3.webp'); background-size: cover; background-position: center; }
-    .img-5 { background-image: url('tsw_img_4.webp'); background-size: cover; background-position: center; }
-    .project-overlay {
+    .projects-hero .proj-cover {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(30,61,82,0.75) 0%, transparent 55%);
-      opacity: 0; transition: opacity 0.4s;
-      display: flex; align-items: flex-end;
-      padding: 32px;
+      background-image: url('proj_wb_cover.webp');
+      background-size: cover; background-position: center 35%;
+      transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
     }
-    .project-card:hover .project-overlay { opacity: 1; }
-    .project-info { color: var(--off-white); }
-    .project-info .pname {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px; font-weight: 400;
-      margin-bottom: 4px;
+    .projects-hero:hover .proj-cover { transform: scale(1.03); }
+    .projects-hero .proj-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(20,40,55,0.82) 0%, rgba(20,40,55,0.1) 50%, transparent 70%);
+      display: flex; flex-direction: column;
+      justify-content: flex-end; padding: 48px 56px;
+      transition: background 0.4s;
     }
-    .project-info .ploc {
-      font-family: 'Jost', sans-serif;
-      font-size: 10px; font-weight: 300;
-      letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--warm-tan);
+    .projects-hero:hover .proj-overlay {
+      background: linear-gradient(to top, rgba(20,40,55,0.9) 0%, rgba(20,40,55,0.2) 55%, transparent 75%);
     }
-    .project-label {
-      position: absolute; top: 20px; left: 20px;
+    .proj-hero-tag {
       font-family: 'Jost', sans-serif;
       font-size: 9px; font-weight: 400;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--warm-tan); margin-bottom: 10px;
+    }
+    .proj-hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4vw, 44px); font-weight: 400;
+      color: var(--off-white); margin-bottom: 6px; line-height: 1.15;
+    }
+    .proj-hero-loc {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 300;
+      letter-spacing: 0.18em; color: rgba(245,243,239,0.7);
+      margin-bottom: 24px;
+    }
+    .proj-hero-cta {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 400;
       letter-spacing: 0.28em; text-transform: uppercase;
       color: var(--off-white);
-      background: rgba(30,61,82,0.55);
-      padding: 6px 12px;
-      backdrop-filter: blur(4px);
+      display: inline-flex; align-items: center; gap: 10px;
+      opacity: 0; transform: translateY(6px);
+      transition: opacity 0.35s, transform 0.35s;
     }
+    .proj-hero-cta::after {
+      content: ''; display: block;
+      width: 36px; height: 1px; background: var(--off-white);
+      transition: width 0.3s;
+    }
+    .projects-hero:hover .proj-hero-cta { opacity: 1; transform: translateY(0); }
+    .projects-hero:hover .proj-hero-cta::after { width: 52px; }
+
+    /* Project grid (2-column) */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .proj-card {
+      position: relative; overflow: hidden;
+      cursor: pointer; aspect-ratio: 3/4;
+    }
+    .proj-card .proj-cover {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .proj-card:hover .proj-cover { transform: scale(1.04); }
+    .proj-card .proj-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(20,40,55,0.78) 0%, transparent 50%);
+      opacity: 0; transition: opacity 0.4s;
+      display: flex; flex-direction: column;
+      justify-content: flex-end; padding: 28px 32px;
+    }
+    .proj-card:hover .proj-overlay { opacity: 1; }
+    .proj-card-tag {
+      font-family: 'Jost', sans-serif;
+      font-size: 8px; font-weight: 400;
+      letter-spacing: 0.30em; text-transform: uppercase;
+      color: var(--warm-tan); margin-bottom: 7px;
+    }
+    .proj-card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(18px, 2.2vw, 24px); font-weight: 400;
+      color: var(--off-white); margin-bottom: 4px; line-height: 1.2;
+    }
+    .proj-card-loc {
+      font-family: 'Jost', sans-serif;
+      font-size: 9px; font-weight: 300;
+      letter-spacing: 0.20em; color: rgba(245,243,239,0.65);
+    }
+    /* Subtle top-left category pill always visible */
+    .proj-pill {
+      position: absolute; top: 18px; left: 18px;
+      font-family: 'Jost', sans-serif;
+      font-size: 8px; font-weight: 400;
+      letter-spacing: 0.26em; text-transform: uppercase;
+      color: var(--off-white);
+      background: rgba(30,61,82,0.52);
+      padding: 5px 11px; backdrop-filter: blur(4px);
+      pointer-events: none;
+    }
+
+    /* ─── PROJECT SLIDE-IN PANEL ────────────────────────────────────── */
+    .panel-backdrop {
+      position: fixed; inset: 0; z-index: 900;
+      background: rgba(15,28,38,0.55);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.4s;
+      backdrop-filter: blur(2px);
+    }
+    .panel-backdrop.open { opacity: 1; pointer-events: all; }
+
+    .proj-panel {
+      position: fixed; top: 0; right: 0; bottom: 0; z-index: 901;
+      width: min(560px, 100vw);
+      background: var(--off-white);
+      transform: translateX(100%);
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex; flex-direction: column;
+      overflow: hidden;
+    }
+    .proj-panel.open { transform: translateX(0); }
+
+    .panel-close {
+      position: absolute; top: 20px; right: 24px; z-index: 10;
+      background: none; border: none; cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px; letter-spacing: 0.2em;
+      color: var(--mid-grey); padding: 8px;
+      transition: opacity 0.2s;
+    }
+    .panel-close:hover { opacity: 0.5; }
+
+    .panel-gallery {
+      display: flex; overflow-x: auto; overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      gap: 8px; padding: 0;
+      flex-shrink: 0;
+      height: 340px;
+      scrollbar-width: none;
+    }
+    .panel-gallery::-webkit-scrollbar { display: none; }
+    .panel-gallery-img {
+      flex-shrink: 0; scroll-snap-align: start;
+      height: 100%; width: auto;
+      object-fit: cover;
+      display: block;
+    }
+    /* Fallback for bg-div style */
+    .panel-gallery-tile {
+      flex-shrink: 0; scroll-snap-align: start;
+      height: 100%; aspect-ratio: 2/3;
+      background-size: cover; background-position: center;
+    }
+    .panel-gallery-tile.landscape { aspect-ratio: 3/2; }
+
+    .panel-body {
+      flex: 1; overflow-y: auto; padding: 36px 40px 48px;
+      scrollbar-width: thin; scrollbar-color: var(--warm-grey) transparent;
+    }
+    .panel-tag {
+      font-family: 'Jost', sans-serif;
+      font-size: 9px; font-weight: 400;
+      letter-spacing: 0.30em; text-transform: uppercase;
+      color: var(--dusty-blue); margin-bottom: 10px;
+    }
+    .panel-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 4vw, 36px); font-weight: 400;
+      color: var(--dark-teal); line-height: 1.15;
+      margin-bottom: 6px;
+    }
+    .panel-loc {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 300;
+      letter-spacing: 0.20em; color: var(--dusty-blue);
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(174,176,172,0.4);
+    }
+    .panel-text {
+      font-family: 'Jost', sans-serif;
+      font-size: 14px; line-height: 1.85;
+      font-weight: 300; color: var(--mid-grey);
+    }
+    .panel-enquire {
+      display: inline-flex; align-items: center; gap: 12px;
+      margin-top: 32px;
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--dark-teal);
+      text-decoration: none;
+      border-bottom: 1px solid var(--dark-teal);
+      padding-bottom: 3px;
+      transition: opacity 0.2s;
+    }
+    .panel-enquire:hover { opacity: 0.6; }
+    /* Gallery navigation dots */
+    .panel-gallery-dots {
+      display: flex; justify-content: center; gap: 6px;
+      padding: 12px 0 0; flex-shrink: 0;
+    }
+    .gallery-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--warm-grey); cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .gallery-dot.active { background: var(--dark-teal); transform: scale(1.3); }
 
     /* ─── SERVICES / PACKAGES ──────────────────────────────────────── */
     .services { background: #EEE9E1; }
@@ -1278,8 +1440,11 @@
       .hero-content { padding: 0 24px 60px; }
       .hero-scroll { right: 24px; }
       .intro-strip { grid-template-columns: 1fr; padding: 60px 24px; gap: 36px; }
-      .portfolio-grid { grid-template-columns: 1fr 1fr; }
-      .portfolio-grid .project-card:first-child { grid-row: 1; }
+      .projects-hero { height: 420px; }
+      .projects-hero .proj-overlay { padding: 32px 28px; }
+      .projects-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .proj-panel { width: 100vw; }
+      .panel-gallery { height: 260px; }
       .services-grid { grid-template-columns: 1fr 1fr; }
       .addons-grid { grid-template-columns: 1fr 1fr 1fr; }
       .addons-header { flex-direction: column; align-items: flex-start; gap: 8px; }
@@ -1396,59 +1561,99 @@
       <div class="section-tag">Selected Work</div>
       <h2 class="section-title">Projects that speak<br>for themselves</h2>
     </div>
-    <a href="#" class="view-all">View All Projects</a>
   </div>
-  <div class="portfolio-grid">
-    <div class="project-card">
-      <div class="project-img img-1"></div>
-      <div class="project-label">Full Residence</div>
-      <div class="project-overlay">
-        <div class="project-info">
-          <div class="pname">Woollahra Residence</div>
-          <div class="ploc">Eastern Suburbs · Full Interior</div>
-        </div>
+
+  <!-- Hero project: Whale Beach House -->
+  <div class="projects-hero" onclick="openProject('wb')">
+    <div class="proj-cover"></div>
+    <div class="proj-overlay">
+      <div class="proj-hero-tag">Large Scale Renovation</div>
+      <div class="proj-hero-name">Whale Beach House</div>
+      <div class="proj-hero-loc">Whale Beach · Northern Beaches</div>
+      <div class="proj-hero-cta">View Project</div>
+    </div>
+  </div>
+
+  <!-- 2-column project grid -->
+  <div class="projects-grid">
+
+    <div class="proj-card" onclick="openProject('mos')">
+      <div class="proj-cover" style="background-image:url('proj_mos_cover.webp');background-position:center top;"></div>
+      <div class="proj-pill">Federation Renovation</div>
+      <div class="proj-overlay">
+        <div class="proj-card-tag">Federation Renovation</div>
+        <div class="proj-card-name">Mosman Federation Renovation</div>
+        <div class="proj-card-loc">Mosman · Lower North Shore</div>
       </div>
     </div>
-    <div class="project-card">
-      <div class="project-img img-2"></div>
-      <div class="project-label">Living & Dining</div>
-      <div class="project-overlay">
-        <div class="project-info">
-          <div class="pname">Mosman Terrace</div>
-          <div class="ploc">North Shore · Living Room</div>
-        </div>
+
+    <div class="proj-card" onclick="openProject('bug')">
+      <div class="proj-cover" style="background-image:url('proj_bug_cover.webp');"></div>
+      <div class="proj-pill">Family Home</div>
+      <div class="proj-overlay">
+        <div class="proj-card-tag">Family Home</div>
+        <div class="proj-card-name">Cremorne Bungalow</div>
+        <div class="proj-card-loc">Cremorne · Lower North Shore</div>
       </div>
     </div>
-    <div class="project-card">
-      <div class="project-img img-3"></div>
-      <div class="project-label">Master Suite</div>
-      <div class="project-overlay">
-        <div class="project-info">
-          <div class="pname">Paddington Cottage</div>
-          <div class="ploc">Inner East · Bedroom Suite</div>
-        </div>
+
+    <div class="proj-card" onclick="openProject('dw')">
+      <div class="proj-cover" style="background-image:url('proj_dw_cover.webp');"></div>
+      <div class="proj-pill">Beachside Apartment</div>
+      <div class="proj-overlay">
+        <div class="proj-card-tag">Beachside Apartment</div>
+        <div class="proj-card-name">Dee Why Apartment</div>
+        <div class="proj-card-loc">Dee Why · Northern Beaches</div>
       </div>
     </div>
-    <div class="project-card">
-      <div class="project-img img-4"></div>
-      <div class="project-overlay">
-        <div class="project-info">
-          <div class="pname">Balmain Kitchen</div>
-          <div class="ploc">Inner West · Kitchen &amp; Dining</div>
-        </div>
+
+    <div class="proj-card" onclick="openProject('cpr')">
+      <div class="proj-cover" style="background-image:url('proj_cpr_cover.webp');background-position:center top;"></div>
+      <div class="proj-pill">Parent's Retreat</div>
+      <div class="proj-overlay">
+        <div class="proj-card-tag">Parent's Retreat</div>
+        <div class="proj-card-name">Cremorne Point<br>Parents Retreat</div>
+        <div class="proj-card-loc">Cremorne Point · Lower North Shore</div>
       </div>
     </div>
-    <div class="project-card">
-      <div class="project-img img-5"></div>
-      <div class="project-overlay">
-        <div class="project-info">
-          <div class="pname">Double Bay Apartment</div>
-          <div class="ploc">Eastern Suburbs · Full Apartment</div>
-        </div>
+
+    <div class="proj-card" onclick="openProject('cpe')">
+      <div class="proj-cover" style="background-image:url('proj_cpe_cover.webp');background-position:center top;"></div>
+      <div class="proj-pill">Ensuite Bathroom</div>
+      <div class="proj-overlay">
+        <div class="proj-card-tag">Ensuite Bathroom</div>
+        <div class="proj-card-name">Cremorne Point Ensuite</div>
+        <div class="proj-card-loc">Cremorne Point · Lower North Shore</div>
       </div>
     </div>
+
+    <div class="proj-card" onclick="openProject('cpf')">
+      <div class="proj-cover" style="background-image:url('proj_cpf_cover.webp');"></div>
+      <div class="proj-pill">Custom Joinery</div>
+      <div class="proj-overlay">
+        <div class="proj-card-tag">Custom Joinery</div>
+        <div class="proj-card-name">Cremorne Point<br>Family Home</div>
+        <div class="proj-card-loc">Cremorne Point · Lower North Shore</div>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<!-- ─── PROJECT PANEL ──────────────────────────────────────────────── -->
+<div class="panel-backdrop" id="panelBackdrop" onclick="closeProject()"></div>
+<div class="proj-panel" id="projPanel">
+  <button class="panel-close" onclick="closeProject()">Close &times;</button>
+  <div class="panel-gallery" id="panelGallery"></div>
+  <div class="panel-gallery-dots" id="panelDots"></div>
+  <div class="panel-body">
+    <div class="panel-tag" id="panelTag"></div>
+    <div class="panel-name" id="panelName"></div>
+    <div class="panel-loc" id="panelLoc"></div>
+    <div class="panel-text" id="panelText"></div>
+    <a href="#contact" class="panel-enquire" onclick="closeProject()">Enquire About This Project</a>
+  </div>
+</div>
 
 <!-- ─── PACKAGES ──────────────────────────────────────────────────────── -->
 <section class="services" id="packages">
@@ -1870,6 +2075,131 @@
       error.style.display = 'block';
     }
   });
+</script>
+
+<script>
+/* ─── PROJECT PANEL ───────────────────────────────────────────────── */
+const tswProjects = {
+  wb: {
+    name: 'Whale Beach House',
+    tag: 'Large Scale Renovation',
+    loc: 'Whale Beach · Northern Beaches',
+    images: 13,
+    text: `Perched high above Whale Beach and tucked beside a bushland reserve, this clifftop home gave our long-term clients the perfect backdrop for a fresh transformation. Having already worked together on their city home, they invited us to help reimagine this space into a relaxed coastal escape where they and their teenage kids could unwind on weekends and holidays.\n\nFrom day one, we teamed up with the architect to shape a vision that celebrated the home's dramatic views. Every finish and material was chosen with coastal living in mind — light, open and breezy but with enough refinement to stand the test of time.\n\nThroughout the build, we worked closely with the construction team to make sure the details came together seamlessly. Natural stone added texture, while a palette of blues, custom oak joinery and v-groove panelling brings warmth and character, every element thoughtfully tied back to the home's spectacular setting.\n\nThe finished home feels effortless and connected to its surroundings — an elegant yet laid-back retreat made for gathering, relaxing, and soaking up that incredible Whale Beach outlook.`
+  },
+  mos: {
+    name: 'Mosman Federation Renovation',
+    tag: 'Federation Renovation',
+    loc: 'Mosman · Lower North Shore',
+    images: 10,
+    text: `We were engaged to oversee the complete renovation of this grand Federation home, cherished by the same family since 1930. Over the decades, a curved front façade and rear extension had diluted its architectural integrity, leaving the property ready for a sensitive yet future-focused restoration.\n\nWorking closely with a heritage draftsperson, we reimagined the floor plan for a modern family with teenagers needing space of their own and parents requiring dedicated work-from-home areas. The project began with stripping the house back to its original bones, carefully restoring heritage features while introducing a substantial contemporary rear addition, including a new second storey.\n\nThe interior scheme was designed to honour the home's character while creating a light, functional environment. Warm whites provide a timeless backdrop, offset by black detailing — most notably a bespoke arched steel door that marks the transition from old to new. Custom joinery with oak accents introduces warmth and texture, while refined fixtures and finishes ensure complete cohesion throughout.\n\nThe result is a home that seamlessly balances history with modern living, restored with integrity, expanded for today, and built to last for generations to come.`
+  },
+  bug: {
+    name: 'Cremorne Bungalow',
+    tag: 'Family Home',
+    loc: 'Cremorne · Lower North Shore',
+    images: 12,
+    text: `In decorating this family home, we drew inspiration from the owners' cherished collection of antiques and heirloom furniture, complemented by pieces gathered during their travels and an extensive array of vintage artworks and objects.\n\nOur approach centred on thoughtful layering, bringing together elements of varying eras, textures and styles to create an interior that feels both eclectic and cohesive. Each piece was carefully considered and positioned, allowing the home to tell a rich, personal story while maintaining a sense of balance and refinement.\n\nThe resulting spaces feel warm, inviting and deeply characterful — a home that is visually engaging yet effortless to live in, and one that truly reflects the family's history and lifestyle.`
+  },
+  dw: {
+    name: 'Dee Why Apartment',
+    tag: 'Beachside Apartment',
+    loc: 'Dee Why · Northern Beaches',
+    images: 9,
+    text: `The brief for this beachside apartment was to transform an architecturally modest open-plan space into a home with distinct zones for cooking, dining, and relaxing — all while layering texture and detail to bring warmth and character.\n\nThe process began with a refurbishment of the existing kitchen, where timber veneer joinery and open shelving were introduced to add depth and visual interest to an otherwise minimal white scheme. This set the foundation for a palette that balanced functionality with natural texture.\n\nIn the living and dining areas, furniture was designed with both proportion and flexibility in mind. Custom sofas and chairs were tailored to suit the compact footprint, while rattan dining chairs at either end of the table were selected to double as casual lounge seating when needed. Soft, tactile layers further enhanced the sense of comfort: linen cushions, a leather ottoman, and a textured wool rug softened the hard architectural lines. Tribal artworks and statement pendants completed the scheme, anchoring each zone while adding personality and atmosphere.`
+  },
+  cpr: {
+    name: "Cremorne Point Parents Retreat",
+    tag: "Parent's Retreat",
+    loc: 'Cremorne Point · Lower North Shore',
+    images: 4,
+    text: `We were invited by long-term clients to transform the master bedroom of their Sydney harbourside Federation home. The brief was to reimagine the space with a refined layout that would seamlessly accommodate a new ensuite while giving the room a complete refresh.\n\nInspired by the sweeping bushland and water views visible from every angle, we developed a scheme that brought the outside in. To create depth, texture, and a cocoon-like atmosphere, the room was fully wrapped in a grasscloth wallpaper. A custom-designed bedhead and base were crafted to the precise height that frames the views when reclining, complemented by a bespoke cabinet at the foot of the bed to discreetly house TV and AV equipment.\n\nThe room was completed with new bedside tables, tactile linens, custom cushions, and softly pleated lampshades, all carefully curated to sit harmoniously alongside the clients' treasured antique furniture. The result is a restful sanctuary that balances modern comforts with timeless character, perfectly attuned to its harbourside setting.`
+  },
+  cpe: {
+    name: 'Cremorne Point Ensuite',
+    tag: 'Ensuite Bathroom',
+    loc: 'Cremorne Point · Lower North Shore',
+    images: 6,
+    text: `This ensuite was thoughtfully created by reconfiguring part of a generously sized master bedroom. As the space is internal and without natural light, the design brief called for a scheme that would feel bright, airy, and seamlessly connected to the adjoining bedroom.\n\nTo achieve this, we introduced a soft grey large-format tile across the floor to provide a neutral base. A feature marble herringbone tile was selected for the walls and shower enclosure, adding both texture and a subtle sense of luxury. A streamlined wall-hung vanity enhances the illusion of space, while the restrained use of simple chrome tapware keeps the palette clean and timeless.\n\nLighting was layered carefully to balance function and atmosphere. Discreet low-voltage downlights illuminate the shower area, while wall-mounted fixtures bring warmth to the vanity zone. Concealed under-vanity lighting creates a soft night-glow, ensuring the ensuite feels equally practical and indulgent at any time of day.`
+  },
+  cpf: {
+    name: 'Cremorne Point Family Home',
+    tag: 'Custom Joinery',
+    loc: 'Cremorne Point · Lower North Shore',
+    images: 2,
+    text: `We were briefed to review what was a previously under-utilised dead space within a family living room. We designed and organised the construction and installation of custom joinery to incorporate a day bed with storage drawers beneath for everyday clutter.\n\nThe joinery was constructed in v-groove to tie in with the existing ceiling detail. Custom cushions were also made in an indoor-outdoor fabric to withstand fading. The result is a lovely, sunny space to recline and take in the water views.`
+  }
+};
+
+function openProject(id) {
+  const p = tswProjects[id];
+  if (!p) return;
+
+  // Build gallery
+  const gallery = document.getElementById('panelGallery');
+  const dots = document.getElementById('panelDots');
+  gallery.innerHTML = '';
+  dots.innerHTML = '';
+
+  for (let i = 1; i <= p.images; i++) {
+    const num = String(i).padStart(2, '0');
+    const tile = document.createElement('div');
+    tile.className = 'panel-gallery-tile';
+    tile.style.backgroundImage = `url('proj_${id}_${num}.webp')`;
+    // Landscape images get wider tiles
+    const isLandscape = ['wb'].includes(id) && i <= 6;
+    if (isLandscape) tile.classList.add('landscape');
+    gallery.appendChild(tile);
+
+    const dot = document.createElement('div');
+    dot.className = 'gallery-dot' + (i === 1 ? ' active' : '');
+    dot.addEventListener('click', () => {
+      const tiles = gallery.querySelectorAll('.panel-gallery-tile');
+      if (tiles[i-1]) {
+        gallery.scrollTo({ left: tiles[i-1].offsetLeft, behavior: 'smooth' });
+      }
+    });
+    dots.appendChild(dot);
+  }
+
+  // Update dot on scroll
+  gallery.addEventListener('scroll', () => {
+    const tiles = gallery.querySelectorAll('.panel-gallery-tile');
+    const scrollLeft = gallery.scrollLeft;
+    let closest = 0;
+    let minDist = Infinity;
+    tiles.forEach((t, idx) => {
+      const dist = Math.abs(t.offsetLeft - scrollLeft);
+      if (dist < minDist) { minDist = dist; closest = idx; }
+    });
+    dots.querySelectorAll('.gallery-dot').forEach((d, idx) => {
+      d.classList.toggle('active', idx === closest);
+    });
+  }, { passive: true });
+
+  // Fill text
+  document.getElementById('panelTag').textContent = p.tag;
+  document.getElementById('panelName').textContent = p.name;
+  document.getElementById('panelLoc').textContent = p.loc;
+  const textEl = document.getElementById('panelText');
+  textEl.innerHTML = p.text.split('\n\n').map(para => `<p style="margin-bottom:1.4em">${para}</p>`).join('');
+
+  // Open
+  document.getElementById('panelBackdrop').classList.add('open');
+  document.getElementById('projPanel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProject() {
+  document.getElementById('panelBackdrop').classList.remove('open');
+  document.getElementById('projPanel').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeProject();
+});
 </script>
 </body>
 </html>
