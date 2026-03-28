@@ -1513,27 +1513,32 @@
     </div>
   </div>
 
-  <form class="enquiry-form" onsubmit="return false;">
+  <form class="enquiry-form" id="enquiry-form">
+    <!-- Formsubmit.co config -->
+    <input type="hidden" name="_subject" value="New Project Enquiry — The Style Workshop">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+
     <div class="form-row">
       <div class="form-field">
         <label for="eq-name">Your Name</label>
-        <input type="text" id="eq-name" placeholder="Full name" />
+        <input type="text" id="eq-name" name="Name" placeholder="Full name" required />
       </div>
       <div class="form-field">
         <label for="eq-phone">Contact Number</label>
-        <input type="tel" id="eq-phone" placeholder="Phone number" />
+        <input type="tel" id="eq-phone" name="Phone" placeholder="Phone number" />
       </div>
     </div>
     <div class="form-row">
       <div class="form-field full">
         <label for="eq-email">Email Address</label>
-        <input type="email" id="eq-email" placeholder="email@address.com" />
+        <input type="email" id="eq-email" name="Email" placeholder="email@address.com" required />
       </div>
     </div>
     <div class="form-row">
       <div class="form-field full">
         <label for="eq-suburb">Project Location</label>
-        <input type="text" id="eq-suburb" placeholder="Suburb, Sydney" />
+        <input type="text" id="eq-suburb" name="Project Location" placeholder="Suburb, Sydney" />
       </div>
     </div>
 
@@ -1542,44 +1547,51 @@
     <div class="form-radio-group full">
       <label>Which package are you interested in?</label>
       <div class="radio-options" id="rg-package">
-        <label class="radio-pill"><input type="radio" name="package" value="consultation" /><span>The Initial Consultation</span></label>
-        <label class="radio-pill"><input type="radio" name="package" value="room-edit" /><span>The Room Edit</span></label>
-        <label class="radio-pill"><input type="radio" name="package" value="design-edit" /><span>The Design Edit</span></label>
-        <label class="radio-pill"><input type="radio" name="package" value="signature" /><span>The Signature Experience</span></label>
-        <label class="radio-pill"><input type="radio" name="package" value="unsure" /><span>Not sure yet</span></label>
+        <label class="radio-pill"><input type="radio" name="Package Interest" value="The Initial Consultation" /><span>The Initial Consultation</span></label>
+        <label class="radio-pill"><input type="radio" name="Package Interest" value="The Room Edit" /><span>The Room Edit</span></label>
+        <label class="radio-pill"><input type="radio" name="Package Interest" value="The Design Edit" /><span>The Design Edit</span></label>
+        <label class="radio-pill"><input type="radio" name="Package Interest" value="The Signature Experience" /><span>The Signature Experience</span></label>
+        <label class="radio-pill"><input type="radio" name="Package Interest" value="Not sure yet" /><span>Not sure yet</span></label>
       </div>
     </div>
 
     <div class="form-radio-group full">
       <label>Which best describes your project?</label>
       <div class="radio-options" id="rg-type">
-        <label class="radio-pill"><input type="radio" name="projtype" value="new-build" /><span>New Build</span></label>
-        <label class="radio-pill"><input type="radio" name="projtype" value="renovation" /><span>Renovation</span></label>
-        <label class="radio-pill"><input type="radio" name="projtype" value="styling" /><span>Styling Only</span></label>
-        <label class="radio-pill"><input type="radio" name="projtype" value="unsure" /><span>Not sure yet</span></label>
+        <label class="radio-pill"><input type="radio" name="Project Type" value="New Build" /><span>New Build</span></label>
+        <label class="radio-pill"><input type="radio" name="Project Type" value="Renovation" /><span>Renovation</span></label>
+        <label class="radio-pill"><input type="radio" name="Project Type" value="Styling Only" /><span>Styling Only</span></label>
+        <label class="radio-pill"><input type="radio" name="Project Type" value="Not sure yet" /><span>Not sure yet</span></label>
       </div>
     </div>
 
     <div class="form-radio-group full">
       <label>How did you hear about us?</label>
       <div class="radio-options" id="rg-source">
-        <label class="radio-pill"><input type="radio" name="source" value="referral" /><span>Referral</span></label>
-        <label class="radio-pill"><input type="radio" name="source" value="instagram" /><span>Instagram</span></label>
-        <label class="radio-pill"><input type="radio" name="source" value="google" /><span>Google</span></label>
-        <label class="radio-pill"><input type="radio" name="source" value="houzz" /><span>Houzz</span></label>
-        <label class="radio-pill"><input type="radio" name="source" value="press" /><span>Press / Media</span></label>
+        <label class="radio-pill"><input type="radio" name="How They Heard" value="Referral" /><span>Referral</span></label>
+        <label class="radio-pill"><input type="radio" name="How They Heard" value="Instagram" /><span>Instagram</span></label>
+        <label class="radio-pill"><input type="radio" name="How They Heard" value="Google" /><span>Google</span></label>
+        <label class="radio-pill"><input type="radio" name="How They Heard" value="Houzz" /><span>Houzz</span></label>
+        <label class="radio-pill"><input type="radio" name="How They Heard" value="Press / Media" /><span>Press / Media</span></label>
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-field full">
         <label for="eq-message">Tell us about your project</label>
-        <textarea id="eq-message" rows="4" placeholder="Share any details about your space, what you're hoping to achieve, and any questions you have for Emily."></textarea>
+        <textarea id="eq-message" name="Project Details" rows="4" placeholder="Share any details about your space, what you're hoping to achieve, and any questions you have for Emily."></textarea>
       </div>
     </div>
 
-    <button type="submit" class="btn-submit">Send Enquiry</button>
-    <p class="form-note">We reply within two business days. All enquiries are confidential.</p>
+    <!-- Success message (hidden until submission) -->
+    <div id="form-success" style="display:none; padding: 32px 0;">
+      <p style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:400; color:var(--dark-teal); margin-bottom:12px;">Thank you for getting in touch.</p>
+      <p style="font-family:'Jost',sans-serif; font-size:14px; font-weight:400; line-height:1.8; color:var(--mid-grey);">We've received your enquiry and will be in touch within two business days. We look forward to learning more about your project.</p>
+    </div>
+
+    <button type="submit" class="btn-submit" id="form-submit-btn">Send Enquiry</button>
+    <p class="form-note" id="form-note">We reply within two business days. All enquiries are confidential.</p>
+    <p class="form-note" id="form-error" style="display:none; color:#c0392b;">Something went wrong — please try again or email <a href="mailto:emily@thestyleworkshop.com.au" style="color:#c0392b;">emily@thestyleworkshop.com.au</a> directly.</p>
   </form>
 </section>
 
@@ -1662,6 +1674,39 @@
       radio.checked = true;
       pill.classList.add('selected');
     });
+  });
+
+  // Enquiry form — AJAX submission via Formsubmit.co
+  document.getElementById('enquiry-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('form-submit-btn');
+    const note = document.getElementById('form-note');
+    const error = document.getElementById('form-error');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    error.style.display = 'none';
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/emily@thestyleworkshop.com.au', {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        // Hide form fields and show success message
+        this.querySelectorAll('.form-row, .form-radio-group, .form-divider').forEach(el => el.style.display = 'none');
+        btn.style.display = 'none';
+        note.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        throw new Error('Server error');
+      }
+    } catch (err) {
+      btn.textContent = 'Send Enquiry';
+      btn.disabled = false;
+      error.style.display = 'block';
+    }
   });
 </script>
 </body>
