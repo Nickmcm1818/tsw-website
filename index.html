@@ -654,6 +654,26 @@
       transition: opacity 0.2s;
     }
     .panel-enquire:hover { opacity: 0.6; }
+    /* Gallery wrapper + arrows */
+    .panel-gallery-wrap {
+      position: relative; flex-shrink: 0;
+    }
+    .gallery-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      z-index: 10; background: rgba(255,255,255,0.88);
+      border: none; cursor: pointer;
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+      transition: opacity 0.2s, background 0.2s;
+      opacity: 0.9;
+    }
+    .gallery-arrow:hover { opacity: 1; background: #fff; }
+    .gallery-arrow.disabled { opacity: 0.25; pointer-events: none; }
+    .gallery-arrow-left { left: 12px; }
+    .gallery-arrow-right { right: 12px; }
+    .gallery-arrow svg { width: 16px; height: 16px; stroke: var(--dark-teal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
     /* Gallery navigation dots */
     .panel-gallery-dots {
       display: flex; justify-content: center; gap: 6px;
@@ -1644,7 +1664,15 @@
 <div class="panel-backdrop" id="panelBackdrop" onclick="closeProject()"></div>
 <div class="proj-panel" id="projPanel">
   <button class="panel-close" onclick="closeProject()">Close &times;</button>
-  <div class="panel-gallery" id="panelGallery"></div>
+  <div class="panel-gallery-wrap">
+    <button class="gallery-arrow gallery-arrow-left" id="galleryPrev" onclick="galleryNav(-1)" aria-label="Previous image">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="panel-gallery" id="panelGallery"></div>
+    <button class="gallery-arrow gallery-arrow-right" id="galleryNext" onclick="galleryNav(1)" aria-label="Next image">
+      <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+    </button>
+  </div>
   <div class="panel-gallery-dots" id="panelDots"></div>
   <div class="panel-body">
     <div class="panel-tag" id="panelTag"></div>
@@ -2162,7 +2190,7 @@ function openProject(id) {
     dots.appendChild(dot);
   }
 
-  // Update dot on scroll
+  // Update dots + arrow states on scroll
   gallery.addEventListener('scroll', () => {
     const tiles = gallery.querySelectorAll('.panel-gallery-tile');
     const scrollLeft = gallery.scrollLeft;
@@ -2175,7 +2203,10 @@ function openProject(id) {
     dots.querySelectorAll('.gallery-dot').forEach((d, idx) => {
       d.classList.toggle('active', idx === closest);
     });
+    updateArrows(closest, tiles.length);
   }, { passive: true });
+
+  updateArrows(0, p.images);
 
   // Fill text
   document.getElementById('panelTag').textContent = p.tag;
@@ -2188,6 +2219,30 @@ function openProject(id) {
   document.getElementById('panelBackdrop').classList.add('open');
   document.getElementById('projPanel').classList.add('open');
   document.body.style.overflow = 'hidden';
+}
+
+function updateArrows(current, total) {
+  const prev = document.getElementById('galleryPrev');
+  const next = document.getElementById('galleryNext');
+  if (!prev || !next) return;
+  prev.classList.toggle('disabled', current === 0);
+  next.classList.toggle('disabled', current === total - 1);
+}
+
+function galleryNav(dir) {
+  const gallery = document.getElementById('panelGallery');
+  const tiles = gallery.querySelectorAll('.panel-gallery-tile');
+  const scrollLeft = gallery.scrollLeft;
+  let closest = 0;
+  let minDist = Infinity;
+  tiles.forEach((t, idx) => {
+    const dist = Math.abs(t.offsetLeft - scrollLeft);
+    if (dist < minDist) { minDist = dist; closest = idx; }
+  });
+  const target = Math.max(0, Math.min(tiles.length - 1, closest + dir));
+  if (tiles[target]) {
+    gallery.scrollTo({ left: tiles[target].offsetLeft, behavior: 'smooth' });
+  }
 }
 
 function closeProject() {
