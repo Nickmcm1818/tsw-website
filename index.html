@@ -872,6 +872,8 @@
       padding: 40px 32px;
       position: relative;
       transition: background 0.3s;
+      display: flex;
+      flex-direction: column;
     }
     /* ─── ADD-ONS ───────────────────────────────────────────────────── */
     .addons-section {
@@ -1106,7 +1108,8 @@
     .service-includes {
       list-style: none;
       display: flex; flex-direction: column; gap: 10px;
-      margin-bottom: 40px;
+      margin-bottom: 32px;
+      flex: 1;
     }
     .service-includes li {
       font-family: 'Jost', sans-serif;
@@ -1136,26 +1139,31 @@
       border-bottom-color: rgba(245,243,239,0.2);
     }
     .btn-service {
-      display: inline-block;
+      display: block;
+      width: 100%;
+      text-align: center;
       font-family: 'Jost', sans-serif;
-      font-size: 10px; font-weight: 400;
+      font-size: 10px; font-weight: 500;
       letter-spacing: 0.25em; text-transform: uppercase;
       text-decoration: none;
-      padding: 13px 28px;
+      padding: 15px 28px;
       transition: all 0.25s;
+      margin-top: auto;
     }
     .btn-service-outline {
-      color: var(--dark-teal);
+      color: var(--off-white);
+      background: var(--dark-teal);
       border: 1px solid var(--dark-teal);
     }
     .btn-service-outline:hover {
-      background: var(--dark-teal); color: var(--off-white);
+      background: var(--dusty-blue); border-color: var(--dusty-blue); color: var(--off-white);
     }
     .btn-service-solid {
-      background: var(--dusty-blue); color: var(--off-white);
-      border: 1px solid var(--dusty-blue);
+      background: var(--warm-tan); color: var(--dark-teal);
+      border: 1px solid var(--warm-tan);
+      font-weight: 600;
     }
-    .btn-service-solid:hover { background: var(--off-white); color: var(--dark-teal); }
+    .btn-service-solid:hover { background: var(--dark-teal); color: var(--off-white); border-color: var(--dark-teal); }
     .service-badge {
       position: absolute; top: 24px; right: 24px;
       background: var(--dusty-blue);
