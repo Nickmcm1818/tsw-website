@@ -656,6 +656,41 @@
       transition: opacity 0.2s;
     }
     .panel-enquire:hover { opacity: 0.6; }
+    /* ─── PROJECT TABS ──────────────────────────────────────────────── */
+    .proj-tabs {
+      display: flex; gap: 0; margin-bottom: 48px;
+      border-bottom: 1px solid rgba(174,176,172,0.4);
+    }
+    .proj-tab {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--dusty-blue);
+      background: none; border: none; cursor: pointer;
+      padding: 0 0 14px; margin-right: 36px;
+      position: relative;
+      transition: color 0.25s;
+    }
+    .proj-tab::after {
+      content: ''; position: absolute; bottom: -1px; left: 0;
+      width: 0; height: 2px;
+      background: var(--dark-teal);
+      transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    .proj-tab.active { color: var(--dark-teal); }
+    .proj-tab.active::after { width: 100%; }
+    .proj-tab:hover { color: var(--dark-teal); }
+
+    .proj-tab-content { display: none; }
+    .proj-tab-content.active { display: block; }
+
+    /* Simpler grid for styling/past (no dedicated hero) */
+    .projects-grid-full {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
     /* Gallery wrapper + arrows */
     .panel-gallery-wrap {
       position: relative; flex-shrink: 0;
@@ -1465,6 +1500,8 @@
       .projects-hero { height: 420px; }
       .projects-hero .proj-overlay { padding: 32px 28px; }
       .projects-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .projects-grid-full { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .proj-tab { font-size: 9px; letter-spacing: 0.18em; margin-right: 20px; }
       .proj-panel { width: 100vw; }
       .panel-gallery { height: 260px; }
       .services-grid { grid-template-columns: 1fr 1fr; }
@@ -1585,6 +1622,16 @@
     </div>
   </div>
 
+  <!-- Tab bar -->
+  <div class="proj-tabs">
+    <button class="proj-tab active" onclick="switchTab('design', this)">Interior Design</button>
+    <button class="proj-tab" onclick="switchTab('styling', this)">Styling</button>
+    <button class="proj-tab" onclick="switchTab('past', this)">Past Projects</button>
+  </div>
+
+  <!-- ── TAB: Interior Design ── -->
+  <div class="proj-tab-content active" id="tab-design">
+
   <!-- Hero project: Whale Beach House -->
   <div class="projects-hero" onclick="openProject('wb')">
     <div class="proj-cover"></div>
@@ -1660,6 +1707,92 @@
     </div>
 
   </div>
+  </div><!-- /tab-design -->
+
+  <!-- ── TAB: Styling ── -->
+  <div class="proj-tab-content" id="tab-styling">
+    <div class="projects-grid-full">
+
+      <div class="proj-card" onclick="openProject('cas')">
+        <div class="proj-cover" style="background-image:url('proj_cas_cover.webp');"></div>
+        <div class="proj-pill">Styling</div>
+        <div class="proj-overlay">
+          <div class="proj-card-tag">Styling</div>
+          <div class="proj-card-name">Country Airbnb</div>
+          <div class="proj-card-loc">Rural NSW</div>
+        </div>
+      </div>
+
+      <div class="proj-card" onclick="openProject('cls')">
+        <div class="proj-cover" style="background-image:url('proj_cls_cover.webp');"></div>
+        <div class="proj-pill">Property Styling</div>
+        <div class="proj-overlay">
+          <div class="proj-card-tag">Property Styling</div>
+          <div class="proj-card-name">Clareville Waterside</div>
+          <div class="proj-card-loc">Clareville · Northern Beaches</div>
+        </div>
+      </div>
+
+      <div class="proj-card" onclick="openProject('cbh')">
+        <div class="proj-cover" style="background-image:url('proj_cbh_cover.webp');"></div>
+        <div class="proj-pill">Property Styling</div>
+        <div class="proj-overlay">
+          <div class="proj-card-tag">Property Styling</div>
+          <div class="proj-card-name">Clareville Beach House</div>
+          <div class="proj-card-loc">Clareville · Northern Beaches</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /tab-styling -->
+
+  <!-- ── TAB: Past Projects ── -->
+  <div class="proj-tab-content" id="tab-past">
+    <div class="projects-grid-full">
+
+      <div class="proj-card" onclick="openProject('nbr')">
+        <div class="proj-cover" style="background-image:url('proj_nbr_cover.webp');"></div>
+        <div class="proj-pill">Interior Design</div>
+        <div class="proj-overlay">
+          <div class="proj-card-tag">Interior Design</div>
+          <div class="proj-card-name">Northbridge</div>
+          <div class="proj-card-loc">Northbridge · Lower North Shore</div>
+        </div>
+      </div>
+
+      <div class="proj-card" onclick="openProject('msp')">
+        <div class="proj-cover" style="background-image:url('proj_msp_cover.webp');"></div>
+        <div class="proj-pill">Interior Design</div>
+        <div class="proj-overlay">
+          <div class="proj-card-tag">Interior Design</div>
+          <div class="proj-card-name">Mosman</div>
+          <div class="proj-card-loc">Mosman · Lower North Shore</div>
+        </div>
+      </div>
+
+      <div class="proj-card" onclick="openProject('ldn1')">
+        <div class="proj-cover" style="background-image:url('proj_ldn1_cover.webp');"></div>
+        <div class="proj-pill">Full Refurbishment</div>
+        <div class="proj-overlay">
+          <div class="proj-card-tag">Full Refurbishment</div>
+          <div class="proj-card-name">London Townhouse</div>
+          <div class="proj-card-loc">London · United Kingdom</div>
+        </div>
+      </div>
+
+      <div class="proj-card" onclick="openProject('ldn2')">
+        <div class="proj-cover" style="background-image:url('proj_ldn2_cover.webp');"></div>
+        <div class="proj-pill">Full Refurbishment</div>
+        <div class="proj-overlay">
+          <div class="proj-card-tag">Full Refurbishment</div>
+          <div class="proj-card-name">London Garden Apartment</div>
+          <div class="proj-card-loc">London · United Kingdom</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /tab-past -->
+
 </section>
 
 <!-- ─── PROJECT PANEL ──────────────────────────────────────────────── -->
@@ -2160,6 +2293,57 @@ const tswProjects = {
     loc: 'Cremorne Point · Lower North Shore',
     images: 2,
     text: `We were briefed to review what was a previously under-utilised dead space within a family living room. We designed and organised the construction and installation of custom joinery to incorporate a day bed with storage drawers beneath for everyday clutter.\n\nThe joinery was constructed in v-groove to tie in with the existing ceiling detail. Custom cushions were also made in an indoor-outdoor fabric to withstand fading. The result is a lovely, sunny space to recline and take in the water views.`
+  },
+  // ── Styling ──
+  cas: {
+    name: 'Country Airbnb',
+    tag: 'Styling',
+    loc: 'Rural NSW',
+    images: 16,
+    text: `We were engaged to reimagine a dated rural cottage, transforming it into a distinctive luxury Airbnb retreat designed to capture attention and elevate its market appeal.\n\nThe transformation began with the exterior, where the cottage was painted in a striking black — a bold, contemporary gesture that creates a dramatic contrast against the surrounding green landscape and immediately sets the tone for the experience within.\n\nInside, we drew inspiration from the natural environment, layering an earthy, tonal palette that reflects the colours of the countryside framed by the home's large picture windows. The interiors were designed to feel grounded, warm and inviting, with a strong connection to place.\n\nWorking within a modest budget, we took a considered and resourceful approach, repurposing existing furniture found on site, alongside carefully sourced vintage and antique pieces from local dealers. These were thoughtfully reworked and layered to create a space that feels curated rather than constructed.\n\nA collection of vintage artworks were grouped to create moments of visual interest and personality, complemented by an eclectic mix of accessories. Soft furnishings including beautiful linen bedlinen, cushions and throws were introduced to add texture, comfort and a sense of understated luxury.\n\nBeyond the physical transformation, we collaborated with the owners to refine the property's branding, website and social media presence, ensuring the home was presented cohesively and compellingly to its target audience.\n\nThe result is a characterful and highly considered retreat — one that feels authentic, atmospheric and uniquely positioned within the market.`
+  },
+  cls: {
+    name: 'Clareville Waterside',
+    tag: 'Property Styling',
+    loc: 'Clareville · Northern Beaches',
+    images: 9,
+    text: `We were engaged by the selling agent to prepare this beautifully positioned waterside home for market.\n\nWith the property already furnished and benefitting from an exceptional location, our role focused on refinement rather than reinvention. We carefully edited and decluttered the existing interiors, enhancing the sense of space, light and flow throughout.\n\nKey areas were then thoughtfully styled to create compelling focal points for photography, ensuring each room not only felt cohesive and inviting in person, but also translated beautifully on camera. Particular attention was given to framing views and highlighting the home's connection to its surroundings.\n\nThe result is a polished and considered presentation that elevates the property's natural strengths and maximises its appeal to prospective buyers.`
+  },
+  cbh: {
+    name: 'Clareville Beach House',
+    tag: 'Property Styling',
+    loc: 'Clareville · Northern Beaches',
+    images: 9,
+    text: `We were engaged by the owners of this much-loved family beach house to furnish and style the property in preparation for its sale.\n\nPresented vacant and somewhat unloved, the home required a thoughtful transformation to reintroduce warmth, character and a sense of lifestyle. We curated a scheme of furniture and accessories centred around natural materials — layering tones of timber and rattan to evoke a relaxed, coastal aesthetic.\n\nLarge-scale foliage was introduced throughout to soften the interiors and create a sense of vitality, helping the spaces feel welcoming and lived-in. Each room was carefully composed to balance comfort with visual appeal, ensuring the property resonated both in person and through marketing imagery.\n\nThe result is a refreshed and inviting home that captures the essence of coastal living, designed to connect emotionally with prospective buyers.`
+  },
+  // ── Past Projects ──
+  nbr: {
+    name: 'Northbridge',
+    tag: 'Interior Design',
+    loc: 'Northbridge · Lower North Shore',
+    images: 9,
+    text: `We were engaged to reimagine key areas of this much-loved family home, including the entry foyer, formal living and dining rooms, and the master bedroom. With their children having grown and begun to move out, the clients felt ready to transition their home into a more elevated and considered next chapter — one that reflected their lifestyle today, with a more refined, "grown-up" sensibility.\n\nA central part of the brief was to honour the many pieces of furniture the clients had inherited or collected during their time living overseas. These items held both sentimental and aesthetic value, so our process began with carefully editing the collection — identifying what to retain, what to repurpose, and what could be released.\n\nFrom there, we reimagined selected pieces through reupholstery in rich, contemporary fabrics, breathing new life into them while maintaining their character. These were layered with bespoke furniture, considered lighting and carefully selected rugs to create a cohesive and elevated scheme throughout.\n\nTo complete the spaces, we curated and rehung the clients' art collection, grouping pieces thoughtfully to give them greater presence and narrative within the home.\n\nThe result is a home that feels both deeply personal and beautifully resolved — a seamless blend of past and present, tailored for the clients' next stage of living.`
+  },
+  msp: {
+    name: 'Mosman',
+    tag: 'Interior Design',
+    loc: 'Mosman · Lower North Shore',
+    images: 6,
+    text: `We were engaged to transform this bedroom within a beachside home into a calm, cocooning sanctuary — a space the client could retreat to and unwind.\n\nWith a strong westerly aspect, the room was often bathed in warm afternoon light, so careful consideration was given to the colour palette. A deep charcoal-brown was selected to create a cooling effect while still delivering the enveloping, restful atmosphere the client desired. This rich backdrop also served to beautifully highlight the client's existing heirloom timber furniture, allowing each piece to feel intentional.\n\nLayering texture was key to softening the space. A custom silk bedhead was designed to introduce a sense of quiet luxury and contrast against the depth of the wall colour, while a bespoke ottoman at the foot of the bed added both function and refinement. Existing chairs were reupholstered to sit harmoniously within the scheme, tying back to the embroidered silk cushions and enhancing the overall cohesion of the room.\n\nIn response to the client's request for a dedicated space to sit and get ready, we sourced an antique fruitwood desk to serve as a dressing table. Its fold-away functionality offered both practicality and elegance, seamlessly integrating into the room without overwhelming it.\n\nThe result is a layered and intimate space — grounded, textural and serene — that feels both deeply personal and effortlessly resolved.`
+  },
+  ldn1: {
+    name: 'London Townhouse',
+    tag: 'Full Refurbishment',
+    loc: 'London · United Kingdom',
+    images: 9,
+    text: `A complete restoration and full-scale refurbishment of an original four-storey Victorian townhouse in London, reimagined to balance period character with refined contemporary living.\n\nWorking closely with the developer client, the brief was to elevate the property to a premium standard while introducing a distinctive design language that would set it apart in a challenging and slow-moving market. Every element of the home was carefully considered, from the architectural detailing through to the final decorative layers.\n\nThe project encompassed the full specification of fixtures, fittings and finishes throughout, alongside the bespoke design of the kitchen and all bathrooms. A cohesive palette of materials, textures and tones was curated to enhance the home's original features while introducing a sense of modern sophistication and warmth.\n\nThe result is a thoughtfully restored home that feels both timeless and current — designed not only to stand out to prospective buyers, but to offer a compelling vision of elevated everyday living.`
+  },
+  ldn2: {
+    name: 'London Garden Apartment',
+    tag: 'Full Refurbishment',
+    loc: 'London · United Kingdom',
+    images: 12,
+    text: `A full refurbishment of a duplex garden apartment set within a Victorian townhouse, reimagined to enhance both functionality and market appeal.\n\nThe scope encompassed the complete specification of finishes throughout, alongside the bespoke design of the kitchen and bathrooms. We also oversaw the project management of the build, ensuring a seamless translation from concept through to completion.\n\nIn the final stages, we curated a considered scheme of furniture and lighting, layering the interiors with pops of colour to inject warmth and character. The property was then styled to highlight its architectural features and maximise its appeal to prospective buyers.\n\nThe result is a cohesive and elevated home, thoughtfully designed to stand out in the market while offering a strong sense of lifestyle and liveability.`
   }
 };
 
@@ -2223,6 +2407,13 @@ function openProject(id) {
   document.getElementById('panelBackdrop').classList.add('open');
   document.getElementById('projPanel').classList.add('open');
   document.body.style.overflow = 'hidden';
+}
+
+function switchTab(tabId, btn) {
+  document.querySelectorAll('.proj-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.proj-tab-content').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + tabId).classList.add('active');
 }
 
 function updateArrows(current, total) {
