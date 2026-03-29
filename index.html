@@ -23,7 +23,7 @@
   <meta property="og:url" content="https://www.thestyleworkshop.com.au/" />
   <meta property="og:title" content="The Style Workshop | Interior Designer Sydney" />
   <meta property="og:description" content="A boutique interior design studio on Sydney's Lower North Shore. Considered residential interiors, from curated room refreshes to full home transformations. Founded by Emily Webster in 2009." />
-  <meta property="og:image" content="https://nickmcm1818.github.io/tsw-website/tsw_hero.webp" />
+  <meta property="og:image" content="https://nickmcm1818.github.io/tsw-website/tsw_hero_kitchen.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="The Style Workshop, Interior Design Studio, Sydney" />
@@ -34,7 +34,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The Style Workshop | Interior Designer Sydney" />
   <meta name="twitter:description" content="A boutique interior design studio on Sydney's Lower North Shore, creating considered, liveable interiors since 2009." />
-  <meta name="twitter:image" content="https://nickmcm1818.github.io/tsw-website/tsw_hero.webp" />
+  <meta name="twitter:image" content="https://nickmcm1818.github.io/tsw-website/tsw_hero_kitchen.webp" />
 
   <!-- ─── FAVICON ───────────────────────────────────────────────────── -->
   <link rel="icon" type="image/webp" href="tsw_logo.webp" />
@@ -54,6 +54,12 @@
     "priceRange": "$$$$",
     "currenciesAccepted": "AUD",
     "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    },
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Mosman",
@@ -75,7 +81,16 @@
       { "@type": "Neighborhood", "name": "Balmain" },
       { "@type": "Neighborhood", "name": "Eastern Suburbs" },
       { "@type": "Neighborhood", "name": "Lower North Shore" },
-      { "@type": "Neighborhood", "name": "Inner West" }
+      { "@type": "Neighborhood", "name": "Inner West" },
+      { "@type": "Neighborhood", "name": "Cremorne" },
+      { "@type": "Neighborhood", "name": "Cremorne Point" },
+      { "@type": "Neighborhood", "name": "Neutral Bay" },
+      { "@type": "Neighborhood", "name": "Kirribilli" },
+      { "@type": "Neighborhood", "name": "North Sydney" },
+      { "@type": "Neighborhood", "name": "Dee Why" },
+      { "@type": "Neighborhood", "name": "Whale Beach" },
+      { "@type": "Neighborhood", "name": "Northern Beaches" },
+      { "@type": "Neighborhood", "name": "Manly" }
     ],
     "founder": {
       "@type": "Person",
@@ -84,7 +99,7 @@
       "email": "emily@thestyleworkshop.com.au",
       "telephone": "+61407487498"
     },
-    "image": "https://nickmcm1818.github.io/tsw-website/tsw_hero.webp",
+    "image": "https://nickmcm1818.github.io/tsw-website/tsw_hero_kitchen.webp",
     "logo": "https://nickmcm1818.github.io/tsw-website/tsw_logo.webp",
     "sameAs": [
       "https://www.instagram.com/styleworkshop",
@@ -138,6 +153,121 @@
       ]
     }
   }
+  </script>
+
+
+  <!-- ─── FAQ STRUCTURED DATA ────────────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How quickly can I be scheduled?",
+        "acceptedAnswer": { "@type": "Answer", "text": "All package purchases include priority scheduling. We aim to confirm your appointment within 5 business days of receiving your booking." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I upgrade or add to my package after purchase?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Add-ons can be discussed at consultation or at any point during your project. Additional services beyond the package scope are available at $275 per hour incl. GST." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you travel outside Sydney's Lower North Shore?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Up to 30 minutes of travel each way is included for all in-home appointments within the Sydney metropolitan area. Sites beyond this may incur a travel fee, confirmed prior to booking." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is your refund policy?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Packages are non-refundable once purchased. Vouchers are valid for 12 months from the purchase date. If we are unable to fulfil a booking due to circumstances within our control, a rescheduled appointment will be offered." }
+      },
+      {
+        "@type": "Question",
+        "name": "I'm not sure which package is right for me.",
+        "acceptedAnswer": { "@type": "Answer", "text": "Book a complimentary discovery call. A 15-minute conversation is usually enough to clarify exactly what you need, and there's no obligation to proceed." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I combine packages across rooms?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Additional Rooms add-on (from $750 per room) allows you to extend any core package across multiple spaces for a cohesive whole-home result." }
+      },
+      {
+        "@type": "Question",
+        "name": "What areas of Sydney do you service?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We work across Sydney's Lower North Shore, Northern Beaches, Eastern Suburbs and Inner West. Our studio is based in Mosman, and up to 30 minutes of travel each way is included for in-home appointments. We also take on select projects in rural NSW and interstate." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between interior design and interior decoration?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Interior design involves spatial planning, documentation and coordination with trades for renovations and new builds. Interior decoration focuses on furniture, finishes, colour and styling within an existing space. We offer both services and can advise which approach suits your project." }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does interior design cost in Sydney?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Our pre-paid packages start from $695 for an initial consultation through to $3,950 for The Signature Styling Experience. For larger projects such as full renovations and new builds, we provide a tailored fee proposal following an on-site consultation. Additional services are available at $275 per hour incl. GST." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you work with furniture and pieces I already own?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We love blending existing pieces with carefully sourced vintage and new items. Many of our projects involve editing and reupholstering furniture clients already have, layering in new elements to create something that feels personal and considered." }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a typical interior design project take?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A single-room styling project can be completed within 4 to 6 weeks. Full renovations and new builds vary depending on scale but typically range from 3 to 12 months. We will provide a clear timeline as part of your design proposal." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I gift a design package?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, all packages can be gifted. Vouchers are valid for 12 months from the date of purchase. Contact us to arrange a beautifully presented gift voucher for someone special." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ─── REVIEW STRUCTURED DATA ─────────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "LocalBusiness",
+      "name": "The Style Workshop"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Sam & Craig"
+    },
+    "reviewBody": "Working with Emily was a fantastic experience. Rebuilding our beach house was a massive undertaking, but she perfectly captured the relaxed, coastal vibe we were after, from the breezy paint colours and flooring to the beautiful tile choices for the bathrooms and balconies. Her eye for the finishing touches really pulled the whole look together. We couldn't be happier with the end product and highly recommend working with Emily.",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5"
+    }
+  }
+  </script>
+
+  <!-- ─── SERVICE STRUCTURED DATA ────────────────────────────────── -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Interior Design",
+      "provider": { "@type": "LocalBusiness", "name": "The Style Workshop" },
+      "areaServed": { "@type": "City", "name": "Sydney, NSW, Australia" },
+      "description": "Comprehensive interior design service for renovations, new builds and whole-home projects. Includes spatial planning, joinery drawings, documentation, material palette development, trade coordination and end-to-end project management."
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Interior Decoration and Styling",
+      "provider": { "@type": "LocalBusiness", "name": "The Style Workshop" },
+      "areaServed": { "@type": "City", "name": "Sydney, NSW, Australia" },
+      "description": "Refined decoration service including furniture selection, custom upholstery, window treatments, colour consultation, art styling and full coordination of delivery and installation."
+    }
+  ]
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -2114,6 +2244,37 @@
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Can I combine packages across rooms? <span class="faq-arrow">+</span></button>
         <div class="faq-a"><p>Yes. The Additional Rooms add-on (from $750 per room) allows you to extend any core package across multiple spaces for a cohesive whole-home result.</p></div>
+      </div>
+
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What areas of Sydney do you service? <span class="faq-arrow">+</span></button>
+        <div class="faq-a"><p>We work across Sydney's Lower North Shore, Northern Beaches, Eastern Suburbs and Inner West. Our studio is based in Mosman, and up to 30 minutes of travel each way is included for in-home appointments. We also take on select projects in rural NSW and interstate.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is the difference between interior design and interior decoration? <span class="faq-arrow">+</span></button>
+        <div class="faq-a"><p>Interior design involves spatial planning, documentation and coordination with trades for renovations and new builds. Interior decoration focuses on furniture, finishes, colour and styling within an existing space. We offer both services and can advise which approach suits your project.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How much does interior design cost in Sydney? <span class="faq-arrow">+</span></button>
+        <div class="faq-a"><p>Our pre-paid packages start from $695 for an initial consultation through to $3,950 for The Signature Styling Experience. For larger projects such as full renovations and new builds, we provide a tailored fee proposal following an on-site consultation. Additional services are available at $275 per hour incl. GST.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Do you work with furniture and pieces I already own? <span class="faq-arrow">+</span></button>
+        <div class="faq-a"><p>Absolutely. We love blending existing pieces with carefully sourced vintage and new items. Many of our projects involve editing and reupholstering furniture clients already have, layering in new elements to create something that feels personal and considered.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How long does a typical interior design project take? <span class="faq-arrow">+</span></button>
+        <div class="faq-a"><p>A single-room styling project can be completed within 4 to 6 weeks. Full renovations and new builds vary depending on scale but typically range from 3 to 12 months. We will provide a clear timeline as part of your design proposal.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can I gift a design package? <span class="faq-arrow">+</span></button>
+        <div class="faq-a"><p>Yes, all packages can be gifted. Vouchers are valid for 12 months from the date of purchase. Contact us to arrange a beautifully presented gift voucher for someone special.</p></div>
       </div>
 
     </div>
