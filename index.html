@@ -684,10 +684,16 @@
     .proj-tab-content { display: none; }
     .proj-tab-content.active { display: block; }
 
-    /* Simpler grid for styling/past (no dedicated hero) */
+    /* Simpler grid for past projects (no dedicated hero) */
     .projects-grid-full {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    /* 3-column grid for styling tab */
+    .projects-grid-three {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 16px;
     }
 
@@ -1501,6 +1507,7 @@
       .projects-hero .proj-overlay { padding: 32px 28px; }
       .projects-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
       .projects-grid-full { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .projects-grid-three { grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
       .proj-tab { font-size: 9px; letter-spacing: 0.18em; margin-right: 20px; }
       .proj-panel { width: 100vw; }
       .panel-gallery { height: 260px; }
@@ -1711,7 +1718,7 @@
 
   <!-- ── TAB: Styling ── -->
   <div class="proj-tab-content" id="tab-styling">
-    <div class="projects-grid-full">
+    <div class="projects-grid-three">
 
       <div class="proj-card" onclick="openProject('cas')">
         <div class="proj-cover" style="background-image:url('proj_cas_cover.webp');"></div>
