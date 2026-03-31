@@ -1336,6 +1336,24 @@
     }
     .testimonial-dots span.active { background: var(--dusty-blue); }
 
+    /* ─── PREVENT ORPHANED WORDS ──────────────────────────────────── */
+    h1, h2, h3, h4,
+    .testimonial-quote,
+    .section-body,
+    .addon-desc,
+    .pkg-desc,
+    .proj-text p,
+    .about-content p,
+    .process-desc,
+    .faq-a p,
+    .bespoke-combos li,
+    .addons-sub,
+    .hero-sub,
+    .sov-body,
+    .footer-brand p {
+      text-wrap: balance;
+    }
+
     /* ─── INSTAGRAM STRIP ──────────────────────────────────────────── */
     .instagram {
       padding: 0;
@@ -2447,7 +2465,7 @@
         <div class="testimonial-attr">M &amp; A · Mosman</div>
       </div>
       <div class="testimonial-slide">
-        <blockquote class="testimonial-quote">"Before working with Emily our house always felt like it was missing something. She helped us pull everything together with furniture, art and styling so that the home finally feels complete."</blockquote>
+        <blockquote class="testimonial-quote">"Before working with Emily our house always felt like it was missing something. She helped us pull everything together with furniture, art and styling so that the home finally feels&nbsp;complete."</blockquote>
         <div class="testimonial-attr">S A · Longueville</div>
       </div>
       <div class="testimonial-slide">
