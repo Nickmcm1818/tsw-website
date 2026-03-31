@@ -1680,11 +1680,18 @@
       background: var(--off-white);
       padding: 100px 60px;
     }
+    .services-intro-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-bottom: 64px;
+    }
+    .services-intro-wrap .section-body { max-width: 100%; }
     .services-overview-grid {
       display: grid;
       grid-template-columns: 1fr 2fr;
       gap: 48px;
-      margin-top: 64px;
     }
     .sov-card {
       background: #fff;
@@ -1826,6 +1833,7 @@
       .addons-sub { text-align: left; }
       .services-note { flex-direction: column; align-items: flex-start; }
       .process-steps { grid-template-columns: 1fr 2fr; }
+      .services-intro-wrap { grid-template-columns: 1fr; gap: 32px; margin-bottom: 48px; }
       .services-overview-grid { grid-template-columns: 1fr; }
       .about { grid-template-columns: 1fr; }
       .about-image { min-height: 400px; }
@@ -1901,12 +1909,16 @@
 
 <!-- ─── SERVICES OVERVIEW ─────────────────────────────────────────────── -->
 <section class="services-overview" id="services">
-  <div class="section-tag">Our Services</div>
-  <h2 class="section-title">Ways to transform your&nbsp;home</h2>
-  <div style="margin-top:12px;">
-    <p class="section-body" style="font-size:15px;">Whether undertaking a full renovation or refining an existing space, The Style Workshop offers a considered and flexible approach to working together.</p>
-    <p class="section-body" style="font-size:15px; margin-top:16px;">Our design packages provide a structured, pre-paid option with a clearly defined scope and a seamless, guided experience. Equally, we understand that every project is unique and can tailor the way we work to suit your individual needs.</p>
-    <p class="section-body" style="font-size:15px; margin-top:16px;">Thoughtfully curated and delivered with clarity and care, every project — regardless of scale or scope — is approached with the same level of refinement, creativity, and attention to detail.</p>
+  <div class="services-intro-wrap">
+    <div class="services-intro-head">
+      <div class="section-tag">Our Services</div>
+      <h2 class="section-title">Ways to transform your&nbsp;home</h2>
+    </div>
+    <div class="services-intro-body">
+      <p class="section-body" style="font-size:15px;">Whether undertaking a full renovation or refining an existing space, The Style Workshop offers a considered and flexible approach to working together.</p>
+      <p class="section-body" style="font-size:15px; margin-top:16px;">Our design packages provide a structured, pre-paid option with a clearly defined scope and a seamless, guided experience. Equally, we understand that every project is unique and can tailor the way we work to suit your individual needs.</p>
+      <p class="section-body" style="font-size:15px; margin-top:16px;">Thoughtfully curated and delivered with clarity and care, every project — regardless of scale or scope — is approached with the same level of refinement, creativity, and attention to detail.</p>
+    </div>
   </div>
   <div class="services-overview-grid">
 
