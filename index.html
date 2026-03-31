@@ -1281,13 +1281,35 @@
       text-align: center;
       padding: 100px 60px;
     }
+    .testimonial-carousel {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .testimonial-slides {
+      flex: 1;
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .testimonial-slide {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+    .testimonial-slide.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     .testimonial-quote {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(17px, 2vw, 22px);
       font-weight: 400; font-style: italic;
       color: var(--dark-teal);
       line-height: 1.6;
-      max-width: 720px; margin: 0 auto 36px;
+      margin: 0 0 36px;
     }
     .testimonial-attr {
       font-family: 'Jost', sans-serif;
@@ -1295,6 +1317,14 @@
       letter-spacing: 0.25em; text-transform: uppercase;
       color: var(--dusty-blue);
     }
+    .testimonial-arrow {
+      background: none; border: none; cursor: pointer;
+      color: var(--dark-teal); opacity: 0.4;
+      transition: opacity 0.2s;
+      padding: 8px; flex-shrink: 0;
+      display: flex; align-items: center;
+    }
+    .testimonial-arrow:hover { opacity: 1; }
     .testimonial-dots {
       display: flex; justify-content: center; gap: 8px;
       margin-top: 48px;
@@ -1302,6 +1332,7 @@
     .testimonial-dots span {
       width: 6px; height: 6px; border-radius: 50%;
       background: var(--warm-grey);
+      cursor: pointer; transition: background 0.2s;
     }
     .testimonial-dots span.active { background: var(--dusty-blue); }
 
@@ -2402,14 +2433,43 @@
 <!-- ─── TESTIMONIAL ──────────────────────────────────────────────────── -->
 <section class="testimonial">
   <div class="section-tag" style="justify-content:center;">Client Feedback</div>
-  <blockquote class="testimonial-quote">
-    "Working with Emily was a fantastic experience. Rebuilding our beach house was a massive undertaking, but she perfectly captured the relaxed, coastal vibe we were after, from the breezy paint colours and flooring to the beautiful tile choices for the bathrooms and balconies. Her eye for the finishing touches really pulled the whole look together. We couldn't be happier with the end product and highly recommend working with Emily."
-  </blockquote>
-  <div class="testimonial-attr">Sam &amp; Craig · Whale Beach</div>
+  <div class="testimonial-carousel">
+    <button class="testimonial-arrow" id="t-prev" aria-label="Previous testimonial">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="testimonial-slides">
+      <div class="testimonial-slide active">
+        <blockquote class="testimonial-quote">"Working with Emily was a fantastic experience. Rebuilding our beach house was a massive undertaking, but she perfectly captured the relaxed, coastal vibe we were after, from the breezy paint colours and flooring to the beautiful tile choices for the bathrooms and balconies. Her eye for the finishing touches really pulled the whole look together. We couldn't be happier with the end product and highly recommend working with Emily."</blockquote>
+        <div class="testimonial-attr">Sam &amp; Craig · Whale Beach</div>
+      </div>
+      <div class="testimonial-slide">
+        <blockquote class="testimonial-quote">"Emily guided us through our renovation with such confidence and clarity. She helped us make decisions on finishes, lighting and furniture that we would have struggled with ourselves. The whole experience felt surprisingly easy and the final result is beautiful — we couldn't be happier."</blockquote>
+        <div class="testimonial-attr">M &amp; A · Mosman</div>
+      </div>
+      <div class="testimonial-slide">
+        <blockquote class="testimonial-quote">"Before working with Emily our house always felt like it was missing something. She helped us pull everything together with furniture, art and styling so that the home finally feels complete."</blockquote>
+        <div class="testimonial-attr">S A · Longueville</div>
+      </div>
+      <div class="testimonial-slide">
+        <blockquote class="testimonial-quote">"Emily was warm, approachable and incredibly knowledgeable. She made the entire process enjoyable and we always felt confident in her recommendations."</blockquote>
+        <div class="testimonial-attr">P H · Hunters Hill</div>
+      </div>
+      <div class="testimonial-slide">
+        <blockquote class="testimonial-quote">"We first enlisted Emily's help on a colour scheme and furniture selection for our home. She suggested things that we would never have thought of ourselves and we were very happy with the results. We are about to expand the kitchen and living areas and we will definitely be using Emily's services again."</blockquote>
+        <div class="testimonial-attr">L &amp; R · Cremorne Point</div>
+      </div>
+      <div class="testimonial-slide">
+        <blockquote class="testimonial-quote">"I have had the pleasure of working with Emily on several interior design projects in our home, and I could not recommend her more highly. Emily immediately put me at ease — she listened carefully and helped me clarify my vision without ever overwhelming me with too many ideas. She presents options that allow me to make informed decisions and is always happy to share her expert opinion when asked. She is friendly, thoughtful and an absolute pleasure to work with. The finished spaces have exceeded my expectations — I am absolutely thrilled with what Emily created."</blockquote>
+        <div class="testimonial-attr">D M · Northbridge</div>
+      </div>
+    </div>
+    <button class="testimonial-arrow" id="t-next" aria-label="Next testimonial">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
   <div class="testimonial-dots">
-    <span class="active"></span>
-    <span></span>
-    <span></span>
+    <span class="active"></span><span></span><span></span>
+    <span></span><span></span><span></span>
   </div>
 </section>
 
@@ -2877,6 +2937,25 @@ function closeProject() {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeProject();
 });
+
+  // ── Testimonial carousel ────────────────────────────────────────────
+  (function() {
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots   = document.querySelectorAll('.testimonial-dots span');
+    let current  = 0;
+
+    function goTo(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    document.getElementById('t-prev').addEventListener('click', function() { goTo(current - 1); });
+    document.getElementById('t-next').addEventListener('click', function() { goTo(current + 1); });
+    dots.forEach(function(dot, i) { dot.addEventListener('click', function() { goTo(i); }); });
+  })();
 </script>
 </body>
 </html>
