@@ -1240,13 +1240,18 @@
     }
     .about-image {
       position: relative; overflow: hidden; min-height: 600px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 48px 0 0 48px;
     }
     .about-img-bg {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100%; max-width: 280px;
+      aspect-ratio: 2/3;
       background-image: url('emily_headshot.webp');
       background-size: cover;
       background-position: center top;
+      flex-shrink: 0;
     }
     .about-photo-caption {
       font-family: 'Jost', sans-serif;
