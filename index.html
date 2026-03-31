@@ -1683,11 +1683,17 @@
     .services-intro-wrap {
       display: grid;
       grid-template-columns: 1fr 1.5fr;
-      gap: 56px;
-      align-items: start;
+      column-gap: 56px;
       margin-bottom: 64px;
     }
-    .services-intro-wrap .section-body { max-width: 100%; }
+    .services-intro-head {
+      grid-column: 1 / -1;
+      margin-bottom: 24px;
+    }
+    .services-intro-body {
+      grid-column: 2 / 3;
+    }
+    .services-intro-wrap .section-body { max-width: 540px; }
     .services-overview-grid {
       display: grid;
       grid-template-columns: 1fr 2fr;
