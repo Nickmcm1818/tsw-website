@@ -886,8 +886,10 @@
       padding: 40px 32px;
       position: relative;
       transition: background 0.3s;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-row: span 8;
+      grid-template-rows: subgrid;
+      align-items: start;
     }
     /* ─── ADD-ONS ───────────────────────────────────────────────────── */
     .addons-section {
@@ -1128,7 +1130,6 @@
       list-style: none;
       display: flex; flex-direction: column; gap: 10px;
       margin-bottom: 32px;
-      flex: 1;
     }
     .service-includes li {
       font-family: 'Jost', sans-serif;
