@@ -2867,7 +2867,7 @@ function openProject(id) {
     tile.className = 'panel-gallery-tile';
     tile.style.backgroundImage = `url('proj_${id}_${num}.webp')`;
     // Landscape images get wider tiles
-    const isLandscape = ['wb'].includes(id) && i <= 6;
+    const isLandscape = (['wb'].includes(id) && i <= 6) || (id === 'mos' && i === 16);
     if (isLandscape) tile.classList.add('landscape');
     gallery.appendChild(tile);
 
