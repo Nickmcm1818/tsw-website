@@ -1814,6 +1814,72 @@
     }
     .btn-service-sage:hover { background: var(--olive-sage); color: var(--off-white); }
 
+    /* ─── HAMBURGER MENU ───────────────────────────────────────────── */
+    .hamburger-menu {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 101;
+    }
+    .hamburger-menu span {
+      width: 24px;
+      height: 2px;
+      background: #ffffff;
+      transition: all 0.3s ease;
+    }
+    nav.scrolled .hamburger-menu span {
+      background: var(--dark-teal);
+    }
+    .hamburger-menu.open span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+    .hamburger-menu.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger-menu.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--dark-teal);
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      padding-top: 120px;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    .mobile-nav.open {
+      transform: translateX(0);
+    }
+    .mobile-nav a {
+      padding: 16px 24px;
+      font-family: Jost, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--off-white);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      border-bottom: 1px solid rgba(245, 243, 239, 0.1);
+      text-decoration: none;
+    }
+    .mobile-nav .nav-cta {
+      background: var(--warm-tan);
+      color: var(--dark-teal);
+      margin: 16px;
+      text-align: center;
+      border: none;
+      border-radius: 2px;
+    }
+
     /* ─── RESPONSIVE ───────────────────────────────────────────────── */
     @media (max-width: 900px) {
       nav { padding: 14px 24px; }
@@ -1821,6 +1887,8 @@
       #tsw-logo-nav { height: 88px; }
       nav.scrolled #tsw-logo-nav { height: 72px; }
       .nav-links { display: none; }
+      .hamburger-menu { display: flex; }
+      .nav-social { display: none; }
       section { padding: 70px 24px; }
       .hero-content { padding: 0 24px 60px; }
       .hero-scroll { right: 24px; }
@@ -1850,6 +1918,118 @@
       .footer-grid { grid-template-columns: 1fr 2fr; gap: 36px; }
       .footer-bottom { flex-direction: column; gap: 16px; }
     }
+
+    /* ─── TABLET (768px) ───────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 12px 20px; }
+      nav.scrolled { padding: 8px 20px; }
+      #tsw-logo-nav { height: 80px; }
+      nav.scrolled #tsw-logo-nav { height: 64px; }
+      section { padding: 60px 20px; }
+      .hero { min-height: 600px; }
+      .hero-h1 { font-size: clamp(28px, 5vw, 48px); }
+      .hero-sub { font-size: 14px; }
+      .hero-actions { flex-direction: column; }
+      .intro-strip { padding: 50px 20px; }
+      .intro-strip .stat-number { font-size: 40px; }
+      .projects-hero { height: 360px; }
+      .projects-grid { grid-template-columns: 1fr; gap: 10px; }
+      .projects-grid-full { grid-template-columns: 1fr; gap: 10px; }
+      .projects-grid-three { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .proj-panel { width: 95vw; }
+      .panel-gallery { height: 240px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .addons-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .process-step-connector { display: none; }
+      .about { grid-template-columns: 1fr; gap: 40px; }
+      .about-image { min-height: 350px; }
+      .about-content { padding: 60px 20px; }
+      .testimonial-carousel { flex-direction: column; gap: 30px; }
+      .testimonial-arrow { display: none; }
+      .contact-cta { padding: 60px 20px; }
+      .contact-cta h2 { font-size: clamp(28px, 5vw, 42px); }
+      .enquiry { grid-template-columns: 1fr; }
+      .form-row { flex-direction: column; }
+      .form-field { width: 100%; }
+      .instagram { grid-template-columns: 1fr 1fr; }
+      .instagram .ig-tile:nth-child(n+3) { display: none; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .faq-inner { padding: 0 20px; }
+    }
+
+    /* ─── MOBILE (480px) ───────────────────────────────────────────── */
+    @media (max-width: 480px) {
+      nav { padding: 10px 16px; }
+      nav.scrolled { padding: 8px 16px; }
+      #tsw-logo-nav { height: 72px; }
+      nav.scrolled #tsw-logo-nav { height: 60px; }
+      section { padding: 48px 16px; }
+      .section-tag { font-size: 10px; letter-spacing: 0.18em; }
+      .section-title { font-size: clamp(22px, 5vw, 36px); }
+      .section-body { font-size: 14px; line-height: 1.6; }
+      .hero { min-height: 500px; }
+      .hero-h1 { font-size: clamp(24px, 6vw, 40px); line-height: 1.2; }
+      .hero-sub { font-size: 13px; line-height: 1.5; }
+      .hero-actions { flex-direction: column; gap: 12px; }
+      .hero-actions a { padding: 12px 20px; font-size: 14px; }
+      .intro-strip { padding: 40px 16px; gap: 20px; }
+      .intro-strip .stat-number { font-size: 32px; }
+      .intro-strip .stat-label { font-size: 12px; }
+      .projects-hero { height: 280px; }
+      .projects-grid { grid-template-columns: 1fr; gap: 8px; }
+      .projects-grid-full { grid-template-columns: 1fr; gap: 8px; }
+      .projects-grid-three { grid-template-columns: 1fr; gap: 8px; }
+      .proj-panel { width: 100vw; left: 0; }
+      .panel-gallery { height: 220px; }
+      .proj-tab { font-size: 8px; margin-right: 12px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card h3 { font-size: 18px; }
+      .service-card p { font-size: 13px; }
+      .addons-grid { grid-template-columns: 1fr; }
+      .addons-header { margin-bottom: 20px; }
+      .addon-card { padding: 20px; }
+      .addon-card h4 { font-size: 16px; }
+      .addon-card p { font-size: 12px; }
+      .services-note { padding: 16px; font-size: 12px; }
+      .bespoke-inner { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; gap: 20px; }
+      .process-step h3 { font-size: 18px; }
+      .process-step p { font-size: 13px; }
+      .about { grid-template-columns: 1fr; gap: 0; }
+      .about-image { min-height: 300px; padding: 40px 16px; }
+      .about-content { padding: 40px 16px; }
+      .about-content h2 { font-size: clamp(22px, 5vw, 36px); }
+      .about-content p { font-size: 13px; }
+      .testimonial-carousel { flex-direction: column; gap: 20px; }
+      .testimonial-slide h3 { font-size: 18px; }
+      .testimonial-slide p { font-size: 13px; }
+      .testimonial-author { font-size: 12px; }
+      .contact-cta { padding: 48px 16px; }
+      .contact-cta h2 { font-size: clamp(22px, 5vw, 36px); }
+      .contact-cta p { font-size: 14px; }
+      .contact-cta a { padding: 12px 20px; font-size: 14px; }
+      .enquiry { grid-template-columns: 1fr; gap: 0; }
+      .enquiry h2 { font-size: clamp(22px, 5vw, 36px); }
+      .form-row { flex-direction: column; gap: 0; }
+      .form-field { width: 100%; padding: 12px 16px; font-size: 14px; }
+      .form-field input, .form-field textarea, .form-field select { font-size: 14px; }
+      textarea { min-height: 120px; }
+      .radio-options { flex-direction: column; gap: 8px; }
+      .radio-options label { font-size: 14px; }
+      .instagram { grid-template-columns: 1fr 1fr; }
+      .instagram .ig-tile:nth-child(n+3) { display: none; }
+      .ig-header h3 { font-size: 18px; }
+      .ig-header p { font-size: 12px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+      .footer-links a { font-size: 12px; }
+      .footer-bottom { font-size: 12px; }
+      .faq-list { gap: 12px; }
+      .faq-item h3 { font-size: 16px; }
+      .faq-item p { font-size: 13px; }
+      .faq-inner { padding: 0 16px; }
+      .proto-notice { position: static; margin: 20px 0; padding: 16px; font-size: 12px; }
+    }
   </style>
 </head>
 <body>
@@ -1877,8 +2057,22 @@
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.03-2.83.19-.77 1.26-5.33 1.26-5.33s-.32-.65-.32-1.6c0-1.5.87-2.63 1.95-2.63.92 0 1.37.69 1.37 1.52 0 .93-.59 2.31-.9 3.59-.25 1.07.54 1.95 1.59 1.95 1.91 0 3.19-2.46 3.19-5.38 0-2.22-1.49-3.88-4.18-3.88-3.04 0-4.93 2.27-4.93 4.8 0 .87.25 1.48.64 1.95.18.21.2.3.14.54-.05.17-.15.59-.19.75-.06.24-.25.33-.46.24-1.31-.54-1.92-1.99-1.92-3.62 0-2.69 2.27-5.93 6.79-5.93 3.63 0 6.01 2.63 6.01 5.46 0 3.74-2.07 6.55-5.12 6.55-1.02 0-1.99-.55-2.32-1.18l-.63 2.49c-.23.87-.84 1.96-1.25 2.62.94.29 1.94.45 2.97.45 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
     </a>
   </div>
+  <button class="hamburger-menu" id="hamburgerBtn" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
   <a href="#enquiry" class="nav-cta">Book a Consultation</a>
 </nav>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#services" onclick="closeMobileNav()">Services</a>
+  <a href="#portfolio" onclick="closeMobileNav()">Projects</a>
+  <a href="#process" onclick="closeMobileNav()">Process</a>
+  <a href="#about" onclick="closeMobileNav()">About</a>
+  <a href="#enquiry" onclick="closeMobileNav()" class="nav-cta">Book a Consultation</a>
+</div>
 
 <!-- ─── HERO ────────────────────────────────────────────────────────── -->
 <section class="hero" id="home">
@@ -2705,6 +2899,27 @@
 
 
 <script>
+  // Hamburger menu toggle
+  const hamburger = document.getElementById('hamburgerBtn');
+  const mobileNav = document.getElementById('mobileNav');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+
+  function closeMobileNav() {
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+  }
+
+  // Close mobile nav when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!mobileNav.contains(e.target) && !hamburger.contains(e.target)) {
+      closeMobileNav();
+    }
+  });
+
   // Sticky nav scroll behaviour
   const nav = document.getElementById('mainNav');
   window.addEventListener('scroll', () => {
