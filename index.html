@@ -3207,5 +3207,196 @@ document.addEventListener('keydown', e => {
     dots.forEach(function(dot, i) { dot.addEventListener('click', function() { goTo(i); }); });
   })();
 </script>
+
+<!-- ─── NEWSLETTER POPUP ─────────────────────────────────────────── -->
+<style>
+  #newsletter-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 61, 83, 0.55);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  #newsletter-overlay.nl-visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+  #newsletter-popup {
+    background: #F5F3EF;
+    max-width: 480px;
+    width: 100%;
+    padding: 3rem 2.75rem 2.5rem;
+    position: relative;
+    transform: translateY(18px);
+    transition: transform 0.4s ease;
+    box-shadow: 0 12px 48px rgba(30, 61, 83, 0.18);
+  }
+  #newsletter-overlay.nl-visible #newsletter-popup {
+    transform: translateY(0);
+  }
+  #newsletter-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #AEB0AC;
+    line-height: 1;
+    padding: 0.25rem;
+    transition: color 0.2s;
+  }
+  #newsletter-close:hover { color: #1E3D53; }
+  .nl-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #BDB7A2;
+    margin: 0 0 0.75rem;
+  }
+  .nl-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #1E3D53;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+  }
+  .nl-body {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.88rem;
+    color: #404040;
+    line-height: 1.7;
+    margin: 0 0 1.75rem;
+  }
+  #newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  #nl-email {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.88rem;
+    padding: 0.8rem 1rem;
+    border: 1px solid #AEB0AC;
+    background: #ffffff;
+    color: #1A1A1A;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  #nl-email::placeholder { color: #AEB0AC; }
+  #nl-email:focus { border-color: #1E3D53; }
+  .nl-submit {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: #1E3D53;
+    color: #F5F3EF;
+    border: none;
+    padding: 0.9rem 1.5rem;
+    cursor: pointer;
+    transition: background 0.25s;
+    width: 100%;
+  }
+  .nl-submit:hover { background: #7E8A94; }
+  .nl-note {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    color: #AEB0AC;
+    margin: 0.75rem 0 0;
+    text-align: center;
+  }
+  #nl-success { text-align: center; padding: 0.5rem 0; }
+  .nl-success-msg {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: #1E3D53;
+    margin: 0;
+  }
+  @media (max-width: 520px) {
+    #newsletter-popup { padding: 2.5rem 1.75rem 2rem; }
+    .nl-heading { font-size: 1.7rem; }
+  }
+</style>
+
+<div id="newsletter-overlay" role="dialog" aria-modal="true" aria-labelledby="nl-heading-id">
+  <div id="newsletter-popup">
+    <button id="newsletter-close" aria-label="Close newsletter signup">&times;</button>
+    <p class="nl-eyebrow">The Style Workshop</p>
+    <h2 class="nl-heading" id="nl-heading-id">A Note from the Studio</h2>
+    <p class="nl-body">Occasional updates on interiors, design ideas and what's happening at the studio. Considered content, never noise.</p>
+    <form id="newsletter-form" novalidate>
+      <input type="email" id="nl-email" name="email" placeholder="Your email address" autocomplete="email" required />
+      <button type="submit" class="nl-submit">Subscribe</button>
+    </form>
+    <p class="nl-note">No spam, ever. Unsubscribe at any time.</p>
+    <div id="nl-success" style="display:none;">
+      <p class="nl-success-msg">Thank you — we'll be in touch.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var STORAGE_KEY = 'tsw_nl_dismissed';
+    if (localStorage.getItem(STORAGE_KEY)) return;
+
+    var overlay = document.getElementById('newsletter-overlay');
+    var closeBtn = document.getElementById('newsletter-close');
+    var form = document.getElementById('newsletter-form');
+    var success = document.getElementById('nl-success');
+
+    function showPopup() {
+      overlay.style.display = 'flex';
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          overlay.classList.add('nl-visible');
+        });
+      });
+    }
+
+    function dismissPopup() {
+      overlay.classList.remove('nl-visible');
+      setTimeout(function() { overlay.style.display = 'none'; }, 400);
+      localStorage.setItem(STORAGE_KEY, '1');
+    }
+
+    setTimeout(showPopup, 5000);
+
+    closeBtn.addEventListener('click', dismissPopup);
+
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) dismissPopup();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') dismissPopup();
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var email = document.getElementById('nl-email').value.trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        document.getElementById('nl-email').focus();
+        return;
+      }
+      form.style.display = 'none';
+      success.style.display = 'block';
+      localStorage.setItem(STORAGE_KEY, '1');
+      setTimeout(dismissPopup, 2800);
+    });
+  })();
+</script>
 </body>
 </html>
