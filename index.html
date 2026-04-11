@@ -1249,9 +1249,10 @@
     }
     .about-image {
       position: relative; overflow: hidden; min-height: 600px;
+      padding: 48px 20px 48px 48px;
     }
     .about-img-bg {
-      position: absolute; inset: 0;
+      position: absolute; inset: 48px 20px 48px 48px;
       background-image: url('emily_headshot.webp');
       background-size: cover;
       background-position: center top;
@@ -1908,7 +1909,8 @@
       .services-intro-wrap { grid-template-columns: 1fr; gap: 32px; margin-bottom: 48px; }
       .services-overview-grid { grid-template-columns: 1fr; }
       .about { grid-template-columns: 1fr; }
-      .about-image { min-height: 260px; }
+      .about-image { min-height: 380px; padding: 32px; }
+      .about-img-bg { inset: 32px; }
       .contact-cta { flex-direction: column; padding: 70px 24px; }
       .instagram { grid-template-columns: repeat(3, 1fr); }
       .instagram .ig-tile:nth-child(n+4) { display: none; }
@@ -1941,7 +1943,8 @@
       .process-steps { grid-template-columns: 1fr; }
       .process-step-connector { display: none; }
       .about { grid-template-columns: 1fr; gap: 40px; }
-      .about-image { min-height: 230px; }
+      .about-image { min-height: 340px; padding: 28px; }
+      .about-img-bg { inset: 28px; }
       .about-content { padding: 60px 20px; }
       .testimonial-carousel { flex-direction: row; gap: 12px; }
       .testimonial-arrow { opacity: 0.5; }
@@ -1998,7 +2001,8 @@
       .process-step h3 { font-size: 18px; }
       .process-step p { font-size: 13px; }
       .about { grid-template-columns: 1fr; gap: 0; }
-      .about-image { min-height: 285px; }
+      .about-image { min-height: 320px; padding: 24px; }
+      .about-img-bg { inset: 24px; }
       .about-content { padding: 40px 16px; }
       .about-content h2 { font-size: clamp(22px, 5vw, 36px); }
       .about-content p { font-size: 13px; }
@@ -2592,8 +2596,6 @@
   </div>
   <div class="about-content">
     <div class="section-tag">About Us</div>
-    <h2 class="section-title">Spaces that feel like home</h2>
-    <div class="thin-rule"></div>
     <p class="section-body">Founded in 2009 by Emily Webster, The Style Workshop is a boutique interior design studio based on Sydney’s Lower North Shore. Our work is shaped by a few enduring principles: quality, authenticity, and the belief that great design should feel as effortless to live in as it looks.</p>
     <br>
     <p class="section-body">We bring spaces to life through considered furniture, textiles, finishes and layered lighting, often weaving in the pieces our clients already own alongside thoughtfully sourced vintage and one-of-a-kind finds, so that every home feels personal, collected and entirely its own.</p>
