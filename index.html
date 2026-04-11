@@ -832,6 +832,12 @@
       grid-template-columns: 1fr 1fr 1fr;
       gap: 16px;
     }
+    /* 4-column grid for past projects */
+    .projects-grid-four {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
 
     /* Gallery wrapper + arrows */
     .panel-gallery-wrap {
@@ -1888,6 +1894,7 @@
       .projects-grid { grid-template-columns: 1fr 2fr; gap: 10px; }
       .projects-grid-full { grid-template-columns: 1fr 2fr; gap: 10px; }
       .projects-grid-three { grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+      .projects-grid-four { grid-template-columns: 1fr 1fr; gap: 10px; }
       .proj-tab { font-size: 9px; letter-spacing: 0.18em; margin-right: 20px; }
       .proj-panel { width: 100vw; }
       .panel-gallery { height: 260px; }
@@ -1926,6 +1933,7 @@
       .projects-grid { grid-template-columns: 1fr; gap: 10px; }
       .projects-grid-full { grid-template-columns: 1fr; gap: 10px; }
       .projects-grid-three { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .projects-grid-four { grid-template-columns: 1fr 1fr; gap: 10px; }
       .proj-panel { width: 95vw; }
       .panel-gallery { height: 240px; }
       .services-grid { grid-template-columns: 1fr 1fr; }
@@ -1970,6 +1978,7 @@
       .projects-grid { grid-template-columns: 1fr; gap: 8px; }
       .projects-grid-full { grid-template-columns: 1fr; gap: 8px; }
       .projects-grid-three { grid-template-columns: 1fr; gap: 8px; }
+      .projects-grid-four { grid-template-columns: 1fr 1fr; gap: 8px; }
       .proj-panel { width: 100vw; left: 0; }
       .panel-gallery { height: 220px; }
       .proj-tab { font-size: 8px; margin-right: 12px; }
@@ -2286,7 +2295,7 @@
 
   <!-- ── TAB: Past Projects ── -->
   <div class="proj-tab-content" id="tab-past">
-    <div class="projects-grid-three">
+    <div class="projects-grid-four">
 
       <div class="proj-card" onclick="openProject('nbr')">
         <div class="proj-cover" style="background-image:url('proj_nbr_cover.webp');"></div>
@@ -2330,6 +2339,7 @@
 
     </div>
   </div><!-- /tab-past -->
+
 
 </section>
 
