@@ -8,7 +8,7 @@
 
   <!-- ─── PRIMARY SEO ──────────────────────────────────────────────── -->
   <title>The Style Workshop | Interior Designer Sydney | Lower North Shore</title>
-  <meta name="description" content="The Style Workshop is a boutique interior design studio on Sydney's Lower North Shore. Founded by Emily Webster in 2009, specialising in considered residential interiors, from room refreshes to full home renovations. Serving the Eastern Suburbs, North Shore and Inner West." />
+  <meta name="description" content="Boutique interior design studio on Sydney's Lower North Shore. Emily Webster creates considered residential interiors, from room refreshes to full renovations." />
   <meta name="keywords" content="interior designer Sydney, interior design Lower North Shore, interior decorator Sydney, residential interior design, interior design Mosman, interior styling Sydney, Sydney interior designer, home renovation Sydney, interior design Eastern Suburbs, interior design North Shore" />
   <meta name="author" content="Emily Webster, The Style Workshop" />
   <meta name="robots" content="index, follow" />
@@ -270,6 +270,7 @@
   <style>
     /* ─── RESET & BASE ─────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
     :root {
       --dusty-blue:  #7E8A94;  /* Brand: Soft Blue Grey */
       --dark-teal:   #1E3D53;  /* Brand: Teal Blue */
@@ -1641,7 +1642,7 @@
       color: rgba(245,243,239,0.45);
       max-width: 280px;
     }
-    .footer-col h4 {
+    .footer-col h3 {
       font-family: 'Jost', sans-serif;
       font-size: 9px; font-weight: 400;
       letter-spacing: 0.35em; text-transform: uppercase;
@@ -2088,10 +2089,11 @@
 
 <!-- ─── HERO ────────────────────────────────────────────────────────── -->
 <section class="hero" id="home">
-  <div class="hero-bg"></div>
+  <div class="hero-bg" role="img" aria-label="Modern kitchen interior designed by The Style Workshop, Sydney"></div>
   <div class="hero-room"></div>
   <div class="hero-content">
     <h1 class="hero-h1">Beautifully<br><em>Considered Spaces</em></h1>
+    <span class="visually-hidden">Interior Design Sydney — The Style Workshop</span>
     <p class="hero-sub">Thoughtfully designed, liveable interiors. From curated room refreshes to full residential projects, each space is layered with intention, personal, refined, and made to be lived in.</p>
     <div class="hero-actions">
       <a href="#services" class="btn-primary">Our Services</a>
@@ -2185,7 +2187,7 @@
 
   <!-- Hero project: Whale Beach House -->
   <div class="projects-hero" onclick="openProject('wb')">
-    <div class="proj-cover"></div>
+    <div class="proj-cover" role="img" aria-label="Whale Beach House interior design project, Northern Beaches Sydney"></div>
     <div class="proj-pill">Large Scale Renovation</div>
     <div class="proj-overlay">
       <div class="proj-hero-name">Whale Beach House</div>
@@ -2198,7 +2200,7 @@
   <div class="projects-grid-three">
 
     <div class="proj-card" onclick="openProject('mos')">
-      <div class="proj-cover" style="background-image:url('proj_mos_cover.webp');background-position:center top;"></div>
+      <div class="proj-cover" role="img" aria-label="Mosman Federation renovation interior design project" style="background-image:url('proj_mos_cover.webp');background-position:center top;"></div>
       <div class="proj-pill">Federation Renovation</div>
       <div class="proj-overlay">
         <div class="proj-card-tag">Federation Renovation</div>
@@ -2208,7 +2210,7 @@
     </div>
 
     <div class="proj-card" onclick="openProject('bug')">
-      <div class="proj-cover" style="background-image:url('proj_bug_cover.webp');"></div>
+      <div class="proj-cover" role="img" aria-label="Cremorne bungalow family home interior design" style="background-image:url('proj_bug_cover.webp');"></div>
       <div class="proj-pill">Family Home</div>
       <div class="proj-overlay">
         <div class="proj-card-tag">Family Home</div>
@@ -2218,7 +2220,7 @@
     </div>
 
     <div class="proj-card" onclick="openProject('dw')">
-      <div class="proj-cover" style="background-image:url('proj_dw_cover.webp');"></div>
+      <div class="proj-cover" role="img" aria-label="Dee Why beachside apartment interior design" style="background-image:url('proj_dw_cover.webp');"></div>
       <div class="proj-pill">Beachside Apartment</div>
       <div class="proj-overlay">
         <div class="proj-card-tag">Beachside Apartment</div>
@@ -2228,7 +2230,7 @@
     </div>
 
     <div class="proj-card" onclick="openProject('cpr')">
-      <div class="proj-cover" style="background-image:url('proj_cpr_cover.webp');background-position:center top;"></div>
+      <div class="proj-cover" role="img" aria-label="Cremorne Point parents retreat interior design" style="background-image:url('proj_cpr_cover.webp');background-position:center top;"></div>
       <div class="proj-pill">Parent's Retreat</div>
       <div class="proj-overlay">
         <div class="proj-card-tag">Parent's Retreat</div>
@@ -2238,7 +2240,7 @@
     </div>
 
     <div class="proj-card" onclick="openProject('cpe')">
-      <div class="proj-cover" style="background-image:url('proj_cpe_cover.webp');background-position:center top;"></div>
+      <div class="proj-cover" role="img" aria-label="Cremorne Point ensuite bathroom renovation" style="background-image:url('proj_cpe_cover.webp');background-position:center top;"></div>
       <div class="proj-pill">Ensuite Bathroom</div>
       <div class="proj-overlay">
         <div class="proj-card-tag">Ensuite Bathroom</div>
@@ -2248,7 +2250,7 @@
     </div>
 
     <div class="proj-card" onclick="openProject('cpf')">
-      <div class="proj-cover" style="background-image:url('proj_cpf_cover.webp');"></div>
+      <div class="proj-cover" role="img" aria-label="Cremorne Point family home custom joinery" style="background-image:url('proj_cpf_cover.webp');"></div>
       <div class="proj-pill">Custom Joinery</div>
       <div class="proj-overlay">
         <div class="proj-card-tag">Custom Joinery</div>
@@ -2265,7 +2267,7 @@
     <div class="projects-grid-three">
 
       <div class="proj-card" onclick="openProject('cas')">
-        <div class="proj-cover" style="background-image:url('proj_cas_cover.webp');"></div>
+        <div class="proj-cover" role="img" aria-label="Country Airbnb styling project, rural NSW" style="background-image:url('proj_cas_cover.webp');"></div>
         <div class="proj-pill">Styling</div>
         <div class="proj-overlay">
           <div class="proj-card-tag">Styling</div>
@@ -2275,7 +2277,7 @@
       </div>
 
       <div class="proj-card" onclick="openProject('cls')">
-        <div class="proj-cover" style="background-image:url('proj_cls_cover.webp');"></div>
+        <div class="proj-cover" role="img" aria-label="Clareville waterside property styling, Northern Beaches" style="background-image:url('proj_cls_cover.webp');"></div>
         <div class="proj-pill">Property Styling</div>
         <div class="proj-overlay">
           <div class="proj-card-tag">Property Styling</div>
@@ -2285,7 +2287,7 @@
       </div>
 
       <div class="proj-card" onclick="openProject('cbh')">
-        <div class="proj-cover" style="background-image:url('proj_cbh_cover.webp');"></div>
+        <div class="proj-cover" role="img" aria-label="Clareville beach house property styling, Northern Beaches" style="background-image:url('proj_cbh_cover.webp');"></div>
         <div class="proj-pill">Property Styling</div>
         <div class="proj-overlay">
           <div class="proj-card-tag">Property Styling</div>
@@ -2302,7 +2304,7 @@
     <div class="projects-grid-four">
 
       <div class="proj-card" onclick="openProject('nbr')">
-        <div class="proj-cover" style="background-image:url('proj_nbr_cover.webp');"></div>
+        <div class="proj-cover" role="img" aria-label="Northbridge interior design project, Lower North Shore" style="background-image:url('proj_nbr_cover.webp');"></div>
         <div class="proj-pill">Interior Design</div>
         <div class="proj-overlay">
           <div class="proj-card-tag">Interior Design</div>
@@ -2312,7 +2314,7 @@
       </div>
 
       <div class="proj-card" onclick="openProject('msp')">
-        <div class="proj-cover" style="background-image:url('proj_msp_cover.webp');"></div>
+        <div class="proj-cover" role="img" aria-label="Mosman interior design project, Lower North Shore" style="background-image:url('proj_msp_cover.webp');"></div>
         <div class="proj-pill">Interior Design</div>
         <div class="proj-overlay">
           <div class="proj-card-tag">Interior Design</div>
@@ -2322,7 +2324,7 @@
       </div>
 
       <div class="proj-card" onclick="openProject('ldn1')">
-        <div class="proj-cover" style="background-image:url('proj_ldn1_cover.webp');"></div>
+        <div class="proj-cover" role="img" aria-label="London townhouse full interior refurbishment" style="background-image:url('proj_ldn1_cover.webp');"></div>
         <div class="proj-pill">Full Refurbishment</div>
         <div class="proj-overlay">
           <div class="proj-card-tag">Full Refurbishment</div>
@@ -2332,7 +2334,7 @@
       </div>
 
       <div class="proj-card" onclick="openProject('ldn2')">
-        <div class="proj-cover" style="background-image:url('proj_ldn2_cover.webp');"></div>
+        <div class="proj-cover" role="img" aria-label="London garden apartment full interior refurbishment" style="background-image:url('proj_ldn2_cover.webp');"></div>
         <div class="proj-pill">Full Refurbishment</div>
         <div class="proj-overlay">
           <div class="proj-card-tag">Full Refurbishment</div>
@@ -2592,7 +2594,7 @@
 <!-- ─── ABOUT EMILY ──────────────────────────────────────────────────── -->
 <div class="about" id="about">
   <div class="about-image">
-    <div class="about-img-bg"></div>
+    <div class="about-img-bg" role="img" aria-label="Emily Webster, principal interior designer at The Style Workshop, Sydney"></div>
   </div>
   <div class="about-content">
     <div class="section-tag">About Us</div>
@@ -2657,16 +2659,16 @@
     <a href="https://www.instagram.com/styleworkshop" target="_blank" rel="noopener" class="ig-follow">Follow</a>
   </div>
   <div class="instagram">
-    <div class="ig-tile ig-bg-1">
+    <div class="ig-tile ig-bg-1" role="img" aria-label="Interior styling by The Style Workshop, Sydney">
       <div class="ig-overlay">
         <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/></svg>
       </div>
     </div>
-    <div class="ig-tile ig-bg-2"><div class="ig-overlay"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/></svg></div></div>
-    <div class="ig-tile ig-bg-3"><div class="ig-overlay"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/></svg></div></div>
-    <div class="ig-tile ig-bg-4"><div class="ig-overlay"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/></svg></div></div>
-    <div class="ig-tile ig-bg-5"><div class="ig-overlay"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/></svg></div></div>
-    <div class="ig-tile ig-bg-6"><div class="ig-overlay"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/></svg></div></div>
+    <div class="ig-tile ig-bg-2" role="img" aria-label="Residential interior design, Sydney North Shore"><div class="ig-overlay"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/></svg></div></div>
+    <div class="ig-tile ig-bg-3" role="img" aria-label="Curated home interior, The Style Workshop portfolio"><div class="ig-overlay"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/></svg></div></div>
+    <div class="ig-tile ig-bg-4" role="img" aria-label="Considered residential interior design, Sydney"><div class="ig-overlay"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/></svg></div></div>
+    <div class="ig-tile ig-bg-5" role="img" aria-label="Liveable home interiors by Emily Webster, Sydney"><div class="ig-overlay"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/></svg></div></div>
+    <div class="ig-tile ig-bg-6" role="img" aria-label="Interior decoration and styling, Lower North Shore Sydney"><div class="ig-overlay"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/></svg></div></div>
   </div>
 </div>
 
@@ -2857,7 +2859,7 @@
       <p><a href="tel:+61407487498" style="color:rgba(245,243,239,0.55);text-decoration:none;">+61 407 487 498</a></p>
     </div>
     <div class="footer-col">
-      <h4>Studio</h4>
+      <h3>Studio</h3>
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#process">Our Process</a></li>
@@ -2866,7 +2868,7 @@
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Work</h4>
+      <h3>Work</h3>
       <ul>
         <li><a href="#portfolio">Selected Projects</a></li>
         <li><a href="#services">Interior Design</a></li>
@@ -2874,7 +2876,7 @@
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Services</h4>
+      <h3>Services</h3>
       <ul>
         <li><a href="#services">Interior Design</a></li>
         <li><a href="#services">Decoration &amp; Styling</a></li>
