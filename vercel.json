@@ -1,6 +1,26 @@
 {
   "version": 2,
-  "routes": [
-    { "src": "/(.*)", "dest": "/$1" }
+  "redirects": [
+    { "source": "/past-projects",          "destination": "/#projects", "permanent": true },
+    { "source": "/past-projects/:path*",   "destination": "/#projects", "permanent": true },
+    { "source": "/interiors",              "destination": "/#projects", "permanent": true },
+    { "source": "/interiors/:path*",       "destination": "/#projects", "permanent": true },
+    { "source": "/styling",                "destination": "/#projects", "permanent": true },
+    { "source": "/styling/:path*",         "destination": "/#projects", "permanent": true },
+    { "source": "/our-services",           "destination": "/#packages", "permanent": true },
+    { "source": "/our-services/:path*",    "destination": "/#packages", "permanent": true },
+    { "source": "/services",               "destination": "/#packages", "permanent": true },
+    { "source": "/services/:path*",        "destination": "/#packages", "permanent": true },
+    { "source": "/about-us",               "destination": "/#about",    "permanent": true },
+    { "source": "/about-us/:path*",        "destination": "/#about",    "permanent": true },
+    { "source": "/about",                  "destination": "/#about",    "permanent": true },
+    { "source": "/contact",                "destination": "/#contact",  "permanent": true },
+    { "source": "/journal",                "destination": "/",          "permanent": true },
+    { "source": "/journal/:path*",         "destination": "/",          "permanent": true },
+    { "source": "/blog",                   "destination": "/",          "permanent": true },
+    { "source": "/blog/:path*",            "destination": "/",          "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/:path*", "destination": "/index.html" }
   ]
 }
