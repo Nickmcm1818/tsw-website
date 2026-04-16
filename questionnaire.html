@@ -280,7 +280,7 @@ textarea{resize:vertical;min-height:90px}
 </div>
 
 <div class="submit-wrap">
-  <button type="submit" class="submit-btn">Many thanks, please submit to emily@thestyleworkshop.com.au</button>
+  <button type="submit" class="submit-btn" id="submit-btn">Submit Questionnaire</button>
 </div>
 
 </form>
@@ -296,28 +296,196 @@ textarea{resize:vertical;min-height:90px}
 
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
-document.getElementById('tsw-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  var data = new FormData(this);
-  var lines = [];
-  var seen = {};
-  for (var pair of data.entries()) {
-    var k = pair[0], v = pair[1];
-    if (!v || !v.toString().trim()) continue;
-    if (seen[k]) { seen[k].push(v); }
-    else { seen[k] = [v]; lines.push(k); }
+// ── Field labels for PDF ────────────────────────────────────────────────────
+var LABELS = {
+  full_name:'Full Name', phone:'Phone', email:'Email Address', suburb:'Suburb / Location',
+  heard:'How did you hear about us', referral:'Referred by',
+  prop:'Property Type', bedrooms:'Bedrooms', bathrooms:'Bathrooms', own_rent:'Own or Rent',
+  rooms:'Rooms to address', problems:'Key challenges', duration:'Time in property',
+  project:'Project type', budget:'Budget', timeline:'Timeline', goals:'Goals',
+  deadlines:'Key deadlines', current_style:'Current style', style:'Preferred aesthetic',
+  style_avoid:'Styles to avoid', palette:'Colour palette', colours_avoid:'Colours to avoid',
+  mixing:'Old and new', household:'Household', pets:'Pets', use:'Primary use',
+  priorities:'Top priorities', existing_pieces:'Existing pieces',
+  inspo_links:'Inspiration links', admired:'Admired designers/brands',
+  materials:'Materials drawn to', materials_avoid:'Materials to avoid',
+  anything_else:'Additional notes'
+};
+
+var SECTIONS = [
+  { title:'01  ABOUT YOU',            keys:['full_name','phone','email','suburb','heard','referral'] },
+  { title:'02  YOUR HOME',            keys:['prop','bedrooms','bathrooms','own_rent','rooms','problems','duration'] },
+  { title:'03  YOUR PROJECT',         keys:['project','budget','timeline','goals','deadlines'] },
+  { title:'04  YOUR STYLE',           keys:['current_style','style','style_avoid','palette','colours_avoid','mixing'] },
+  { title:'05  LIFESTYLE & PRIORITIES', keys:['household','pets','use','priorities','existing_pieces'] },
+  { title:'06  INSPIRATION',          keys:['inspo_links','admired','materials','materials_avoid'] },
+  { title:'07  ANYTHING ELSE',        keys:['anything_else'] }
+];
+
+// ── Generate branded PDF ────────────────────────────────────────────────────
+function generatePDF(fields, clientName) {
+  var jsPDF = window.jspdf.jsPDF;
+  var doc = new jsPDF({ orientation:'portrait', unit:'mm', format:'a4' });
+
+  var pageW = 210, margin = 20, contentW = 170;
+  var teal = [30,61,81], mossGreen = [100,109,95], blueGrey = [125,139,148];
+  var warmGrey = [176,176,173], sand = [189,183,163], cream = [245,242,238];
+
+  function header() {
+    doc.setFillColor.apply(doc, teal);
+    doc.rect(0, 0, pageW, 26, 'F');
+    doc.setTextColor.apply(doc, cream);
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(10);
+    doc.text('THE STYLE WORKSHOP', margin, 15);
+    doc.setFont('helvetica','normal');
+    doc.setFontSize(7);
+    doc.setTextColor.apply(doc, warmGrey);
+    doc.text('PRE-CONSULTATION QUESTIONNAIRE', pageW - margin, 15, { align:'right' });
   }
-  var body = lines.map(function(k) {
-    var label = k.replace(/\[\]/g,'').replace(/_/g,' ').replace(/\b\w/g, function(c){ return c.toUpperCase(); });
-    return label + ':\n' + seen[k].join(', ');
-  }).join('\n\n');
-  var subject = encodeURIComponent('TSW Pre-Consultation Questionnaire');
-  window.location.href = 'mailto:emily@thestyleworkshop.com.au?subject=' + subject + '&body=' + encodeURIComponent(body);
-  var form = document.getElementById('tsw-form');
-  form.style.display = 'none';
+
+  function footer(pageNum, total) {
+    doc.setFillColor.apply(doc, teal);
+    doc.rect(0, 285, pageW, 12, 'F');
+    doc.setTextColor.apply(doc, warmGrey);
+    doc.setFont('helvetica','normal');
+    doc.setFontSize(6.5);
+    doc.text('thestyleworkshop.com.au', margin, 292);
+    doc.text('emily@thestyleworkshop.com.au  |  +61 407 487 498', pageW - margin, 292, { align:'right' });
+  }
+
+  header();
+  var y = 34;
+
+  // Thank-you banner
+  doc.setFillColor.apply(doc, cream);
+  doc.rect(margin, y, contentW, 16, 'F');
+  doc.setTextColor.apply(doc, teal);
+  doc.setFont('helvetica','bold');
+  doc.setFontSize(9);
+  doc.text('Thank you for completing our questionnaire.', margin + 5, y + 7);
+  doc.setFont('helvetica','normal');
+  doc.setFontSize(8);
+  doc.setTextColor.apply(doc, mossGreen);
+  doc.text('We look forward to speaking with you soon.', margin + 5, y + 13);
+  y += 22;
+
+  // Submitted date
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2,'0');
+  var mm = String(today.getMonth()+1).padStart(2,'0');
+  var yyyy = today.getFullYear();
+  doc.setFont('helvetica','normal');
+  doc.setFontSize(7);
+  doc.setTextColor.apply(doc, warmGrey);
+  doc.text('Submitted: ' + dd + '/' + mm + '/' + yyyy, pageW - margin, y, { align:'right' });
+  y += 6;
+
+  SECTIONS.forEach(function(section) {
+    var hasData = section.keys.some(function(k){ return fields[k]; });
+    if (!hasData) return;
+
+    if (y > 258) { footer(); doc.addPage(); header(); y = 34; }
+
+    // Section header bar
+    doc.setFillColor.apply(doc, teal);
+    doc.rect(margin, y, contentW, 7, 'F');
+    doc.setTextColor.apply(doc, cream);
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(6.5);
+    doc.text(section.title, margin + 4, y + 5);
+    y += 11;
+
+    section.keys.forEach(function(key) {
+      var val = fields[key];
+      if (!val) return;
+      if (y > 268) { footer(); doc.addPage(); header(); y = 34; }
+
+      doc.setTextColor.apply(doc, blueGrey);
+      doc.setFont('helvetica','normal');
+      doc.setFontSize(6.5);
+      doc.text((LABELS[key] || key).toUpperCase(), margin, y);
+      y += 4;
+
+      doc.setTextColor.apply(doc, teal);
+      doc.setFont('helvetica','bold');
+      doc.setFontSize(9);
+      var lines = doc.splitTextToSize(val, contentW);
+      lines.forEach(function(line) {
+        if (y > 273) { footer(); doc.addPage(); header(); y = 34; }
+        doc.text(line, margin, y);
+        y += 5;
+      });
+
+      doc.setDrawColor.apply(doc, sand);
+      doc.setLineWidth(0.3);
+      doc.line(margin, y + 1, margin + contentW, y + 1);
+      y += 5;
+    });
+    y += 3;
+  });
+
+  // Footers on all pages
+  var total = doc.getNumberOfPages();
+  for (var p = 1; p <= total; p++) { doc.setPage(p); footer(p, total); }
+
+  var fname = 'TSW_Questionnaire_' + (clientName || 'Client').replace(/\s+/g,'_') + '.pdf';
+  doc.save(fname);
+}
+
+// ── Form submit handler ─────────────────────────────────────────────────────
+document.getElementById('tsw-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  var formEl = this;
+  var btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
+
+  // Collect fields
+  var raw = new FormData(formEl);
+  var fields = {}, arrays = {};
+  for (var pair of raw.entries()) {
+    var k = pair[0], v = String(pair[1]).trim();
+    if (!v) continue;
+    var cleanKey = k.replace(/\[\]$/, '');
+    if (k.endsWith('[]')) {
+      if (!arrays[cleanKey]) { arrays[cleanKey] = []; }
+      arrays[cleanKey].push(v);
+    } else {
+      fields[cleanKey] = v;
+    }
+  }
+  for (var key in arrays) { fields[key] = arrays[key].join(', '); }
+
+  var clientName = fields['full_name'] || 'Client';
+
+  // 1. Generate + download PDF for client
+  try { generatePDF(fields, clientName); } catch(err) { console.warn('PDF error:', err); }
+
+  // 2. Submit to Formsubmit
+  var payload = Object.assign({}, fields, {
+    _subject: 'TSW Pre-Consultation Questionnaire — ' + clientName,
+    _template: 'table',
+    _autoresponse: 'Thank you for completing our questionnaire, ' + clientName.split(' ')[0] + '.\n\nWe look forward to speaking with you soon.\n\nWarm regards,\nEmily\nThe Style Workshop\nthestyleworkshop.com.au  |  +61 407 487 498',
+    _captcha: 'false'
+  });
+
+  try {
+    await fetch('https://formsubmit.co/ajax/emily@thestyleworkshop.com.au', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+  } catch(err) {
+    console.warn('Formsubmit error:', err);
+  }
+
+  // 3. Show thank-you
+  formEl.style.display = 'none';
   document.getElementById('thank-you').style.display = 'block';
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 </script>
 </body></html>
