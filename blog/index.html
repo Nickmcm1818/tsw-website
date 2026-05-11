@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Journal | The Style Workshop — Interior Design Sydney</title>
+  <meta name="description" content="Design thinking, process insights, and considered advice from The Style Workshop — a boutique interior design studio on Sydney's Lower North Shore." />
+  <link rel="canonical" href="https://www.thestyleworkshop.com.au/blog/" />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --dusty-blue: #7E8A94;
+      --dark-teal:  #1E3D53;
+      --warm-grey:  #AEB0AC;
+      --warm-tan:   #BDB7A2;
+      --olive-sage: #636D5E;
+      --off-white:  #F5F3EF;
+      --logo-dark:  #838A8F;
+      --logo-light: #A8AEB3;
+      --black:      #1A1A1A;
+      --mid-grey:   #404040;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--off-white); color: var(--black); font-family: 'Jost', sans-serif; font-weight: 400; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 18px 60px; background: rgba(245,243,239,0.97); border-bottom: 1px solid rgba(174,176,172,0.3); box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+    .nav-logo { display: flex; flex-direction: column; align-items: center; text-decoration: none; gap: 2px; flex-shrink: 0; }
+    #tsw-logo-nav { height: 70px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 44px; list-style: none; }
+    .nav-links a { font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 600; color: var(--dark-teal); text-decoration: none; letter-spacing: 0.14em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--dusty-blue); }
+    .nav-social { display: flex; align-items: center; gap: 16px; }
+    .nav-social a { color: var(--dark-teal); display: flex; align-items: center; transition: color 0.2s; }
+    .nav-social a:hover { color: var(--dusty-blue); }
+    .nav-cta { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--off-white); background: var(--dark-teal); border: none; padding: 14px 28px; text-decoration: none; transition: background 0.25s; }
+    .nav-cta:hover { background: var(--dusty-blue); }
+
+    /* PAGE */
+    .blog-page { padding: 160px 60px 100px; max-width: 1280px; margin: 0 auto; }
+    .blog-page-head { margin-bottom: 64px; border-bottom: 1px solid rgba(174,176,172,0.3); padding-bottom: 32px; display: flex; align-items: flex-end; justify-content: space-between; }
+    .section-tag { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 0.35em; text-transform: uppercase; color: var(--dusty-blue); margin-bottom: 10px; }
+    .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 400; color: var(--dark-teal); line-height: 1.1; }
+    .blog-count { font-family: 'Jost', sans-serif; font-size: 12px; color: var(--warm-grey); letter-spacing: 0.08em; }
+
+    /* FILTERS */
+    .blog-filters { display: flex; gap: 12px; margin-bottom: 48px; flex-wrap: wrap; }
+    .filter-btn { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; padding: 8px 20px; border: 1px solid rgba(174,176,172,0.5); background: transparent; color: var(--mid-grey); cursor: pointer; transition: all 0.2s; }
+    .filter-btn:hover, .filter-btn.active { background: var(--dark-teal); color: var(--off-white); border-color: var(--dark-teal); }
+
+    /* GRID */
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+    .blog-card { display: flex; flex-direction: column; background: #fff; border: 1px solid rgba(174,176,172,0.22); transition: box-shadow 0.25s, border-color 0.25s; text-decoration: none; color: inherit; }
+    .blog-card:hover { box-shadow: 0 8px 32px rgba(30,61,83,0.09); border-color: rgba(126,138,148,0.4); }
+    .blog-card-img { width: 100%; aspect-ratio: 4/3; background: var(--dark-teal); overflow: hidden; position: relative; }
+    .blog-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .blog-card:hover .blog-card-img img { transform: scale(1.03); }
+    .blog-card-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: rgba(245,243,239,0.3); font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; }
+    .blog-card-body { padding: 28px 28px 32px; display: flex; flex-direction: column; flex: 1; }
+    .blog-card-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .blog-card-tag { font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--off-white); background: var(--dusty-blue); padding: 4px 10px; }
+    .blog-card-date { font-family: 'Jost', sans-serif; font-size: 11px; color: var(--warm-grey); letter-spacing: 0.04em; }
+    .blog-card-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; line-height: 1.25; color: var(--dark-teal); margin-bottom: 12px; }
+    .blog-card-excerpt { font-family: 'Jost', sans-serif; font-size: 13px; line-height: 1.7; color: var(--mid-grey); flex: 1; margin-bottom: 24px; }
+    .blog-card-link { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dark-teal); display: inline-flex; align-items: center; gap: 8px; text-decoration: none; border-bottom: 1px solid var(--warm-tan); padding-bottom: 2px; align-self: flex-start; transition: color 0.2s, border-color 0.2s; }
+    .blog-card-link:hover { color: var(--dusty-blue); border-color: var(--dusty-blue); }
+
+    /* COMING SOON CARDS */
+    .blog-card-coming { opacity: 0.45; pointer-events: none; }
+
+    /* FOOTER */
+    footer { background: var(--dark-teal); padding: 64px 60px 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand p { font-family: 'Jost', sans-serif; font-size: 13px; line-height: 1.7; color: rgba(245,243,239,0.55); margin-top: 16px; }
+    .footer-col h3 { font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(245,243,239,0.4); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-family: 'Jost', sans-serif; font-size: 13px; color: rgba(245,243,239,0.6); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--off-white); }
+    .footer-bottom { border-top: 1px solid rgba(245,243,239,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { font-family: 'Jost', sans-serif; font-size: 12px; color: rgba(245,243,239,0.35); }
+    .footer-social { display: flex; gap: 16px; }
+    .footer-social a { color: rgba(245,243,239,0.4); display: flex; align-items: center; transition: color 0.2s; }
+    .footer-social a:hover { color: var(--warm-tan); }
+
+    @media (max-width: 1024px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } nav { padding: 14px 32px; } .blog-page { padding: 140px 40px 80px; } }
+    @media (max-width: 640px) { .blog-grid { grid-template-columns: 1fr; } nav { padding: 12px 20px; } .nav-links { display: none; } .nav-social { display: none; } .blog-page { padding: 120px 20px 60px; } .footer-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../" class="nav-logo">
+    <img src="../tsw_logo_transparent.webp" alt="The Style Workshop" id="tsw-logo-nav" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="../#services">Services</a></li>
+    <li><a href="../#portfolio">Projects</a></li>
+    <li><a href="../#process">Process</a></li>
+    <li><a href="../#packages">Packages</a></li>
+    <li><a href="../#about">About</a></li>
+    <li><a href="../blog/" class="active">Journal</a></li>
+    <li><a href="../#enquiry">Contact</a></li>
+  </ul>
+  <div class="nav-social">
+    <a href="https://www.instagram.com/styleworkshop" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+  </div>
+  <a href="../#enquiry" class="nav-cta">Book a Consultation</a>
+</nav>
+
+<main class="blog-page">
+  <div class="blog-page-head">
+    <div>
+      <div class="section-tag">The Style Workshop</div>
+      <h1 class="page-title">Journal</h1>
+    </div>
+    <span class="blog-count">7 posts published</span>
+  </div>
+
+  <div class="blog-filters">
+    <button class="filter-btn active" onclick="filterPosts('all', this)">All</button>
+    <button class="filter-btn" onclick="filterPosts('Service', this)">Service</button>
+    <button class="filter-btn" onclick="filterPosts('Location', this)">Location</button>
+    <button class="filter-btn" onclick="filterPosts('Inspiration', this)">Inspiration</button>
+  </div>
+
+  <div class="blog-grid" id="blogGrid">
+
+    <a class="blog-card" href="what-happens-at-an-interior-design-consultation/" data-pillar="Service">
+      <div class="blog-card-img"><div class="blog-card-img-placeholder">Image coming soon</div></div>
+      <div class="blog-card-body">
+        <div class="blog-card-meta">
+          <span class="blog-card-tag">Service</span>
+          <span class="blog-card-date">1 June 2026</span>
+        </div>
+        <h2 class="blog-card-title">What Happens at an Interior Design Consultation?</h2>
+        <p class="blog-card-excerpt">A transparent walkthrough of the TSW Initial Consultation — what the 90-minute visit covers, what you receive within three business days, and who it suits.</p>
+        <span class="blog-card-link">Read &rarr;</span>
+      </div>
+    </a>
+
+    <div class="blog-card blog-card-coming" data-pillar="Location">
+      <div class="blog-card-img"><div class="blog-card-img-placeholder">Coming 15 Jun</div></div>
+      <div class="blog-card-body">
+        <div class="blog-card-meta">
+          <span class="blog-card-tag">Location</span>
+          <span class="blog-card-date">15 June 2026</span>
+        </div>
+        <h2 class="blog-card-title">Designing in Mosman: How to Honour Heritage Without Losing Light</h2>
+        <p class="blog-card-excerpt">How to work with Federation detail, original joinery, and period character — without sacrificing the light and considered modernity a Mosman home deserves.</p>
+        <span class="blog-card-link">Coming soon</span>
+      </div>
+    </div>
+
+    <div class="blog-card blog-card-coming" data-pillar="Inspiration">
+      <div class="blog-card-img"><div class="blog-card-img-placeholder">Coming 6 Jul</div></div>
+      <div class="blog-card-body">
+        <div class="blog-card-meta">
+          <span class="blog-card-tag">Inspiration</span>
+          <span class="blog-card-date">6 July 2026</span>
+        </div>
+        <h2 class="blog-card-title">Why We Always Start With Neutral: The Case for a Considered Palette</h2>
+        <p class="blog-card-excerpt">Not a safe default but a deliberate, sophisticated choice. How neutrals work across different architectural contexts — and why they are never boring when used with intention.</p>
+        <span class="blog-card-link">Coming soon</span>
+      </div>
+    </div>
+
+    <div class="blog-card blog-card-coming" data-pillar="Location">
+      <div class="blog-card-img"><div class="blog-card-img-placeholder">Coming 20 Jul</div></div>
+      <div class="blog-card-body">
+        <div class="blog-card-meta">
+          <span class="blog-card-tag">Location</span>
+          <span class="blog-card-date">20 July 2026</span>
+        </div>
+        <h2 class="blog-card-title">Designing for North Shore Homes: Character, Light and Proportion</h2>
+        <p class="blog-card-excerpt">The North Shore has a distinct architectural vocabulary. This post explores the design principles that work particularly well in this context.</p>
+        <span class="blog-card-link">Coming soon</span>
+      </div>
+    </div>
+
+    <div class="blog-card blog-card-coming" data-pillar="Service">
+      <div class="blog-card-img"><div class="blog-card-img-placeholder">Coming 3 Aug</div></div>
+      <div class="blog-card-body">
+        <div class="blog-card-meta">
+          <span class="blog-card-tag">Service</span>
+          <span class="blog-card-date">3 August 2026</span>
+        </div>
+        <h2 class="blog-card-title">Room Edit vs Full Design: Which Service Do You Actually Need?</h2>
+        <p class="blog-card-excerpt">Not sure whether a Room Edit or Design Edit is right? This post walks through the key differences and helps you self-select before making contact.</p>
+        <span class="blog-card-link">Coming soon</span>
+      </div>
+    </div>
+
+    <div class="blog-card blog-card-coming" data-pillar="Inspiration">
+      <div class="blog-card-img"><div class="blog-card-img-placeholder">Coming 17 Aug</div></div>
+      <div class="blog-card-body">
+        <div class="blog-card-meta">
+          <span class="blog-card-tag">Inspiration</span>
+          <span class="blog-card-date">17 August 2026</span>
+        </div>
+        <h2 class="blog-card-title">Five Pieces Worth Investing In for Your Living Room</h2>
+        <p class="blog-card-excerpt">A curated guide to the furniture investments that make the biggest difference to a living room's quality and longevity.</p>
+        <span class="blog-card-link">Coming soon</span>
+      </div>
+    </div>
+
+    <div class="blog-card blog-card-coming" data-pillar="Location">
+      <div class="blog-card-img"><div class="blog-card-img-placeholder">Coming 7 Sep</div></div>
+      <div class="blog-card-body">
+        <div class="blog-card-meta">
+          <span class="blog-card-tag">Location</span>
+          <span class="blog-card-date">7 September 2026</span>
+        </div>
+        <h2 class="blog-card-title">Eastern Suburbs Apartments: Making the Most of Views and Compact Spaces</h2>
+        <p class="blog-card-excerpt">How to maximise space, create calm in smaller footprints, and design around views without letting them dominate at the expense of comfort.</p>
+        <span class="blog-card-link">Coming soon</span>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="../tsw_logo_transparent.webp" alt="The Style Workshop" style="height:80px;width:auto;display:block;margin-bottom:16px;filter:brightness(0) invert(1);" />
+      <p>A boutique interior design studio on Sydney's Lower North Shore. Considered residential interiors, from curated room refreshes to full home transformations.</p>
+      <p style="margin-top:12px;"><a href="mailto:emily@thestyleworkshop.com.au" style="color:rgba(245,243,239,0.55);text-decoration:none;">emily@thestyleworkshop.com.au</a></p>
+    </div>
+    <div class="footer-col"><h3>Studio</h3><ul>
+      <li><a href="../#about">About</a></li>
+      <li><a href="../#process">Our Process</a></li>
+      <li><a href="../blog/">Journal</a></li>
+      <li><a href="../#enquiry">Contact</a></li>
+    </ul></div>
+    <div class="footer-col"><h3>Work</h3><ul>
+      <li><a href="../#portfolio">Selected Projects</a></li>
+      <li><a href="../#services">Interior Design</a></li>
+      <li><a href="../#services">Decoration &amp; Styling</a></li>
+    </ul></div>
+    <div class="footer-col"><h3>Services</h3><ul>
+      <li><a href="../#packages">Design Packages</a></li>
+      <li><a href="../#enquiry">Book a Consultation</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 The Style Workshop &middot; Sydney, Australia &middot; ABN 9161 128 9462</p>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/styleworkshop" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.pinterest.com.au/styleworkshop/" target="_blank" rel="noopener" aria-label="Pinterest">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.03-2.83.19-.77 1.26-5.33 1.26-5.33s-.32-.65-.32-1.6c0-1.5.87-2.63 1.95-2.63.92 0 1.37.69 1.37 1.52 0 .93-.59 2.31-.9 3.59-.25 1.07.54 1.95 1.59 1.95 1.91 0 3.19-2.46 3.19-5.38 0-2.22-1.49-3.88-4.18-3.88-3.04 0-4.93 2.27-4.93 4.8 0 .87.25 1.48.64 1.95.18.21.2.3.14.54-.05.17-.15.59-.19.75-.06.24-.25.33-.46.24-1.31-.54-1.92-1.99-1.92-3.62 0-2.69 2.27-5.93 6.79-5.93 3.63 0 6.01 2.63 6.01 5.46 0 3.74-2.07 6.55-5.12 6.55-1.02 0-1.99-.55-2.32-1.18l-.63 2.49c-.23.87-.84 1.96-1.25 2.62.94.29 1.94.45 2.97.45 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function filterPosts(pillar, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.blog-card').forEach(card => {
+    if (pillar === 'all' || card.dataset.pillar === pillar) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>
