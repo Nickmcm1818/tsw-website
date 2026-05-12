@@ -14,8 +14,7 @@
     { "source": "/about-us",               "destination": "/#about",    "permanent": true },
     { "source": "/about-us/:path*",        "destination": "/#about",    "permanent": true },
     { "source": "/about",                  "destination": "/#about",    "permanent": true },
-    { "source": "/contact",                "destination": "/#contact",  "permanent": true },
-
+    { "source": "/contact",                "destination": "/#contact",  "permanent": true }
   ],
   "rewrites": [
     { "source": "/blog/:path*", "destination": "/blog/:path*" },
