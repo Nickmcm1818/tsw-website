@@ -15,10 +15,7 @@
     { "source": "/about-us/:path*",        "destination": "/#about",    "permanent": true },
     { "source": "/about",                  "destination": "/#about",    "permanent": true },
     { "source": "/contact",                "destination": "/#contact",  "permanent": true },
-    { "source": "/journal",                "destination": "/",          "permanent": true },
-    { "source": "/journal/:path*",         "destination": "/",          "permanent": true },
-    { "source": "/blog",                   "destination": "/",          "permanent": true },
-    { "source": "/blog/:path*",            "destination": "/",          "permanent": true }
+
   ],
   "rewrites": [
     { "source": "/:path*", "destination": "/index.html" }
