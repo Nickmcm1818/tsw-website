@@ -291,13 +291,13 @@
       flex-shrink: 0;
     }
     #tsw-logo-nav {
-      height: 100px; width: auto; display: block;
+      height: 120px; width: auto; display: block;
       filter: brightness(0) invert(1);
       transition: filter 0.4s, height 0.4s;
     }
     nav.scrolled #tsw-logo-nav {
-      height: 80px;
-      filter: none;
+      height: 100px;
+      filter: brightness(0) saturate(100%) invert(19%) sepia(45%) saturate(700%) hue-rotate(170deg) brightness(87%);
     }
     .nav-tagline {
       font-family: 'Jost', sans-serif;
@@ -1862,8 +1862,8 @@
     @media (max-width: 900px) {
       nav { padding: 14px 24px; }
       nav.scrolled { padding: 10px 24px; }
-      #tsw-logo-nav { height: 88px; }
-      nav.scrolled #tsw-logo-nav { height: 72px; }
+      #tsw-logo-nav { height: 105px; }
+      nav.scrolled #tsw-logo-nav { height: 88px; }
       .nav-links { display: none; }
       .hamburger-menu { display: flex; }
       .nav-social { display: none; }
@@ -1905,8 +1905,8 @@
     @media (max-width: 768px) {
       nav { padding: 12px 20px; }
       nav.scrolled { padding: 8px 20px; }
-      #tsw-logo-nav { height: 80px; }
-      nav.scrolled #tsw-logo-nav { height: 64px; }
+      #tsw-logo-nav { height: 96px; }
+      nav.scrolled #tsw-logo-nav { height: 78px; }
       section { padding: 60px 20px; }
       .hero { min-height: 600px; }
       .hero-h1 { font-size: clamp(28px, 5vw, 48px); }
