@@ -4,10 +4,22 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options",  "value": "nosniff" },
-        { "key": "X-Frame-Options",          "value": "SAMEORIGIN" },
-        { "key": "Referrer-Policy",          "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy",       "value": "camera=(), microphone=(), geolocation=()" },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
         {
           "key": "Content-Security-Policy",
           "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-src 'none';"
@@ -16,26 +28,101 @@
     }
   ],
   "redirects": [
-    { "source": "/past-projects",          "destination": "/#projects", "permanent": true },
-    { "source": "/past-projects/:path*",   "destination": "/#projects", "permanent": true },
-    { "source": "/interiors",              "destination": "/#projects", "permanent": true },
-    { "source": "/interiors/:path*",       "destination": "/#projects", "permanent": true },
-    { "source": "/styling",                "destination": "/#projects", "permanent": true },
-    { "source": "/styling/:path*",         "destination": "/#projects", "permanent": true },
-    { "source": "/our-services",           "destination": "/#packages", "permanent": true },
-    { "source": "/our-services/:path*",    "destination": "/#packages", "permanent": true },
-    { "source": "/services",               "destination": "/#packages", "permanent": true },
-    { "source": "/services/:path*",        "destination": "/#packages", "permanent": true },
-    { "source": "/about-us",               "destination": "/#about",    "permanent": true },
-    { "source": "/about-us/:path*",        "destination": "/#about",    "permanent": true },
-    { "source": "/about",                  "destination": "/#about",    "permanent": true },
-    { "source": "/contact",                "destination": "/#contact",  "permanent": true }
+    {
+      "source": "/past-projects",
+      "destination": "/#projects",
+      "permanent": true
+    },
+    {
+      "source": "/past-projects/:path*",
+      "destination": "/#projects",
+      "permanent": true
+    },
+    {
+      "source": "/interiors",
+      "destination": "/#projects",
+      "permanent": true
+    },
+    {
+      "source": "/interiors/:path*",
+      "destination": "/#projects",
+      "permanent": true
+    },
+    {
+      "source": "/styling",
+      "destination": "/#projects",
+      "permanent": true
+    },
+    {
+      "source": "/styling/:path*",
+      "destination": "/#projects",
+      "permanent": true
+    },
+    {
+      "source": "/our-services",
+      "destination": "/#packages",
+      "permanent": true
+    },
+    {
+      "source": "/our-services/:path*",
+      "destination": "/#packages",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/#packages",
+      "permanent": true
+    },
+    {
+      "source": "/services/:path*",
+      "destination": "/#packages",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/#about",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/:path*",
+      "destination": "/#about",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/#about",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/#contact",
+      "permanent": true
+    }
   ],
   "rewrites": [
-    { "source": "/llms.txt",    "destination": "/llms.txt" },
-    { "source": "/robots.txt",  "destination": "/robots.txt" },
-    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
-    { "source": "/blog/:path*", "destination": "/blog/:path*" },
-    { "source": "/:path*",      "destination": "/index.html" }
+    {
+      "source": "/llms.txt",
+      "destination": "/llms.txt"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml"
+    },
+    {
+      "source": "/blog/:path*",
+      "destination": "/blog/:path*"
+    },
+    {
+      "source": "/suburbs/:path*",
+      "destination": "/suburbs/:path*"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/index.html"
+    }
   ]
 }
