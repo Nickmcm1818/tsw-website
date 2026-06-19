@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- ─── PRIMARY SEO ──────────────────────────────────────────────── -->
-  <title>The Style Workshop | Interior Designer Sydney | Lower North Shore</title>
+  <title>Interior Designer Sydney | The Style Workshop</title>
   <meta name="description" content="Boutique interior design studio on Sydney's Lower North Shore. Emily Webster creates considered residential interiors, from room refreshes to full renovations." />
-  <meta name="keywords" content="interior designer Sydney, interior designer Mosman, interior designer Cremorne, interior designer Neutral Bay, interior designer North Sydney, interior designer Cammeray, interior designer North Shore, interior designer Lower North Shore, interior design Lower North Shore, interior decorator Sydney, residential interior design, interior styling Sydney, home renovation Sydney, interior design Eastern Suburbs" />
   <meta name="author" content="Emily Webster, The Style Workshop" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.thestyleworkshop.com.au/" />
@@ -45,6 +44,7 @@
   {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "ProfessionalService"],
+    "@id": "https://www.thestyleworkshop.com.au/#business",
     "name": "The Style Workshop",
     "description": "A boutique interior design studio on Sydney's Lower North Shore, specialising in considered residential interiors, from curated room refreshes and decoration to full interior design projects.",
     "url": "https://www.thestyleworkshop.com.au",
@@ -242,6 +242,89 @@
       "description": "Refined decoration service including furniture selection, custom upholstery, window treatments, colour consultation, art styling and full coordination of delivery and installation."
     }
   ]
+  </script>
+
+
+  <!-- ─── PERSON SCHEMA ───────────────────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.thestyleworkshop.com.au/#emily-webster",
+    "name": "Emily Webster",
+    "jobTitle": "Principal Interior Designer",
+    "email": "emily@thestyleworkshop.com.au",
+    "telephone": "+61407487498",
+    "worksFor": { "@id": "https://www.thestyleworkshop.com.au/#business" },
+    "sameAs": [
+      "https://www.instagram.com/styleworkshop",
+      "https://www.facebook.com/styleworkshop70",
+      "https://www.pinterest.com.au/styleworkshop/"
+    ]
+  }
+  </script>
+
+  <!-- ─── WEBSITE SCHEMA ──────────────────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.thestyleworkshop.com.au/#website",
+    "name": "The Style Workshop",
+    "url": "https://www.thestyleworkshop.com.au",
+    "publisher": { "@id": "https://www.thestyleworkshop.com.au/#business" }
+  }
+  </script>
+
+  <!-- ─── HOWTO SCHEMA (design process) ──────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How The Style Workshop Interior Design Process Works",
+    "description": "A considered four-step process from first contact to the finished result.",
+    "provider": { "@id": "https://www.thestyleworkshop.com.au/#business" },
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": "1",
+        "name": "Discovery Call",
+        "text": "Every project begins with a complimentary discovery call to discuss your brief, timeline and budget. No obligation, simply an open and honest conversation."
+      },
+      {
+        "@type": "HowToStep",
+        "position": "2",
+        "name": "On-Site Consultation",
+        "text": "We visit your home from our Mosman studio, walking through the space together to understand your style, needs and aspirations firsthand."
+      },
+      {
+        "@type": "HowToStep",
+        "position": "3",
+        "name": "Design Proposal",
+        "text": "Following the initial visit, we provide a detailed fee proposal based on the scope of your project. Clear, transparent and tailored to what you actually need."
+      },
+      {
+        "@type": "HowToStep",
+        "position": "4",
+        "name": "Design & Delivery",
+        "text": "From initial concept through to final styling, we manage every detail, from furniture and finishes to trades and suppliers, allowing you to simply enjoy the outcome."
+      }
+    ]
+  }
+  </script>
+
+  <!-- ─── SPEAKABLE SCHEMA (FAQ + hero copy) ──────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "The Style Workshop — Interior Designer Sydney",
+    "url": "https://www.thestyleworkshop.com.au/",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".faq-a p", ".hero-h1", ".hero-sub"]
+    }
+  }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -2158,7 +2241,7 @@
 <!-- ─── NAVIGATION ──────────────────────────────────────────────────── -->
 <nav id="mainNav">
   <a href="#" class="nav-logo">
-    <img src="tsw_logo_transparent.webp" alt="The Style Workshop" id="tsw-logo-nav" />
+    <img src="tsw_logo_transparent.webp" alt="The Style Workshop" id="tsw-logo-nav" width="1306" height="711" />
   </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
@@ -3024,7 +3107,7 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <img src="tsw_logo_transparent.webp" alt="The Style Workshop" style="height:90px; width:auto; display:block; margin-bottom:16px; filter:brightness(0) invert(1);" />
+      <img src="tsw_logo_transparent.webp" alt="The Style Workshop" width="1306" height="711" style="height:90px; width:auto; display:block; margin-bottom:16px; filter:brightness(0) invert(1);" />
       <p>A boutique interior design studio, located on Sydney's Lower North Shore. Specialising in considered residential interiors, from curated room refreshes to full residential projects.</p>
       <p style="margin-top:16px;"><a href="mailto:emily@thestyleworkshop.com.au" style="color:rgba(245,243,239,0.55);text-decoration:none;">emily@thestyleworkshop.com.au</a></p>
       <p><a href="tel:+61407487498" style="color:rgba(245,243,239,0.55);text-decoration:none;">+61 407 487 498</a></p>
