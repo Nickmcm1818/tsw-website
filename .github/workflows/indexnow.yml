@@ -1,7 +1,5 @@
-name: IndexNow — Notify Search Engines
+yamlname: IndexNow — Notify Search Engines
 
-# Triggers when Vercel marks a deployment as successful.
-# Fires automatically on every push to main once Vercel finishes deploying.
 on:
   deployment_status:
 
