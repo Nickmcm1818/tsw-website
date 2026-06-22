@@ -69,16 +69,6 @@
       "permanent": true
     },
     {
-      "source": "/services",
-      "destination": "/#packages",
-      "permanent": true
-    },
-    {
-      "source": "/services/:path*",
-      "destination": "/#packages",
-      "permanent": true
-    },
-    {
       "source": "/about-us",
       "destination": "/#about",
       "permanent": true
@@ -97,36 +87,6 @@
       "source": "/contact",
       "destination": "/#contact",
       "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/llms.txt",
-      "destination": "/llms.txt"
-    },
-    {
-      "source": "/robots.txt",
-      "destination": "/robots.txt"
-    },
-    {
-      "source": "/sitemap.xml",
-      "destination": "/sitemap.xml"
-    },
-    {
-      "source": "/blog/:path*",
-      "destination": "/blog/:path*"
-    },
-    {
-      "source": "/suburbs/:path*",
-      "destination": "/suburbs/:path*"
-    },
-    {
-      "source": "/services/:path*",
-      "destination": "/services/:path*"
-    },
-    {
-      "source": "/:path*",
-      "destination": "/index.html"
     }
   ]
 }
