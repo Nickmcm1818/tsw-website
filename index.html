@@ -2902,23 +2902,80 @@
     </div>
     <a href="blog/" class="journal-view-all">Visit the Journal &rarr;</a>
   </div>
-  <div class="journal-posts" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:36px; margin-top:44px;">
-    <a href="blog/the-art-of-layering/" style="text-decoration:none; color:inherit; display:block;">
-      <div style="font-family:'Jost',sans-serif; font-size:10px; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:var(--dusty-blue); margin-bottom:12px;">Styling &middot; 29 May 2026</div>
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:400; line-height:1.25; color:var(--dark-teal); margin-bottom:10px;">The Art of Layering: How to Style a Room That Feels Complete</h3>
-      <p style="font-family:'Jost',sans-serif; font-size:13px; font-weight:300; line-height:1.7; color:var(--mid-grey);">How to build depth and completeness in a room, from foundation to finishing layer.</p>
-    </a>
-    <a href="blog/what-happens-at-an-interior-design-consultation/" style="text-decoration:none; color:inherit; display:block;">
-      <div style="font-family:'Jost',sans-serif; font-size:10px; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:var(--dusty-blue); margin-bottom:12px;">Service &middot; 22 May 2026</div>
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:400; line-height:1.25; color:var(--dark-teal); margin-bottom:10px;">What Happens at an Interior Design Consultation?</h3>
-      <p style="font-family:'Jost',sans-serif; font-size:13px; font-weight:300; line-height:1.7; color:var(--mid-grey);">Exactly what our Initial Consultation includes, and what you walk away with.</p>
-    </a>
-    <a href="blog/when-is-the-right-time-to-hire-an-interior-designer/" style="text-decoration:none; color:inherit; display:block;">
-      <div style="font-family:'Jost',sans-serif; font-size:10px; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:var(--dusty-blue); margin-bottom:12px;">Service &middot; 12 May 2026</div>
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:400; line-height:1.25; color:var(--dark-teal); margin-bottom:10px;">When Is the Right Time to Hire an Interior Designer?</h3>
-      <p style="font-family:'Jost',sans-serif; font-size:13px; font-weight:300; line-height:1.7; color:var(--mid-grey);">Why the usual framing underestimates what a designer does, and what it costs to get decisions wrong.</p>
-    </a>
+  <!-- Journal carousel -->
+  <div style="position:relative; margin-top:44px;">
+    <!-- Prev arrow -->
+    <button id="journal-prev" onclick="journalScroll(-1)" aria-label="Previous posts" style="position:absolute; left:-20px; top:50%; transform:translateY(-50%); z-index:2; background:none; border:1px solid var(--dark-teal); color:var(--dark-teal); width:40px; height:40px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:16px; transition:background 0.2s, color 0.2s; opacity:0.35;" onmouseover="this.style.background='var(--dark-teal)';this.style.color='#fff';" onmouseout="this.style.background='none';this.style.color='var(--dark-teal)';">&#8592;</button>
+    <!-- Track -->
+    <div id="journal-track-wrap" style="overflow:hidden;">
+      <div id="journal-track" style="display:flex; gap:36px; transition:transform 0.4s ease;">
+        <!-- Post 1 – newest -->
+        <a href="blog/not-all-whites-are-equal/" style="text-decoration:none; color:inherit; display:block; flex:0 0 calc(33.333% - 24px); min-width:220px;">
+          <div style="font-family:'Jost',sans-serif; font-size:10px; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:var(--dusty-blue); margin-bottom:12px;">Design Advice &middot; 19 June 2026</div>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:400; line-height:1.25; color:var(--dark-teal); margin-bottom:10px;">Not All Whites Are Equal: How to Choose the Right White for Your Home</h3>
+          <p style="font-family:'Jost',sans-serif; font-size:13px; font-weight:300; line-height:1.7; color:var(--mid-grey);">White is one of the most requested colours in residential interiors, and one of the most misunderstood.</p>
+        </a>
+        <!-- Post 2 -->
+        <a href="blog/a-considered-guide-to-window-furnishings/" style="text-decoration:none; color:inherit; display:block; flex:0 0 calc(33.333% - 24px); min-width:220px;">
+          <div style="font-family:'Jost',sans-serif; font-size:10px; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:var(--dusty-blue); margin-bottom:12px;">Design Advice &middot; 12 June 2026</div>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:400; line-height:1.25; color:var(--dark-teal); margin-bottom:10px;">A Considered Guide to Window Furnishings</h3>
+          <p style="font-family:'Jost',sans-serif; font-size:13px; font-weight:300; line-height:1.7; color:var(--mid-grey);">Window furnishings are one of the decisions clients most consistently underestimate, and one of the most impactful when done well.</p>
+        </a>
+        <!-- Post 3 -->
+        <a href="blog/winter-interiors/" style="text-decoration:none; color:inherit; display:block; flex:0 0 calc(33.333% - 24px); min-width:220px;">
+          <div style="font-family:'Jost',sans-serif; font-size:10px; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:var(--dusty-blue); margin-bottom:12px;">Styling &middot; 5 June 2026</div>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:400; line-height:1.25; color:var(--dark-teal); margin-bottom:10px;">Winter Interiors: Small Changes That Make a Home Feel Warm &amp; Cosy</h3>
+          <p style="font-family:'Jost',sans-serif; font-size:13px; font-weight:300; line-height:1.7; color:var(--mid-grey);">The cooler months ask something of a home that summer does not.</p>
+        </a>
+        <!-- Post 4 -->
+        <a href="blog/the-art-of-layering/" style="text-decoration:none; color:inherit; display:block; flex:0 0 calc(33.333% - 24px); min-width:220px;">
+          <div style="font-family:'Jost',sans-serif; font-size:10px; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:var(--dusty-blue); margin-bottom:12px;">Styling &middot; 29 May 2026</div>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:400; line-height:1.25; color:var(--dark-teal); margin-bottom:10px;">The Art of Layering: How to Style a Room That Feels Complete</h3>
+          <p style="font-family:'Jost',sans-serif; font-size:13px; font-weight:300; line-height:1.7; color:var(--mid-grey);">How to build depth and completeness in a room, from foundation to finishing layer.</p>
+        </a>
+        <!-- Post 5 -->
+        <a href="blog/what-happens-at-an-interior-design-consultation/" style="text-decoration:none; color:inherit; display:block; flex:0 0 calc(33.333% - 24px); min-width:220px;">
+          <div style="font-family:'Jost',sans-serif; font-size:10px; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:var(--dusty-blue); margin-bottom:12px;">Service &middot; 22 May 2026</div>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:400; line-height:1.25; color:var(--dark-teal); margin-bottom:10px;">What Happens at an Interior Design Consultation?</h3>
+          <p style="font-family:'Jost',sans-serif; font-size:13px; font-weight:300; line-height:1.7; color:var(--mid-grey);">Exactly what our Initial Consultation includes, and what you walk away with.</p>
+        </a>
+        <!-- Post 6 -->
+        <a href="blog/when-is-the-right-time-to-hire-an-interior-designer/" style="text-decoration:none; color:inherit; display:block; flex:0 0 calc(33.333% - 24px); min-width:220px;">
+          <div style="font-family:'Jost',sans-serif; font-size:10px; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:var(--dusty-blue); margin-bottom:12px;">Service &middot; 12 May 2026</div>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:400; line-height:1.25; color:var(--dark-teal); margin-bottom:10px;">When Is the Right Time to Hire an Interior Designer?</h3>
+          <p style="font-family:'Jost',sans-serif; font-size:13px; font-weight:300; line-height:1.7; color:var(--mid-grey);">Why the usual framing underestimates what a designer does, and what it costs to get decisions wrong.</p>
+        </a>
+      </div>
+    </div>
+    <!-- Next arrow -->
+    <button id="journal-next" onclick="journalScroll(1)" aria-label="Next posts" style="position:absolute; right:-20px; top:50%; transform:translateY(-50%); z-index:2; background:none; border:1px solid var(--dark-teal); color:var(--dark-teal); width:40px; height:40px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:16px; transition:background 0.2s, color 0.2s;" onmouseover="this.style.background='var(--dark-teal)';this.style.color='#fff';" onmouseout="this.style.background='none';this.style.color='var(--dark-teal)';">&#8594;</button>
   </div>
+  <script>
+  (function(){
+    var pos = 0;
+    var total = 6;
+    var perPage = 3;
+    function updateArrows(){
+      document.getElementById('journal-prev').style.opacity = pos === 0 ? '0.35' : '1';
+      document.getElementById('journal-next').style.opacity = pos >= total - perPage ? '0.35' : '1';
+    }
+    function getPerPage(){
+      return window.innerWidth < 640 ? 1 : window.innerWidth < 960 ? 2 : 3;
+    }
+    window.journalScroll = function(dir){
+      perPage = getPerPage();
+      var max = total - perPage;
+      pos = Math.max(0, Math.min(pos + dir, max));
+      var wrap = document.getElementById('journal-track-wrap');
+      var cardW = wrap.offsetWidth / perPage;
+      var gap = 36;
+      document.getElementById('journal-track').style.transform = 'translateX(-' + (pos * (cardW + gap / perPage)) + 'px)';
+      updateArrows();
+    };
+    window.addEventListener('resize', function(){ pos = 0; journalScroll(0); });
+    updateArrows();
+  })();
+  </script>
 </section>
 
 <!-- ─── FAQ ─────────────────────────────────────────────────────────── -->
