@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Designing with Federation Homes: Honouring the Past, Living in the Present | The Style Workshop Journal</title>
+  <meta name="description" content="Federation homes call for a careful hand. Here is how we approach renovating them, from preserving original character to opening up the plan for modern family life." />
+  <meta property="og:title" content="Designing with Federation Homes: Honouring the Past, Living in the Present" />
+  <meta property="og:description" content="Federation homes call for a careful hand. Here is how we approach renovating them, from preserving original character to opening up the plan for modern family life." />
+  <meta property="og:image" content="blog-images/hero-federation-facade-gable-tessellated-path.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #F5F3EF;
+      font-family: 'Jost', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      color: #404040;
+      line-height: 1.75;
+    }
+
+    /* NAV */
+    .nav {
+      background: #F5F3EF;
+      border-bottom: 1px solid #eeece8;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      color: #1E3D51;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: #1E3D51; }
+    .nav-cta {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      background: #1E3D51;
+      padding: 10px 20px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: #162e3d; }
+
+    /* LAYOUT */
+    .post-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* BACK LINK */
+    .back-link {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #999;
+      text-decoration: none;
+      margin-bottom: 36px;
+    }
+    .back-link:hover { color: #1E3D51; }
+
+    /* POST META */
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .category-badge {
+      background: #1E3D51;
+      color: #fff;
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      display: inline-block;
+    }
+    .meta-text {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      color: #999;
+      letter-spacing: 0.04em;
+    }
+    .meta-sep { color: #ccc; }
+
+    /* HEADINGS */
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 46px;
+      font-weight: 400;
+      color: #1E3D51;
+      line-height: 1.15;
+      margin-bottom: 28px;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: #1E3D51;
+      line-height: 1.25;
+      margin-top: 48px;
+      margin-bottom: 16px;
+    }
+    h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: #1E3D51;
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+
+    /* BODY COPY */
+    p {
+      font-family: 'Jost', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      color: #404040;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    p:last-of-type { margin-bottom: 0; }
+
+    /* PULL QUOTE */
+    .pull-quote {
+      border-left: 2px solid #1E3D51;
+      padding: 4px 0 4px 24px;
+      margin: 32px 0;
+    }
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      font-style: italic;
+      color: #1E3D51;
+      line-height: 1.55;
+      margin-bottom: 0;
+    }
+
+    /* IMAGES */
+    .post-img-contained { margin: 32px 0; }
+    .post-img-contained img { width: 100%; display: block; }
+
+    .post-img-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 32px 0 6px;
+    }
+    .pair-cell { display: flex; flex-direction: column; }
+    .pair-cell img { width: 100%; height: 500px; object-fit: cover; display: block; }
+
+    .post-img-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 32px 0 6px;
+    }
+    .grid-cell { display: flex; flex-direction: column; }
+    .grid-cell img { width: 100%; height: 500px; object-fit: cover; display: block; }
+
+    .caption {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      color: #aaa;
+      font-style: italic;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    /* AUTHOR */
+    .author-block {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin: 48px 0 32px;
+      padding-top: 32px;
+      border-top: 1px solid #eeece8;
+    }
+    .author-img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .author-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    .author-info .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: #1E3D51;
+      margin-bottom: 3px;
+    }
+    .author-info .title {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      color: #999;
+      font-weight: 300;
+    }
+
+    /* CTA */
+    .cta-box {
+      background: #1E3D51;
+      padding: 48px 48px;
+      text-align: center;
+      margin-top: 0;
+    }
+    .cta-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 14px;
+      margin-top: 0;
+    }
+    .cta-box p {
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 24px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-box a.btn {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: #fff;
+      background: #7D8B94;
+      padding: 13px 30px;
+      text-decoration: none;
+    }
+    .cta-box a.btn:hover { background: #6b7980; }
+
+    /* FOOTER */
+    .site-footer {
+      background: #1E3D51;
+      padding: 56px 40px 40px;
+      color: #a8bcc6;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto 48px;
+    }
+    .footer-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .footer-brand-desc {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: #a8bcc6;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .footer-email {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: #a8bcc6;
+      text-decoration: none;
+    }
+    .footer-email:hover { color: #fff; }
+    .footer-col-title {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+    .footer-col ul li a {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: #a8bcc6;
+      text-decoration: none;
+      line-height: 1.5;
+    }
+    .footer-col ul li a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-bottom p {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(168,188,198,0.6);
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="https://www.thestyleworkshop.com.au/" class="nav-logo">The Style Workshop</a>
+    <ul class="nav-links">
+      <li><a href="https://www.thestyleworkshop.com.au/services">Services</a></li>
+      <li><a href="https://www.thestyleworkshop.com.au/projects">Projects</a></li>
+      <li><a href="https://www.thestyleworkshop.com.au/process">Process</a></li>
+      <li><a href="https://www.thestyleworkshop.com.au/packages">Packages</a></li>
+      <li><a href="https://www.thestyleworkshop.com.au/about">About</a></li>
+      <li><a href="https://www.thestyleworkshop.com.au/journal">Journal</a></li>
+      <li><a href="https://www.thestyleworkshop.com.au/contact">Contact</a></li>
+    </ul>
+    <a href="https://www.thestyleworkshop.com.au/#enquiry" class="nav-cta">Book a Consultation</a>
+  </nav>
+
+  <!-- POST CONTENT -->
+  <div class="post-wrap">
+
+    <a href="https://www.thestyleworkshop.com.au/journal" class="back-link">&#8592; Back to Journal</a>
+
+    <div class="post-meta">
+      <span class="category-badge">Design Advice</span>
+      <span class="meta-text">3 July 2026</span>
+      <span class="meta-sep">·</span>
+      <span class="meta-text">5 min read</span>
+    </div>
+
+    <h1>Designing with Federation Homes: Honouring the Past, Living in the Present</h1>
+
+    <p>Federation homes are woven throughout the cities and towns of Australia, and for many they represent the ultimate renovation project. Rich with history and built with a level of craft that simply cannot be replicated today, bringing one into the present takes a careful hand.</p>
+
+    <p>Many of our clients come to us with Federation homes to restore, sometimes lovingly maintained, sometimes in need of significant work. In either case, the goal is the same: a home that functions well for modern family life, without losing the soul of what gives the building its identity. The challenge, and genuinely the joy, is combining both successfully.</p>
+
+    <!-- HERO IMAGE -->
+    <div class="post-img-contained">
+      <img src="blog-images/hero-federation-facade-gable-tessellated-path.jpg" alt="Restored Federation home facade with red brick, ornate white timber gable fretwork and tessellated tile path" />
+      <p class="caption">Ornate timber fretwork, original face brick and slate tiled roof along with a tessellated tile verandah, the hallmarks of a well-preserved Federation facade.</p>
+    </div>
+
+    <h2>Preserving What Makes Them Worth Keeping</h2>
+
+    <p>The traditional details of a Federation home are not merely decorative, they are the building's identity. Leadlight windows that change colour in the light, decorative ceilings with their repeating geometric patterns, beautiful wide floorboards smooth with decades of use, timber fretwork in the gables and verandahs: these are the elements that make someone fall in love with a home before they have even stepped inside.</p>
+
+    <p>Sadly, many Federation homes carry no heritage listing and are being demolished to make way for development that bears little relationship to the street, the neighbourhood, or the people who have lived there. Where our clients choose to renovate rather than replace, they are making a meaningful decision, and one we support fully.</p>
+
+    <p>Our approach is to retain, restore and celebrate every Federation feature we can. Where elements need repair, cracked plaster work, damaged leadlight, worn or missing verandah tiles, we source sympathetic materials and work with trades who understand the craft. Nothing is stripped out without thought. Everything is reconsidered with care.</p>
+
+    <!-- DETAIL GRID -->
+    <div class="post-img-grid">
+      <div class="grid-cell">
+        <img src="blog-images/federation-leadlight-window-detail.jpg" alt="Federation entrance hallway with an arched leadlight fanlight above the front door and chevron parquet floors" />
+        <p class="caption">Original leadlight door surround in this Federation home, blends beautifully with new herringbone flooring and a contemporary colour palette.</p>
+      </div>
+      <div class="grid-cell">
+        <img src="blog-images/federation-ornate-ceiling-cornice.jpg" alt="Ornate plaster cornice above a steel-framed glazed archway" style="object-position: top;" />
+        <p class="caption">An ornate plaster cornice retained above a glazed archway, original detail meeting contemporary steel framing.</p>
+      </div>
+      <div class="grid-cell">
+        <img src="blog-images/federation-tessellated-tile-verandah.jpg" alt="Tessellated tile verandah floor at a Federation home entrance" />
+        <p class="caption">A tessellated tile verandah floor in geometric pattern, original to the home.</p>
+      </div>
+      <div class="grid-cell">
+        <img src="blog-images/federation-timber-fretwork-verandah.jpg" alt="Ornate white timber fretwork on a Federation verandah gable" />
+        <p class="caption">Timber fretwork lacework beneath the verandah gable, a defining Federation flourish.</p>
+      </div>
+    </div>
+
+    <h2>Starting with a Good Plan</h2>
+
+    <p>Before any work begins on a Federation home, the single most important investment is time spent on a well-considered brief and a clear plan. These are complex buildings, with structural quirks, layered renovation histories and sensitivities that are not always apparent until you start looking closely. Getting the planning right from the outset saves enormous time, cost and disappointment later.</p>
+
+    <p>This means engaging an architect or designer early, before builders are quoted and before decisions are made about what stays and what goes. A good plan considers the building holistically: the orientation, the flow between spaces, the relationship to the street and to the garden, the structural walls that define what is possible. It also considers the sequencing of work, because in a Federation renovation, the order in which things happen matters more than most people expect.</p>
+
+    <p>We always encourage clients to resist the temptation to start with finishes, the kitchen, the bathroom, the tiles, before the plan is properly resolved. Finishes are genuinely the easier part. It is the plan that determines whether a home will feel right to live in for the next thirty years, and it deserves the time and consideration it needs at the beginning of the process.</p>
+
+    <!-- CONTAINED: materials flat lay -->
+    <div class="post-img-contained">
+      <img src="blog-images/federation-materials-flatlay.jpg" alt="Flat lay of architectural material samples including marble, timber and stone finishes" />
+      <p class="caption">Material samples, timber and stone finishes considered together, once the plan itself is resolved.</p>
+    </div>
+
+    <!-- PAIR: before + after -->
+    <div class="post-img-pair">
+      <div class="pair-cell">
+        <img src="blog-images/federation-sitting-room-before.jpg" alt="Original Federation sitting room before renovation, with fireplace, ornate ceiling detail and arched leadlight windows" />
+        <p class="caption">Before: this sitting room with its original fireplace, ceiling detail and arched leadlight windows in our Mosman Federation renovation deserved to be renovated.</p>
+      </div>
+      <div class="pair-cell">
+        <img src="blog-images/federation-sitting-room-after.jpg" alt="The same Federation sitting room after renovation, with dark grasscloth wallpaper and an eclectic mix of furnishings" />
+        <p class="caption">After: a contemporary makeover with dark toned grasscloth wallpaper providing a dramatic contrast to the heritage features, combined with an eclectic mix of furnishings to make a cosy retreat in this family home.</p>
+      </div>
+    </div>
+
+    <h2>Opening Up the Floor Plan</h2>
+
+    <p>The original floor plan of a Federation home reflects a different way of living: formal rooms for formal occasions, a kitchen kept separate from entertaining spaces, corridors that divide rather than connect. It made perfect sense for its era. For most families today, it does not.</p>
+
+    <p>The most common brief we receive from Federation clients is some version of the same request: we want to open it up so it flows. That typically means a thoughtful extension at the rear, often single-storey, often connecting to an existing living area, that creates the open-plan kitchen, dining and living space that contemporary family life calls for. The original rooms at the front of the home, the formal lounge, the separate dining room, the generous bedrooms with their high ceilings and picture rails, are then freed to become what they were designed to be: quieter, more considered spaces with a different purpose from the busy rear of the home.</p>
+
+    <p>The key principle is that the extension must never fight the original. It should read as a respectful response to what is already there: materials chosen to complement, proportions that feel right including a flow through of ceiling heights, a transition between old and new that is easy to move through without feeling like you have walked into a different building.</p>
+
+    <!-- PAIR: original interior + new extension -->
+    <div class="post-img-pair">
+      <div class="pair-cell">
+        <img src="blog-images/federation-original-interior-fireplace.jpg" alt="A contemporary single-storey extension in black cladding sitting alongside the original sandstone and rendered Federation home" />
+        <p class="caption">A considered contemporary addition sits quietly alongside the original fabric, in black cladding and steel-framed glazing that never competes with the home it extends.</p>
+      </div>
+      <div class="pair-cell">
+        <img src="blog-images/federation-contemporary-extension-bedroom.jpg" alt="Light-filled contemporary bedroom addition with built-in joinery and French doors" style="object-position: top;" />
+        <p class="caption">A light-filled addition elsewhere in the home, contemporary in feel but calm and considered.</p>
+      </div>
+    </div>
+
+    <h2>Adding a Second Storey</h2>
+
+    <p>For Federation homes on smaller blocks, or where the ground-floor footprint simply cannot expand further, a second storey addition is often the most considered solution. Done well, it can double the living space without sacrificing the garden, which, in a Federation property, is often one of its most valuable assets.</p>
+
+    <p>The design challenge is real. A second storey must sit respectfully above the original roofline and in some instances not be visible from the street, which typically means working within the pitch and proportion of what is already there, or setting the new level back from the street so it reads as a subordinate addition rather than an imposition on the original. The materials chosen above need to respond honestly to what sits below: brick, render or cladding that speaks the same architectural language without pretending to be something it is not.</p>
+
+    <p>Internally, the staircase becomes one of the most important design decisions in the project. In a Federation home, a staircase can be a genuine feature, generous in proportion, with a timber balustrade and a landing that feels considered, or it can become a utilitarian afterthought that works against the character of everything around it. We invest real time in getting this detail right, because it is the physical connection between the original home and the new addition, and it sets the tone for the whole upper level.</p>
+
+    <!-- CONTAINED: staircase -->
+    <div class="post-img-contained">
+      <img src="blog-images/federation-staircase-archway.jpg" alt="Federation hallway archway with a staircase connecting to the upper level beyond" />
+      <p class="caption">A generous archway leading through to the staircase, the connection between the original home and what sits above it.</p>
+    </div>
+
+    <h2>Natural Light and the Indoor-Outdoor Connection</h2>
+
+    <p>Many Federation homes were built before orientation was a primary design consideration. They sit on their block the way the street required, and the result is sometimes rooms that receive very little natural light, or a back garden that the house turns away from rather than opens to.</p>
+
+    <p>Addressing this is almost always part of a Federation renovation brief. The goal is to bring natural light into the plan and to create a genuine relationship between the interior and the garden, not simply a door that opens onto a step, but a considered connection that makes both the inside and outside feel larger and more liveable.</p>
+
+    <p>This might mean new glazing across the rear of the extension, a skylight introduced over a previously dark kitchen or hallway, or a carefully considered outdoor room that sits between the house and the garden and belongs to both. When done well, this single aspect of a renovation is often what clients point to as the most transformative change: not the new joinery, not the finishes, but the light that flows into the home.</p>
+
+    <!-- CONTAINED: glazed doors / light -->
+    <div class="post-img-contained">
+      <img src="blog-images/federation-steel-glazed-doors-light.jpg" alt="Steel-framed glazed sliding doors opening between rooms, filling the space with natural light" />
+      <p class="caption">Steel-framed glazing brings natural light deep into this kitchen, which combines original Federation cornice and ceiling rose with contemporary joinery.</p>
+    </div>
+
+    <!-- AUTHOR BLOCK -->
+    <div class="author-block">
+      <div class="author-img">
+        <img src="https://www.thestyleworkshop.com.au/emily_headshot.webp" alt="Emily Webster, Principal Designer, The Style Workshop" />
+      </div>
+      <div class="author-info">
+        <div class="name">Emily Webster</div>
+        <div class="title">Principal Designer &middot; The Style Workshop &middot; Mosman, NSW</div>
+      </div>
+    </div>
+
+  </div><!-- /post-wrap -->
+
+  <!-- CTA BOX -->
+  <div class="cta-box">
+    <h3>Thinking About Renovating Your Federation Home?</h3>
+    <p>We would love to talk through your brief. Start with an Initial Consultation, a 90-minute site visit with follow-up written recommendations and visual direction.</p>
+    <a href="https://www.thestyleworkshop.com.au/#enquiry" class="btn">Book a Discovery Call</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand-name">The Style Workshop</div>
+        <p class="footer-brand-desc">Beautifully considered spaces for Sydney's North Shore, Eastern Suburbs and Northern Beaches. Interior design, finishes and styling.</p>
+        <a href="mailto:emily@thestyleworkshop.com.au" class="footer-email">emily@thestyleworkshop.com.au</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Studio</div>
+        <ul>
+          <li><a href="https://www.thestyleworkshop.com.au/about">About</a></li>
+          <li><a href="https://www.thestyleworkshop.com.au/process">Process</a></li>
+          <li><a href="https://www.thestyleworkshop.com.au/journal">Journal</a></li>
+          <li><a href="https://www.thestyleworkshop.com.au/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Work</div>
+        <ul>
+          <li><a href="https://www.thestyleworkshop.com.au/projects">Projects</a></li>
+          <li><a href="https://www.thestyleworkshop.com.au/packages">Packages</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <ul>
+          <li><a href="https://www.thestyleworkshop.com.au/services">Initial Consultation</a></li>
+          <li><a href="https://www.thestyleworkshop.com.au/services">Room Edit</a></li>
+          <li><a href="https://www.thestyleworkshop.com.au/services">Design Edit</a></li>
+          <li><a href="https://www.thestyleworkshop.com.au/services">Signature Styling</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 The Style Workshop. ABN 91 611 289 462. All rights reserved.</p>
+      <p>Mosman, NSW &middot; +61 407 487 498</p>
+    </div>
+  </footer>
+
+</body>
+</html>
