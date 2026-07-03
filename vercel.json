@@ -123,10 +123,6 @@
     {
       "source": "/services/:path*",
       "destination": "/services/:path*"
-    },
-    {
-      "source": "/:path*",
-      "destination": "/index.html"
     }
   ]
 }
