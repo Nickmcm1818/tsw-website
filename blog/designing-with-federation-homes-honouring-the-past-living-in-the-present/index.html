@@ -35,13 +35,15 @@
       height: 64px;
     }
     .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 17px;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      color: #1E3D51;
+      display: flex;
+      align-items: center;
       text-decoration: none;
-      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+      display: block;
     }
     .nav-links {
       display: flex;
@@ -72,6 +74,12 @@
       white-space: nowrap;
     }
     .nav-cta:hover { background: #162e3d; }
+
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .post-img-grid, .post-img-pair { grid-template-columns: 1fr; }
+    }
 
     /* LAYOUT */
     .post-wrap {
@@ -367,7 +375,9 @@
 
   <!-- NAV -->
   <nav class="nav">
-    <a href="https://www.thestyleworkshop.com.au/" class="nav-logo">The Style Workshop</a>
+    <a href="https://www.thestyleworkshop.com.au/" class="nav-logo">
+      <img src="https://www.thestyleworkshop.com.au/tsw_logo_transparent.webp" alt="The Style Workshop">
+    </a>
     <ul class="nav-links">
       <li><a href="https://www.thestyleworkshop.com.au/services">Services</a></li>
       <li><a href="https://www.thestyleworkshop.com.au/projects">Projects</a></li>
