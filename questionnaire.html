@@ -291,6 +291,14 @@ textarea{resize:vertical;min-height:90px}
   <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:15px;color:#B0B0AD;line-height:1.8;">Your questionnaire has been received.<br>We look forward to speaking with you soon.</p>
 </div>
 
+<div id="submit-error" style="display:none;text-align:center;padding:60px 20px;border-top:1px solid #C8C4BD;margin-top:40px;">
+  <p style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#1E3D51;margin-bottom:16px;">We couldn't send your answers.</p>
+  <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:15px;color:#B0B0AD;line-height:1.8;max-width:480px;margin:0 auto 24px;">Something went wrong on our end and your questionnaire did not go through. Please email us directly so nothing is lost.</p>
+  <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:13px;letter-spacing:0.08em;color:#1E3D51;">
+    <a href="mailto:emily@thestyleworkshop.com.au" style="color:#1E3D51;">emily@thestyleworkshop.com.au</a> &nbsp;|&nbsp; +61 407 487 498
+  </p>
+</div>
+
 <div class="footer">
   0407 487 498 &nbsp;|&nbsp; emily@thestyleworkshop.com.au &nbsp;|&nbsp; thestyleworkshop.com.au &nbsp;|&nbsp; ABN 9161 128 9462
 </div>
@@ -473,19 +481,26 @@ document.getElementById('tsw-form').addEventListener('submit', async function(e)
     _captcha: 'false'
   });
 
+  var sendSucceeded = false;
   try {
-    await fetch('https://formsubmit.co/ajax/emily@thestyleworkshop.com.au', {
+    var response = await fetch('https://formsubmit.co/ajax/emily@thestyleworkshop.com.au', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(payload)
     });
+    sendSucceeded = response.ok;
+    if (!response.ok) { console.warn('Formsubmit responded with an error status:', response.status); }
   } catch(err) {
     console.warn('Formsubmit error:', err);
   }
 
-  // 3. Show thank-you
+  // 3. Show thank-you, or an honest error if the send failed
   formEl.style.display = 'none';
-  document.getElementById('thank-you').style.display = 'block';
+  if (sendSucceeded) {
+    document.getElementById('thank-you').style.display = 'block';
+  } else {
+    document.getElementById('submit-error').style.display = 'block';
+  }
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 </script>
