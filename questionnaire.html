@@ -49,7 +49,12 @@ textarea{resize:vertical;min-height:90px}
   <div class="header-text"><h1>Client Questionnaire</h1><p>Pre-Consultation Form</p></div>
 </div>
 <p class="intro">Thank you for reaching out to The Style Workshop. To help us make the most of our time together, please take a few minutes to complete this questionnaire before your consultation. There are no right or wrong answers — the more you share, the better prepared we will be to discuss your project and explore the possibilities for your home.</p>
-<form id="tsw-form">
+<form id="tsw-form" action="https://formsubmit.co/emily@thestyleworkshop.com.au" method="POST">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" id="fs-subject" value="TSW Pre-Consultation Questionnaire">
+<input type="hidden" name="_autoresponse" id="fs-autoresponse" value="Thank you for completing our questionnaire.&#10;&#10;We look forward to speaking with you soon.&#10;&#10;Kind regards,&#10;Emily&#10;The Style Workshop&#10;thestyleworkshop.com.au  |  +61 407 487 498">
+<input type="hidden" name="_next" id="fs-next" value="https://www.thestyleworkshop.com.au/questionnaire.html?sent=1">
 
 <div class="section">
 <div class="section-header"><span class="section-num">01</span><span class="section-title">About You</span></div>
@@ -444,15 +449,26 @@ function generatePDF(fields, clientName) {
   doc.save(fname);
 }
 
-// ── Form submit handler ─────────────────────────────────────────────────────
-document.getElementById('tsw-form').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  var formEl = this;
-  var btn = document.getElementById('submit-btn');
-  btn.disabled = true;
-  btn.textContent = 'Submitting…';
+// ── On load: if we've just come back from a successful Formsubmit redirect,
+// show the thank-you state instead of the blank form ─────────────────────────
+if (/[?&]sent=1\b/.test(window.location.search)) {
+  document.getElementById('tsw-form').style.display = 'none';
+  document.getElementById('thank-you').style.display = 'block';
+}
 
-  // Collect fields
+// ── Form submit handler ─────────────────────────────────────────────────────
+// Note: this intentionally lets the form submit natively to Formsubmit (no
+// fetch/AJAX) rather than trying to read the cross-origin response. Reading a
+// cross-origin fetch response is unreliable behind some networks/proxies
+// (e.g. school or corporate filtering) — the email can genuinely succeed while
+// the browser still reports the fetch as failed, which previously caused a
+// false "we couldn't send your answers" message even when the send worked.
+// A normal form POST + server-side redirect (_next) does not have this problem.
+document.getElementById('tsw-form').addEventListener('submit', function(e) {
+  var formEl = this;
+
+  // Collect fields (for the PDF and the dynamic subject/autoresponse only —
+  // the actual submission uses the browser's native form fields)
   var raw = new FormData(formEl);
   var fields = {}, arrays = {};
   for (var pair of raw.entries()) {
@@ -470,38 +486,22 @@ document.getElementById('tsw-form').addEventListener('submit', async function(e)
 
   var clientName = fields['full_name'] || 'Client';
 
-  // 1. Generate + download PDF for client
+  // Personalise the hidden Formsubmit fields now that we know the client's name
+  document.getElementById('fs-subject').value = 'TSW Pre-Consultation Questionnaire — ' + clientName;
+  document.getElementById('fs-autoresponse').value = 'Thank you for completing our questionnaire, ' + clientName.split(' ')[0] + '.\n\nWe look forward to speaking with you soon.\n\nKind regards,\nEmily\nThe Style Workshop\nthestyleworkshop.com.au  |  +61 407 487 498';
+
+  // Generate + download PDF for the client. This runs synchronously and does
+  // not block or interfere with the native form submission that follows.
   try { generatePDF(fields, clientName); } catch(err) { console.warn('PDF error:', err); }
 
-  // 2. Submit to Formsubmit
-  var payload = Object.assign({}, fields, {
-    _subject: 'TSW Pre-Consultation Questionnaire — ' + clientName,
-    _template: 'table',
-    _autoresponse: 'Thank you for completing our questionnaire, ' + clientName.split(' ')[0] + '.\n\nWe look forward to speaking with you soon.\n\nKind regards,\nEmily\nThe Style Workshop\nthestyleworkshop.com.au  |  +61 407 487 498',
-    _captcha: 'false'
-  });
+  var btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
 
-  var sendSucceeded = false;
-  try {
-    var response = await fetch('https://formsubmit.co/ajax/emily@thestyleworkshop.com.au', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    sendSucceeded = response.ok;
-    if (!response.ok) { console.warn('Formsubmit responded with an error status:', response.status); }
-  } catch(err) {
-    console.warn('Formsubmit error:', err);
-  }
-
-  // 3. Show thank-you, or an honest error if the send failed
-  formEl.style.display = 'none';
-  if (sendSucceeded) {
-    document.getElementById('thank-you').style.display = 'block';
-  } else {
-    document.getElementById('submit-error').style.display = 'block';
-  }
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // No e.preventDefault() here — the browser now submits the form normally to
+  // Formsubmit, which redirects back to ?sent=1 on success (handled above on
+  // load). If Formsubmit itself fails, the visitor sees Formsubmit's own error
+  // page rather than a guess from us that could be wrong in either direction.
 });
 </script>
 </body></html>
