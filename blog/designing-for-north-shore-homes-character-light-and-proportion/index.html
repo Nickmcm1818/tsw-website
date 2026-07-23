@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Designing for North Shore Homes: Character, Light and Proportion | The Style Workshop</title>
+<meta name="description" content="Interior designer Emily Webster on how to approach the scale, light and proportion of Sydney's North Shore homes, and where most renovations go wrong.">
+<meta property="og:title" content="Designing for North Shore Homes: Character, Light and Proportion | The Style Workshop">
+<meta property="og:description" content="Interior designer Emily Webster on how to approach the scale, light and proportion of Sydney's North Shore homes, and where most renovations go wrong.">
+<meta property="og:image" content="blog-images/north-shore-arched-hallway.jpg">
+<meta property="article:author" content="Emily Webster">
+<meta property="article:published_time" content="2026-07-24">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #F5F3EF;
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #404040;
+    line-height: 1.7;
+  }
+  a { text-decoration: none; }
+  img { max-width: 100%; }
+
+  /* Nav */
+  .nav {
+    background: #F5F3EF;
+    border-bottom: 1px solid #eeece8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 60px;
+  }
+  .nav-logo img { height: 36px; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 34px; }
+  .nav-links a {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+  }
+  .nav-cta {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fff;
+    background: #1E3D51;
+    padding: 12px 24px;
+  }
+
+  /* Content wrapper */
+  .post-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
+  .back-link {
+    display: inline-block;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #7D8B94;
+    margin-bottom: 28px;
+  }
+
+  /* Post meta */
+  .post-meta { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+  .category-badge {
+    background: #1E3D51;
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    display: inline-block;
+  }
+  .meta-text { font-family: 'Jost', sans-serif; font-size: 11px; color: #999; }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 46px;
+    font-weight: 400;
+    color: #1E3D51;
+    line-height: 1.15;
+    margin-bottom: 28px;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: #1E3D51;
+    margin: 44px 0 16px;
+  }
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #1E3D51;
+    margin: 28px 0 12px;
+  }
+  .post-wrap p { margin-bottom: 18px; }
+
+  /* Images */
+  .post-img-contained { margin: 28px 0; }
+  .post-img-contained img { width: 100%; display: block; }
+
+  .post-img-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 28px 0 6px;
+  }
+  .pair-cell { display: flex; flex-direction: column; }
+  .pair-cell img { width: 100%; height: 500px; object-fit: cover; display: block; }
+  .pair-cell .caption { margin-top: 6px; }
+  .pair-cell.contain img { object-fit: contain; background: #F5F3EF; }
+
+  .post-img-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 28px 0 6px;
+  }
+  .grid-cell { display: flex; flex-direction: column; }
+  .grid-cell img { width: 100%; height: 500px; object-fit: cover; display: block; }
+  .grid-cell .caption { margin-top: 6px; }
+
+  .caption {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    color: #aaa;
+    font-style: italic;
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  /* Read next */
+  .read-next {
+    margin: 40px 0 28px;
+    padding: 24px 28px;
+    border-left: 3px solid #1E3D51;
+    background: #edeae4;
+  }
+  .read-next-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #1E3D51;
+    margin-bottom: 8px;
+  }
+  .read-next-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #1E3D51;
+    margin: 0;
+  }
+
+  /* Author block */
+  .author-block {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 40px 0 28px;
+    padding-top: 28px;
+    border-top: 1px solid #eeece8;
+  }
+  .author-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .author-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+  .author-info .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #1E3D51;
+    margin-bottom: 2px;
+  }
+  .author-info .title { font-size: 12px; color: #999; font-weight: 300; margin-bottom: 0; }
+
+  /* CTA */
+  .cta-box {
+    background: #1E3D51;
+    padding: 40px 48px;
+    text-align: center;
+  }
+  .cta-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .cta-box p {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-box a.btn {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #fff;
+    background: #7D8B94;
+    padding: 12px 28px;
+  }
+
+  /* Footer */
+  .site-footer { background: #1E3D51; padding: 56px 40px 40px; color: #a8bcc6; }
+  .footer-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+  .footer-grid h4 {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+  .footer-grid p, .footer-grid a {
+    display: block;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    color: #a8bcc6;
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+  .footer-logo img { height: 30px; margin-bottom: 14px; }
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 40px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    font-size: 11px;
+    color: #7d95a1;
+  }
+
+  @media (max-width: 768px) {
+    .nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .post-wrap { padding: 40px 20px 60px; }
+    h1 { font-size: 34px; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .post-img-grid, .post-img-pair { grid-template-columns: 1fr !important; }
+  }
+</style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-logo" href="https://www.thestyleworkshop.com.au/">
+      <img src="https://www.thestyleworkshop.com.au/tsw_logo_transparent.webp" alt="The Style Workshop">
+    </a>
+    <div class="nav-links">
+      <a href="https://www.thestyleworkshop.com.au/services">Services</a>
+      <a href="https://www.thestyleworkshop.com.au/projects">Projects</a>
+      <a href="https://www.thestyleworkshop.com.au/process">Process</a>
+      <a href="https://www.thestyleworkshop.com.au/packages">Packages</a>
+      <a href="https://www.thestyleworkshop.com.au/about">About</a>
+      <a href="https://www.thestyleworkshop.com.au/blog">Journal</a>
+      <a href="https://www.thestyleworkshop.com.au/contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="https://www.thestyleworkshop.com.au/#enquiry">Book a Consultation</a>
+  </nav>
+
+  <div class="post-wrap">
+
+    <a class="back-link" href="https://www.thestyleworkshop.com.au/blog">&larr; Back to Journal</a>
+
+    <div class="post-meta">
+      <span class="category-badge">Design Advice</span>
+      <span class="meta-text">24 July 2026 &nbsp;&middot;&nbsp; 5 min read</span>
+    </div>
+
+    <h1>Designing for North Shore Homes: Character, Light and Proportion</h1>
+
+    <p>Ask any interior designer working across Sydney's North Shore and they will tell you the same thing: these homes ask something different of you. Wide blocks, soaring ceilings and rooms scaled for a different era of living create a set of design decisions that simply do not arise in a terrace in the Inner West or an apartment on the coast. Getting a North Shore home right means understanding what the architecture is already doing, and knowing when to work with it rather than around it.</p>
+
+    <p>We have spent the better part of two decades designing homes across the lower north shore and beyond, and the homes here share a set of qualities that reward a particular approach. Here is how we think about it.</p>
+
+    <div class="post-img-contained">
+      <img src="blog-images/north-shore-arched-hallway.jpg" alt="Arched hallway enfilade in a North Shore home, The Style Workshop">
+      <p class="caption">A sequence of original archways in this generous hallway of a Mosman Federation home. Image via Corban Architects.</p>
+    </div>
+
+    <h2>What We Notice</h2>
+
+    <p>North Shore homes, whether an early 1900's Federation on a generous block or a more contemporary build set well back from the street, tend to share a handful of traits: wide frontages, high ceilings, and a deliberate relationship to natural light. Rooms are rarely small out of necessity. Hallways have room to breathe. Windows are often positioned to draw light through the depth of the house rather than simply illuminate a single wall.</p>
+
+    <p>This scale is amazing, but it is also where many renovations fall short. A room with generous proportions does not automatically feel considered. Without the right furniture, materials and layout, a large room can feel just as unresolved, more so, as a small one that has been carefully edited. The starting point is always to read what the architecture is offering before making a single selection.</p>
+
+    <p>Ceiling height in particular changes the calculation on almost everything else. Cornicing, picture rails and ceiling roses that would feel heavy-handed in a standard room can carry real weight here, and are often worth preserving or reinstating rather than removing. The same goes for skirting and architrave profiles: generous rooms can absorb, and generally look better for, a more substantial detail than a builder's standard.</p>
+
+    <div class="post-img-contained">
+      <img src="blog-images/north-shore-fireplace-mirror.jpg" alt="Original marble fireplace with contemporary steel-framed mirror door, North Shore home, The Style Workshop">
+      <p class="caption">An original marble mantel, with a contemporary steel door that works well with the cornicing and proportions of the hallway beyond.</p>
+    </div>
+
+    <h2>Furniture Scale for Generous Rooms</h2>
+
+    <p>The most common mistake we see in larger homes is furniture that has been chosen for a room half its size. A sofa that would feel generous in a city apartment can look lost against a four-metre ceiling. The fix is rarely to simply buy more, it is to buy correctly: pieces with enough visual weight and presence to hold their own in the room, arranged with enough negative space around them that the proportions of the room remain legible.</p>
+
+    <p>This is where working with an interior designer earns its keep. Getting furniture scale right across a whole floor plan, not just a single room, is one of the more technical parts of any project, and one of the easiest to get wrong without an experienced eye on the plans before anything is ordered.</p>
+
+    <div class="post-img-contained">
+      <img src="blog-images/north-shore-kitchen-furniture-scale.jpg" alt="Kitchen with well-scaled furniture in a North Shore home, The Style Workshop">
+      <p class="caption">Stools, dining chairs and joinery all pitched to the scale of a generous, high-ceilinged kitchen.</p>
+    </div>
+
+    <h2>Window Treatments That Suit the Proportions</h2>
+
+    <p>Tall windows and high ceilings change the calculation on window furnishings considerably. A short curtain or an off-the-shelf blind that would pass unnoticed in a standard room becomes immediately conspicuous against three or four metres of wall. Curtains in these spaces generally want height, hung close to the ceiling line rather than the window frame, to draw the eye upward and make the most of the proportions rather than working against them.</p>
+
+    <p>Layering matters here too. A sheer for softness and privacy during the day, paired with a heavier drape for warmth and light control in the evening, tends to suit the scale of these rooms far better than a single treatment asked to do everything.</p>
+
+    <div class="post-img-contained">
+      <img src="blog-images/north-shore-window-curtains.jpg" alt="Layered sheer and heavy curtains hung floor to ceiling in a North Shore bay window, The Style Workshop">
+      <p class="caption">A sheer layered behind a heavier drape, both hung close to the ceiling line to make the most of the room's height.</p>
+    </div>
+
+    <h2>The Indoor-Outdoor Transition</h2>
+
+    <p>Many blocks on the North Shore were built with generous gardens and a strong connection between the house and the land it sits on, a connection that can be lost or under-used over time. Getting this transition right, through material choice at the threshold, considered outdoor furniture that echoes the palette inside, and sightlines that draw the eye from an internal room out to the garden, is often what separates a house that simply has a nice backyard from one that genuinely lives outdoors.</p>
+
+    <p>It is a detail that is easy to overlook in the middle of a renovation, when attention is naturally focused indoors, but it is frequently the thing clients mention first once a project is complete.</p>
+
+    <p>Material continuity does a great deal of this work. Carrying a stone or timber tone from an internal living space out onto a terrace, or choosing an outdoor fabric that reads as a natural extension of the indoor palette rather than a separate, more casual one, is often enough to make a garden feel like another room of the house rather than an afterthought beyond the back door.</p>
+
+    <div class="post-img-contained">
+      <img src="blog-images/north-shore-indoor-outdoor-doors.jpg" alt="Full-height steel doors opening from a North Shore home to the garden, The Style Workshop">
+      <p class="caption">Full-height steel doors dissolving the line between the living space and the garden beyond.</p>
+    </div>
+
+    <p>Every home carries its own history and its own set of decisions to make, but the underlying principle stays the same: work with the scale you have been given, not against it. Understanding what a home is already doing well, before a single piece of furniture is chosen, is where good design begins.</p>
+
+    <div class="read-next">
+      <p class="read-next-label">Next Week</p>
+      <p class="read-next-title">Inside Concept Design: How a Room Goes from Brief to Scheme</p>
+    </div>
+
+    <div class="author-block">
+      <div class="author-img">
+        <img src="https://www.thestyleworkshop.com.au/emily_headshot.webp" alt="Emily Webster, Principal Designer, The Style Workshop">
+      </div>
+      <div class="author-info">
+        <p class="name">Emily Webster</p>
+        <p class="title">Principal Designer &middot; The Style Workshop &middot; Mosman, NSW</p>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h3>Ready to bring in a considered eye?</h3>
+      <p>If you are renovating or refreshing your home and want a clear, confident starting point, our Initial Consultation is designed exactly for that.</p>
+      <a class="btn" href="https://www.thestyleworkshop.com.au/#enquiry">Book a Consultation</a>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-logo-col">
+        <div class="footer-logo"><img src="https://www.thestyleworkshop.com.au/tsw_logo_transparent.webp" alt="The Style Workshop"></div>
+        <p>Beautifully considered spaces for Sydney's North Shore, Northern Beaches, Inner West, Eastern Suburbs and Rural NSW.</p>
+        <p>emily@thestyleworkshop.com.au</p>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <a href="https://www.thestyleworkshop.com.au/about">About</a>
+        <a href="https://www.thestyleworkshop.com.au/process">Process</a>
+        <a href="https://www.thestyleworkshop.com.au/blog">Journal</a>
+      </div>
+      <div>
+        <h4>Work</h4>
+        <a href="https://www.thestyleworkshop.com.au/projects">Projects</a>
+        <a href="https://www.thestyleworkshop.com.au/packages">Packages</a>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="https://www.thestyleworkshop.com.au/services">Services</a>
+        <a href="https://www.thestyleworkshop.com.au/contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 The Style Workshop. ABN 9161 128 9462.
+    </div>
+  </footer>
+
+</body>
+</html>
