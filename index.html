@@ -1330,9 +1330,10 @@
     }
     .about-img-bg {
       position: absolute; inset: 48px 24px 48px 48px;
-      background-image: url('emily_headshot.webp');
-      background-size: cover;
-      background-position: center top;
+      width: calc(100% - 72px);
+      height: calc(100% - 96px);
+      object-fit: cover;
+      object-position: center top;
     }
     .about-photo-caption {
       font-family: 'Jost', sans-serif;
@@ -1988,7 +1989,7 @@
       .services-overview-grid { grid-template-columns: 1fr; }
       .about { grid-template-columns: 1fr; }
       .about-image { min-height: unset; aspect-ratio: 2/3; margin: 24px 24px 0; padding: 0; }
-      .about-img-bg { inset: 0; background-size: cover; background-position: center top; }
+      .about-img-bg { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
       .contact-cta { flex-direction: column; padding: 70px 24px; }
       .instagram { grid-template-columns: repeat(3, 1fr); }
       .instagram .ig-tile:nth-child(n+4) { display: none; }
@@ -2022,7 +2023,7 @@
       .process-step-connector { display: none; }
       .about { grid-template-columns: 1fr; gap: 40px; }
       .about-image { min-height: unset; aspect-ratio: 2/3; margin: 24px 24px 0; padding: 0; }
-      .about-img-bg { inset: 0; background-size: cover; background-position: center top; }
+      .about-img-bg { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
       .about-content { padding: 60px 20px; }
       .testimonial-carousel { flex-direction: row; gap: 12px; }
       .testimonial-arrow { opacity: 0.5; }
@@ -2818,7 +2819,7 @@
 <!-- ─── ABOUT EMILY ──────────────────────────────────────────────────── -->
 <div class="about" id="about">
   <div class="about-image">
-    <div class="about-img-bg" role="img" aria-label="Emily Webster, principal interior designer at The Style Workshop, Sydney"></div>
+    <img class="about-img-bg" src="emily_headshot.webp" alt="Emily Webster, principal interior designer at The Style Workshop, Mosman Sydney" width="1024" height="1536" loading="lazy" />
   </div>
   <div class="about-content">
     <div class="section-tag">About Us</div>
