@@ -51,6 +51,34 @@
     "image": "https://www.thestyleworkshop.com.au/tsw_logo_transparent.webp"
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does The Style Workshop work in Cammeray?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. TSW works regularly with Cammeray clients, from period cottage renovations to newer apartment fit-outs." }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does interior design cost in Cammeray?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Packages start from $695 for an Initial Consultation, with Room Edit, Design Edit and Signature Styling Experience packages ranging up to $4,950, all incl. GST." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need a full renovation to work with TSW?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Not at all. We work across everything from a single Room Edit to a full home renovation, so there is a starting point whether you need a quick refresh or a comprehensive project." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I get started?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Book an Initial Consultation. Emily will visit your Cammeray home, discuss your brief, and provide written recommendations within three business days." }
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -103,10 +131,18 @@
     .footer-col ul li a:hover { color: var(--off-white); }
     .footer-bottom { border-top: 1px solid rgba(245,243,239,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
     .footer-bottom p { font-family: 'Jost', sans-serif; font-size: 12px; color: rgba(245,243,239,0.35); }
+    .suburb-faq { padding: 80px 60px; }
+    .suburb-faq-inner { max-width: 760px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid rgba(174,176,172,0.3); padding: 28px 0; }
+    .faq-item summary { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 400; color: var(--dark-teal); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; font-family: 'Jost', sans-serif; font-size: 20px; font-weight: 300; color: var(--warm-grey); flex-shrink: 0; }
+    .faq-item[open] summary::after { content: '\2212'; }
+    .faq-answer { font-family: 'Jost', sans-serif; font-size: 14px; line-height: 1.8; color: var(--mid-grey); margin-top: 14px; }
     @media (max-width: 768px) {
       nav { padding: 12px 20px; } .nav-links { display: none; } .nav-social { display: none; }
       .suburb-hero { padding: 140px 24px 80px; } .suburb-intro { padding: 60px 24px 48px; }
-      .suburb-packages { padding: 60px 24px; } .suburb-cta { padding: 60px 24px; }
+      .suburb-packages { padding: 60px 24px; } .suburb-cta { padding: 60px 24px; } .suburb-faq { padding: 60px 24px; }
       .footer-grid { grid-template-columns: 1fr; gap: 32px; } footer { padding: 48px 24px 24px; }
     }
   </style>
@@ -186,6 +222,29 @@
         <p class="pkg-desc">Full-service interior design from concept through to delivery. The complete TSW experience, tailored to your home and the way you live in it.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="suburb-faq">
+  <div class="suburb-faq-inner">
+    <p class="section-eyebrow">Common Questions</p>
+    <h2 class="section-heading">Cammeray, answered</h2>
+    <details class="faq-item" open>
+      <summary>Does The Style Workshop work in Cammeray?</summary>
+      <p class="faq-answer">Yes. TSW works regularly with Cammeray clients, from period cottage renovations to newer apartment fit-outs.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How much does interior design cost in Cammeray?</summary>
+      <p class="faq-answer">Packages start from $695 for an Initial Consultation, with Room Edit, Design Edit and Signature Styling Experience packages ranging up to $4,950, all incl. GST.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Do I need a full renovation to work with TSW?</summary>
+      <p class="faq-answer">Not at all. We work across everything from a single Room Edit to a full home renovation, so there is a starting point whether you need a quick refresh or a comprehensive project.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How do I get started?</summary>
+      <p class="faq-answer">Book an Initial Consultation. Emily will visit your Cammeray home, discuss your brief, and provide written recommendations within three business days.</p>
+    </details>
   </div>
 </section>
 

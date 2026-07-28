@@ -65,6 +65,34 @@
     "url": "https://www.thestyleworkshop.com.au/services/design-edit/"
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many rooms can a Design Edit cover?",
+        "acceptedAnswer": { "@type": "Answer", "text": "There is no fixed limit. Most Design Edits cover three to five connected living areas, though the scope is agreed upfront based on your home and brief." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the Design Edit include procurement?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. The Design Edit delivers a design direction and specific recommendations. If you would like TSW to manage sourcing and delivery, that can be arranged separately, or you may prefer the Signature Styling Experience." }
+      },
+      {
+        "@type": "Question",
+        "name": "How is this different to the Room Edit?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The Room Edit addresses a single space. The Design Edit considers multiple rooms together, so the palette, material language and furniture scale feel connected across the whole home." }
+      },
+      {
+        "@type": "Question",
+        "name": "What do I receive at the end?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A whole-home design direction document, room-by-room recommendations, a consolidated palette and materials reference, and a priority order for implementation." }
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -117,6 +145,14 @@
     .other-name { font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--dusty-blue); margin-bottom: 12px; }
     .other-price { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 400; color: var(--dark-teal); margin-bottom: 8px; }
     .other-desc { font-family: 'Jost', sans-serif; font-size: 13px; line-height: 1.7; color: var(--mid-grey); }
+    .svc-faq { padding: 80px 60px; }
+    .svc-faq-inner { max-width: 760px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid rgba(174,176,172,0.3); padding: 28px 0; }
+    .faq-item summary { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 400; color: var(--dark-teal); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; font-family: 'Jost', sans-serif; font-size: 20px; font-weight: 300; color: var(--warm-grey); flex-shrink: 0; }
+    .faq-item[open] summary::after { content: '\2212'; }
+    .faq-answer { font-family: 'Jost', sans-serif; font-size: 14px; line-height: 1.8; color: var(--mid-grey); margin-top: 14px; }
     .svc-cta { background: var(--dark-teal); padding: 88px 60px; text-align: center; }
     .svc-cta h2 { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 400; color: var(--off-white); margin-bottom: 18px; line-height: 1.15; }
     .svc-cta p { font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 300; line-height: 1.8; color: rgba(245,243,239,0.7); max-width: 500px; margin: 0 auto 40px; }
@@ -133,7 +169,7 @@
       nav { padding: 12px 20px; } .nav-links { display: none; } .nav-social { display: none; }
       .svc-hero { padding: 140px 24px 80px; } .svc-content { padding: 60px 24px 48px; }
       .svc-includes { padding: 60px 24px; } .svc-price { padding: 48px 24px; flex-direction: column; }
-      .svc-other { padding: 60px 24px; } .svc-cta { padding: 60px 24px; }
+      .svc-other { padding: 60px 24px; } .svc-faq { padding: 60px 24px; } .svc-cta { padding: 60px 24px; }
       .footer-grid { grid-template-columns: 1fr; gap: 32px; } footer { padding: 48px 24px 24px; }
     }
   </style>
@@ -250,6 +286,29 @@
         <p class="other-desc">Full-service design from concept through to delivery — for clients who want TSW to manage the whole process.</p>
       </a>
     </div>
+  </div>
+</section>
+
+<section class="svc-faq">
+  <div class="svc-faq-inner">
+    <p class="section-eyebrow">Common Questions</p>
+    <h2 class="section-heading">Design Edit, answered</h2>
+    <details class="faq-item" open>
+      <summary>How many rooms can a Design Edit cover?</summary>
+      <p class="faq-answer">There is no fixed limit. Most Design Edits cover three to five connected living areas, though the scope is agreed upfront based on your home and brief.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Does the Design Edit include procurement?</summary>
+      <p class="faq-answer">No. The Design Edit delivers a design direction and specific recommendations. If you would like TSW to manage sourcing and delivery, that can be arranged separately, or you may prefer the Signature Styling Experience.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How is this different to the Room Edit?</summary>
+      <p class="faq-answer">The Room Edit addresses a single space. The Design Edit considers multiple rooms together, so the palette, material language and furniture scale feel connected across the whole home.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What do I receive at the end?</summary>
+      <p class="faq-answer">A whole-home design direction document, room-by-room recommendations, a consolidated palette and materials reference, and a priority order for implementation.</p>
+    </details>
   </div>
 </section>
 
