@@ -2623,6 +2623,7 @@
     <div class="panel-name" id="panelName"></div>
     <div class="panel-loc" id="panelLoc"></div>
     <div class="panel-text" id="panelText"></div>
+    <a href="#" id="panelCaseStudyLink" style="display:none; font-family:'Jost',sans-serif; font-size:12px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--dark-teal); text-decoration:none; border-bottom:1px solid var(--warm-grey); padding-bottom:4px; margin-bottom:24px;">View Full Case Study &rarr;</a>
     <a href="#contact" class="panel-enquire" onclick="closeProject()">Enquire About This Project</a>
   </div>
 </div>
@@ -3509,6 +3510,16 @@ function openProject(id) {
   document.getElementById('panelLoc').textContent = p.loc;
   const textEl = document.getElementById('panelText');
   textEl.innerHTML = p.text.split('\n\n').map(para => `<p style="margin-bottom:1.4em">${para}</p>`).join('');
+
+  // Full case study link (only for projects with a dedicated page)
+  const caseStudyMap = { wb: 'whale-beach-house', mos: 'mosman-federation-renovation', mos20k: 'mosman-kitchen', cpr: 'cremorne-point-parents-retreat', bug: 'cremorne-bungalow', cas: 'country-airbnb-styling' };
+  const csLink = document.getElementById('panelCaseStudyLink');
+  if (caseStudyMap[id]) {
+    csLink.href = `projects/${caseStudyMap[id]}/`;
+    csLink.style.display = 'inline-block';
+  } else {
+    csLink.style.display = 'none';
+  }
 
   // Open
   document.getElementById('panelBackdrop').classList.add('open');
