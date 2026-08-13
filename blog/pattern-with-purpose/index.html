@@ -149,6 +149,10 @@
   }
   .post-wrap p { margin-bottom: 18px; }
 
+  /* Tighten the gap when a heading follows straight after an image, with no paragraph in between */
+  .post-img-contained + h2, .post-img-pair + h2 { margin-top: 8px; }
+  .post-img-contained + h3, .post-img-pair + h3 { margin-top: 4px; }
+
   /* Images */
   .post-img-contained { margin: 28px 0; }
   .post-img-contained img { width: 100%; height: auto; display: block; }
