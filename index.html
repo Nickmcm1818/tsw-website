@@ -130,17 +130,7 @@
             "name": "The Initial Consultation",
             "description": "90-minute in-home consultation with layout advice, spatial planning and written recommendations."
           },
-          "price": "695",
-          "priceCurrency": "AUD"
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "The Room Edit",
-            "description": "Complete design concept for one room including colour palette, material selections and curated shopping edit."
-          },
-          "price": "1950",
+          "price": "895",
           "priceCurrency": "AUD"
         },
         {
@@ -148,7 +138,7 @@
           "itemOffered": {
             "@type": "Service",
             "name": "The Design Edit",
-            "description": "Fully resolved interior design service for one room including finishes schedule, lighting selections and trade pricing."
+            "description": "Fully resolved interior design service for one room including concept direction, lighting recommendations, colour and material selections, and a trade-priced shopping list."
           },
           "price": "2800",
           "priceCurrency": "AUD"
@@ -162,6 +152,19 @@
           },
           "price": "4950",
           "priceCurrency": "AUD"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "The Tailored Programme",
+            "description": "A tailored programme designed around a specific brief, combination of services, or a scope spanning multiple rooms and stages."
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "minPrice": "7950",
+            "priceCurrency": "AUD"
+          }
         }
       ]
     }
@@ -195,11 +198,6 @@
         "@type": "Question",
         "name": "I'm not sure which package is right for me.",
         "acceptedAnswer": { "@type": "Answer", "text": "Book a complimentary discovery call. A 15-minute conversation is usually enough to clarify exactly what you need, and there's no obligation to proceed." }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I combine packages across rooms?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Additional Rooms add-on (from $755 per room) allows you to extend any core package across multiple spaces for a cohesive whole-home result." }
       },
       {
         "@type": "Question",
@@ -327,7 +325,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "The Style Workshop — Interior Designer Sydney",
+    "name": "The Style Workshop | Interior Designer Sydney",
     "url": "https://www.thestyleworkshop.com.au/",
     "speakable": {
       "@type": "SpeakableSpecification",
@@ -952,7 +950,7 @@
     .services { background: #EEE9E1; }
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 2px;
       margin-top: 64px;
     }
@@ -1261,6 +1259,11 @@
       font-weight: 600;
     }
     .btn-service-solid:hover { background: var(--dark-teal); color: var(--off-white); border-color: var(--dark-teal); }
+    .btn-service-featured {
+      background: var(--dusty-blue); color: var(--off-white);
+      border: 1px solid var(--dusty-blue);
+    }
+    .btn-service-featured:hover { background: var(--off-white); color: var(--dark-teal); border-color: var(--off-white); }
     .service-badge {
       position: absolute; top: 24px; right: 24px;
       background: var(--dusty-blue);
@@ -1270,6 +1273,23 @@
       letter-spacing: 0.25em; text-transform: uppercase;
       padding: 5px 10px;
     }
+    .service-includes-toggle { margin-bottom: 32px; }
+    .service-includes-toggle summary {
+      cursor: pointer; list-style: none;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--dusty-blue);
+      display: flex; align-items: center; gap: 6px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(126,138,148,0.25);
+    }
+    .service-includes-toggle summary::-webkit-details-marker { display: none; }
+    .service-includes-toggle summary::marker { content: ''; }
+    .service-includes-toggle .toggle-icon { font-weight: 300; font-size: 15px; transition: transform 0.2s; }
+    .service-includes-toggle[open] .toggle-icon { transform: rotate(45deg); }
+    .service-includes-toggle .service-includes { margin-top: 16px; margin-bottom: 0; }
+    .service-card.featured .service-includes-toggle summary { color: var(--warm-tan); border-bottom-color: rgba(245,243,239,0.2); }
 
     /* ─── PROCESS STRIP ────────────────────────────────────────────── */
     .process {
@@ -2302,7 +2322,7 @@
   <div class="hero-room"></div>
   <div class="hero-content">
     <h1 class="hero-h1"><span class="hero-tag">Interior Designer Sydney</span> Beautifully <br><em>Considered Spaces</em></h1>
-    <span class="visually-hidden">Interior Design Sydney — The Style Workshop</span>
+    <span class="visually-hidden">Interior Design Sydney | The Style Workshop</span>
     <p class="hero-sub">Thoughtfully designed, liveable interiors. From curated room refreshes to full residential projects, each space is layered with intention, personal, refined, and made to be lived in.</p>
     <div class="hero-actions">
       <a href="#services" class="btn-primary">Our Services</a>
@@ -2670,70 +2690,61 @@
       <div class="service-name">The Initial Consultation</div>
       <div class="service-tag">Refine your ideas · Unlock your home's potential</div>
       <p class="service-desc">The ideal starting point, whether you're beginning a renovation, struggling with a room that isn't working, or simply unsure where to begin. In 90 minutes, we'll clarify your direction and give you the confidence to move forward.</p>
-      <div class="service-price">$695</div>
-      <div class="service-price-note">incl. GST</div>
-      <ul class="service-includes">
-        <li>Pre-project questionnaire to capture your full vision</li>
-        <li>90-minute in-home consultation</li>
-        <li>Layout and spatial planning advice</li>
-        <li>Open Q&amp;A on anything design-related</li>
-        <li>Written recommendations &amp; visual reference including layout priorities, mood and colour direction, and key product suggestions to get you started, delivered within 3 business days</li>
-      </ul>
+      <div class="service-price">$895</div>
+      <div class="service-price-note">incl. GST · Credited in full toward the Signature Styling Experience or a tailored programme if signed within 30 days</div>
+      <details class="service-includes-toggle">
+        <summary>See what's included <span class="toggle-icon">+</span></summary>
+        <ul class="service-includes">
+          <li>Pre-project questionnaire to capture your full vision</li>
+          <li>90-minute in-home consultation</li>
+          <li>Layout and spatial planning advice</li>
+          <li>Open Q&amp;A on anything design-related</li>
+          <li>Written summary report &amp; key product suggestions to get you started, delivered within 3 business days</li>
+        </ul>
+      </details>
       <a href="https://buy.stripe.com/7sY9AT6510jv2xe4engw003" target="_blank" rel="noopener" class="btn-service btn-service-outline">Purchase Online</a>
     </div>
 
     <div class="service-card">
       <div class="service-num">02</div>
-      <div class="service-name">The Room Edit</div>
-      <div class="service-tag">A considered redesign of a single space</div>
-      <p class="service-desc">A complete design concept for one room, carefully curated to bring cohesion, refinement, and a clear visual direction. Everything you need to move forward with purpose, without the overwhelm of an open-ended brief.</p>
-      <div class="service-price">$1,950</div>
-      <div class="service-price-note">incl. GST · One round of revisions included</div>
-      <ul class="service-includes">
-        <li class="includes-ref">Everything in The Initial Consultation, plus:</li>
-        <li>Concept direction and look &amp; feel document</li>
-        <li>Colour palette and material selections</li>
-        <li>Furniture and styling recommendations</li>
-        <li>Curated shopping edit with 6 to 10 key pieces with supplier links</li>
-      </ul>
-      <a href="https://buy.stripe.com/9B614n50X5DP5JqbGPgw002" target="_blank" rel="noopener" class="btn-service btn-service-outline">Purchase Online</a>
+      <div class="service-name">The Design Edit</div>
+      <div class="service-tag">A fully resolved design, ready to execute</div>
+      <p class="service-desc">A complete, fully specified interior design service for one room: concept direction, lighting recommendations, colour palette and material selections, and a shopping list, ready for you to execute with confidence.</p>
+      <div class="service-price">$2,800</div>
+      <div class="service-price-note">incl. GST · Includes 30-min follow-up call</div>
+      <details class="service-includes-toggle">
+        <summary>See what's included <span class="toggle-icon">+</span></summary>
+        <ul class="service-includes">
+          <li>Concept direction and look &amp; feel document</li>
+          <li>Colour palette and material selections</li>
+          <li>Lighting selections included</li>
+          <li>Curated shopping edit with trade pricing across all recommendations</li>
+          <li>One revision round</li>
+          <li>30-minute follow-up call to implement with confidence</li>
+        </ul>
+      </details>
+      <a href="https://buy.stripe.com/7sYdR9eBx0jv9ZG26fgw001" target="_blank" rel="noopener" class="btn-service btn-service-outline">Purchase Online</a>
     </div>
 
     <div class="service-card featured">
-      <div class="service-badge">Most Popular</div>
       <div class="service-num">03</div>
-      <div class="service-name">The Design Edit</div>
-      <div class="service-tag">Everything you need to transform your space</div>
-      <p class="service-desc">A fully resolved interior design service for one room, taken from initial brief through to a complete, actionable design you can hand to a supplier or trade and execute with confidence.</p>
-      <div class="service-price">$2,800</div>
-      <div class="service-price-note">incl. GST · Includes 30-min follow-up call</div>
-      <ul class="service-includes">
-        <li class="includes-ref">Everything in The Room Edit, plus:</li>
-        <li>Full finishes schedule including materials, textures &amp; surfaces</li>
-        <li>Lighting selections included</li>
-        <li>Trade pricing across all shopping edit recommendations</li>
-        <li>One revision round</li>
-        <li>30-minute follow-up call to implement with confidence</li>
-      </ul>
-      <a href="https://buy.stripe.com/7sYdR9eBx0jv9ZG26fgw001" target="_blank" rel="noopener" class="btn-service btn-service-solid">Purchase Online</a>
-    </div>
-
-    <div class="service-card">
-      <div class="service-num">04</div>
       <div class="service-name">The Signature Styling Experience</div>
       <div class="service-tag">A complete transformation, hands-on and entirely yours</div>
-      <p class="service-desc">Our most immersive package. Designed for those who want their space truly transformed, with access to trade-only showrooms, exclusive and one-of-a-kind pieces, and Emily's hands-on involvement at every stage.</p>
+      <p class="service-desc">Everything in The Design Edit, taken all the way through for the same room: ordered, delivered, installed and styled. Our most immersive package, designed for those who want their space truly transformed, with access to trade-only showrooms, exclusive and one-of-a-kind pieces, and Emily's hands-on involvement at every stage.</p>
       <div class="service-price">$4,950</div>
       <div class="service-price-note">incl. GST · Discovery call to confirm scope</div>
-      <ul class="service-includes">
-        <li class="includes-ref">Everything in The Design Edit, plus:</li>
-        <li>Access to trade-only showrooms &amp; exclusive suppliers</li>
-        <li>Access to unique, one-of-a-kind pieces unavailable through retail</li>
-        <li>Full procurement management, ordering, tracking &amp; delivery coordination</li>
-        <li>Hands-on installation and styling day with Emily</li>
-        <li>Post-styling summary &amp; care guide</li>
-      </ul>
-      <a href="https://buy.stripe.com/00w28r0KH6HT5JqdOXgw000" target="_blank" rel="noopener" class="btn-service btn-service-outline">Purchase Online</a>
+      <details class="service-includes-toggle">
+        <summary>See what's included <span class="toggle-icon">+</span></summary>
+        <ul class="service-includes">
+          <li class="includes-ref">Everything in The Design Edit, plus:</li>
+          <li>Access to trade-only showrooms &amp; exclusive suppliers</li>
+          <li>Access to unique, one-of-a-kind pieces unavailable through retail</li>
+          <li>Full procurement management, ordering, tracking &amp; delivery coordination</li>
+          <li>Hands-on installation and styling for your space</li>
+          <li>Post-styling summary &amp; care guide</li>
+        </ul>
+      </details>
+      <a href="https://buy.stripe.com/00w28r0KH6HT5JqdOXgw000" target="_blank" rel="noopener" class="btn-service btn-service-featured">Purchase Online</a>
     </div>
 
   </div>
@@ -2742,18 +2753,19 @@
   <div class="service-card-bespoke">
     <div class="bespoke-inner">
       <div class="bespoke-left">
-        <div class="service-num" style="color:var(--warm-tan);">05</div>
-        <div class="service-name" style="color:var(--off-white);">Create Your Own Package</div>
-        <div class="service-tag" style="color:var(--warm-tan);">Tailored entirely to your needs</div>
+        <div class="service-num" style="color:var(--warm-tan);">04</div>
+        <div class="service-name" style="color:var(--off-white);">The Tailored Programme</div>
+        <div class="service-tag" style="color:var(--warm-tan);">Designed entirely around your brief</div>
         <p class="service-desc" style="color:rgba(245,243,239,0.75);">Not every project fits a single package, and we wouldn't want it to. If you have a specific brief, a combination of services in mind, or a scope that spans multiple rooms and stages, we'll design a package around you.</p>
-        <div class="service-price" style="color:var(--off-white);">From $550</div>
-        <div class="service-price-note" style="color:rgba(245,243,239,0.45);">incl. GST · Begin with a complimentary discovery call</div>
+        <div class="service-price" style="color:var(--off-white);">Tailored programmes, from $7,950</div>
+        <div class="service-price-note" style="color:rgba(245,243,239,0.45);">incl. GST · Scaled to the size of your project · Begin with a complimentary discovery call</div>
+        <p class="service-desc" style="color:rgba(245,243,239,0.6); font-size:12.5px; margin-top:16px; margin-bottom:0;">The exact investment depends on scope. What we can tell you upfront is exactly how we work: a clear proposal before anything begins, payments staged to each part of the project, and never a surprise invoice.</p>
       </div>
       <div class="bespoke-right">
         <div class="bespoke-combos-label">Popular combinations</div>
         <ul class="bespoke-combos">
           <li><span>Consultation + Sourcing &amp; Procurement</span> For those with a clear direction who need help executing it with access to trade suppliers</li>
-          <li><span>Room Edit + Furniture Selection Upgrade</span> A complete design concept elevated with curated, exclusive pieces</li>
+          <li><span>Design Edit + Furniture Selection Upgrade</span> A fully resolved design elevated with curated, exclusive pieces</li>
           <li><span>Signature Experience + Additional Rooms</span> Whole-home transformation delivered with cohesion across every space</li>
         </ul>
         <a href="#enquiry" class="btn-service btn-service-solid" style="margin-top:32px; display:inline-block;">Book a Discovery Call</a>
@@ -2766,46 +2778,6 @@
   </div>
 
 </section>
-
-<!-- ─── ADD-ONS ───────────────────────────────────────────────────────── -->
-<div class="addons-section">
-  <div class="addons-header">
-    <div class="addons-title">Enhance any package</div>
-    <div class="addons-sub">Each addition can be combined with any core package to extend the scope, deepen the finish, or take a single-room project whole&#8209;home.</div>
-  </div>
-  <div class="addons-grid">
-    <div class="addon-item">
-      <div class="addon-name">The Finishing Layer</div>
-      <div class="addon-desc">The final styling elements that bring warmth and cohesion. The finishing 10% that transforms a room from designed to lived-in.</div>
-      <div class="addon-price">From $455 incl. GST</div>
-    </div>
-    <div class="addon-item">
-      <div class="addon-name">Furniture Selection Upgrade</div>
-      <div class="addon-desc">Access to curated, trade and one-off pieces unavailable through retail. Elevate your interior with selections sourced exclusively for you.</div>
-      <div class="addon-price">From $650 incl. GST</div>
-    </div>
-    <div class="addon-item">
-      <div class="addon-name">Sourcing &amp; Procurement</div>
-      <div class="addon-desc">End-to-end coordination of ordering, suppliers and deliveries. We manage the process so you don't have to follow a single email thread.</div>
-      <div class="addon-price">From $605 incl. GST</div>
-    </div>
-    <div class="addon-item">
-      <div class="addon-name">Artwork &amp; Objects Curation</div>
-      <div class="addon-desc">A carefully considered collection of artwork and decorative objects selected to add personality, depth and a sense of the collected.</div>
-      <div class="addon-price">From $455 incl. GST</div>
-    </div>
-    <div class="addon-item">
-      <div class="addon-name">Lighting Design</div>
-      <div class="addon-desc">Layered lighting recommendations designed to enhance atmosphere and functionality. One of the most transformative elements in any room.</div>
-      <div class="addon-price">From $605 incl. GST</div>
-    </div>
-    <div class="addon-item">
-      <div class="addon-name">Additional Rooms</div>
-      <div class="addon-desc">Extend your design across multiple spaces for a cohesive whole-home result. Combines seamlessly with any core package.</div>
-      <div class="addon-price">From $755 incl. GST per room</div>
-    </div>
-  </div>
-</div>
 
 <!-- ─── SERVICES NOTE ─────────────────────────────────────────────────── -->
 <div class="services-note">
@@ -3034,11 +3006,6 @@
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Can I combine packages across rooms? <span class="faq-arrow">+</span></button>
-        <div class="faq-a"><p>Yes. The Additional Rooms add-on (from $755 per room) allows you to extend any core package across multiple spaces for a cohesive whole-home result.</p></div>
-      </div>
-
-      <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Can I gift a design package? <span class="faq-arrow">+</span></button>
         <div class="faq-a"><p>Yes, all packages can be gifted. Vouchers are valid for 12 months from the date of purchase. Contact us to arrange a beautifully presented gift voucher for someone special.</p></div>
       </div>
@@ -3129,9 +3096,9 @@
       <label>Which package are you interested in?</label>
       <div class="radio-options" id="rg-package">
         <label class="radio-pill"><input type="radio" name="Package Interest" value="The Initial Consultation" /><span>The Initial Consultation</span></label>
-        <label class="radio-pill"><input type="radio" name="Package Interest" value="The Room Edit" /><span>The Room Edit</span></label>
         <label class="radio-pill"><input type="radio" name="Package Interest" value="The Design Edit" /><span>The Design Edit</span></label>
         <label class="radio-pill"><input type="radio" name="Package Interest" value="The Signature Styling Experience" /><span>The Signature Styling Experience</span></label>
+        <label class="radio-pill"><input type="radio" name="Package Interest" value="The Tailored Programme" /><span>The Tailored Programme</span></label>
         <label class="radio-pill"><input type="radio" name="Package Interest" value="Not sure yet" /><span>Not sure yet</span></label>
       </div>
     </div>
@@ -3176,7 +3143,7 @@
   <div style="max-width:720px;margin:0 auto;text-align:center;">
     <div class="section-tag" style="justify-content:center;">Areas We Serve</div>
     <h2 class="section-title">Interior design, wherever you are</h2>
-    <p style="font-family:'Jost',sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:var(--mid-grey);margin-top:20px;">Our Mosman-based studio works with residential clients across Sydney's Lower North Shore, Northern Beaches, Eastern Suburbs and Inner West, and takes on selected projects in outlying areas, rural NSW and interstate. We welcome enquiries from all locations — travel inspires us, and we'd love to collaborate with you, wherever you are.</p>
+    <p style="font-family:'Jost',sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:var(--mid-grey);margin-top:20px;">Our Mosman-based studio works with residential clients across Sydney's Lower North Shore, Northern Beaches, Eastern Suburbs and Inner West, and takes on selected projects in outlying areas, rural NSW and interstate. We welcome enquiries from all locations. Travel inspires us, and we'd love to collaborate with you, wherever you are.</p>
   </div>
 </section>
 <!-- ─── FOOTER ────────────────────────────────────────────────────────── -->
@@ -3234,7 +3201,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 The Style Workshop · Sydney, Australia · ABN 9161 128 9462</p>
+    <p>© 2026 The Style Workshop · Sydney, Australia · ABN 91 611 289 462</p>
     <div class="footer-social">
       <a href="https://www.instagram.com/styleworkshop" target="_blank" rel="noopener" aria-label="Instagram">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
@@ -3902,10 +3869,10 @@ document.addEventListener('keydown', e => {
       <button class="tc-close" onclick="closeTCModal()" aria-label="Close">&times;</button>
     </div>
     <div class="tc-modal-body">
-      <p>These Terms &amp; Conditions apply to all Pre-Paid Design Vouchers issued by The Style Workshop (ABN 9161 128 9462). By purchasing or redeeming a voucher, you agree to the following.</p>
+      <p>These Terms &amp; Conditions apply to all Pre-Paid Design Vouchers issued by The Style Workshop (ABN 91 611 289 462). By purchasing or redeeming a voucher, you agree to the following.</p>
 
       <h3>1. Voucher Use &amp; Validity</h3>
-      <p>Vouchers are valid for 12 months from the date of purchase. Expired vouchers cannot be extended or refunded. Each voucher entitles the holder to the specific package described at time of purchase. Vouchers may be gifted but are non-transferable once redeemed. Vouchers have no cash value and cannot be exchanged for cash or credit.</p>
+      <p>Vouchers are valid for 12 months from the date of purchase. Expired vouchers cannot be extended or refunded. Each voucher entitles the holder to the specific package described at time of purchase. Vouchers may be gifted but are non-transferable once redeemed. Vouchers have no cash value and cannot be exchanged for cash or credit. The fee paid for The Initial Consultation is credited in full toward The Signature Styling Experience or The Tailored Programme where the client signs up within 30 days of the consultation. This credit does not apply to The Design Edit and cannot be exchanged for cash.</p>
 
       <h3>2. Booking &amp; Scheduling</h3>
       <p>To redeem your voucher, contact The Style Workshop via email or phone to schedule your appointment. Appointments are subject to availability. At least 48 hours' notice is required to reschedule. Late cancellations or no-shows may result in forfeiture of the session.</p>
