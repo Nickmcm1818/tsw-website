@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Art Edit</title>
+  <meta name="description" content="A curated list of galleries and artists Emily follows, for The Style Workshop clients." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="../favicon.png" />
+</head>
+<body>
+<style>
+  :root{
+    --teal:#1E3D51;
+    --moss:#646D5F;
+    --bluegrey:#7D8B94;
+    --warmgrey:#9C9B94;
+    --sand:#BDB7A3;
+    --cream:#F5F2EE;
+    --ink:#3A3A38;
+    --rule: rgba(30,61,81,0.14);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --cream:#1c2a32;
+      --ink:#E7E3DC;
+      --teal:#CBD9E1;
+      --moss:#B7BFAE;
+      --bluegrey:#AEB9C0;
+      --sand:#8f8a78;
+      --rule: rgba(203,217,225,0.16);
+    }
+  }
+  :root[data-theme="dark"]{
+    --cream:#1c2a32;
+    --ink:#E7E3DC;
+    --teal:#CBD9E1;
+    --moss:#B7BFAE;
+    --bluegrey:#AEB9C0;
+    --sand:#8f8a78;
+    --rule: rgba(203,217,225,0.16);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Jost', 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.serif{
+    font-family:'Cormorant Garamond', 'Times New Roman', serif;
+    font-weight:500;
+    color:var(--teal);
+  }
+
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding: 56px 24px 80px;
+  }
+
+  header.masthead{
+    text-align:center;
+    margin-bottom:44px;
+  }
+  header.masthead img{
+    height:120px;
+    width:auto;
+    display:block;
+    margin:0 auto;
+    opacity:0.92;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) header.masthead img{
+      filter:brightness(0) invert(1);
+      opacity:0.85;
+    }
+  }
+  :root[data-theme="dark"] header.masthead img{
+    filter:brightness(0) invert(1);
+    opacity:0.85;
+  }
+  .eyebrow{
+    font-family:'Jost', sans-serif;
+    font-size:11.5px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--moss);
+    margin:0 0 10px;
+  }
+
+  .hero h1{
+    font-size:clamp(28px, 5vw, 38px);
+    line-height:1.2;
+    margin:0 0 22px;
+    text-wrap:balance;
+    text-align:center;
+  }
+  .hero p.intro{
+    max-width:600px;
+    margin:0 auto;
+    font-size:16px;
+    line-height:1.75;
+    color:var(--ink);
+    text-align:center;
+  }
+
+  section.list-section{
+    margin-top:60px;
+  }
+  section.list-section .eyebrow{
+    text-align:left;
+  }
+  section.list-section h2{
+    font-size:24px;
+    margin:2px 0 4px;
+  }
+  section.list-section > p.note{
+    font-size:14px;
+    color:var(--bluegrey);
+    margin:0 0 28px;
+    max-width:520px;
+  }
+
+  .entry{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:24px;
+    padding:22px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .entry:first-of-type{
+    border-top:1px solid var(--rule);
+  }
+  .entry-name{
+    font-size:20px;
+    color:var(--teal);
+    margin:0 0 5px;
+  }
+  .entry-desc{
+    font-size:14.5px;
+    line-height:1.6;
+    color:var(--ink);
+    margin:0;
+    max-width:440px;
+  }
+  .entry-link{
+    flex:0 0 auto;
+    white-space:nowrap;
+    font-size:12.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--moss);
+    text-decoration:none;
+    border-bottom:1px solid var(--sand);
+    padding-bottom:2px;
+    margin-top:6px;
+  }
+  .entry-link:hover{
+    color:var(--teal);
+    border-color:var(--teal);
+  }
+
+  footer{
+    margin-top:64px;
+    text-align:center;
+    font-size:12.5px;
+    color:var(--bluegrey);
+    letter-spacing:0.02em;
+  }
+  footer a{color:var(--moss); text-decoration:none;}
+  footer a:hover{color:var(--teal);}
+
+  @media (max-width:480px){
+    .entry{flex-direction:column; gap:8px;}
+    .entry-link{margin-top:2px;}
+    footer p{line-height:2;}
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+
+<div class="wrap">
+
+  <header class="masthead">
+    <a href="https://www.thestyleworkshop.com.au/"><img src="tsw_badge.png" alt="The Style Workshop" /></a>
+  </header>
+
+  <div class="hero">
+    <h1>The Art Edit —<br>galleries and artists worth knowing</h1>
+    <p class="intro">Below are some galleries and artists I follow that may have pieces to suit your home. Art is very subjective, so not everything will be to your taste, but they each cover a broad range of art and exhibitions, so it's worth subscribing to see what comes up in future.</p>
+  </div>
+
+  <section class="list-section">
+    <p class="eyebrow">01 &nbsp;—&nbsp; Galleries</p>
+    <h2>Galleries</h2>
+    <p class="note">A mix of Sydney and regional galleries, each with a changing exhibition program.</p>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">Defiance Gallery</p>
+        <p class="entry-desc">Paddington, NSW. Contemporary painting, sculpture and mixed media from established and emerging artists.</p>
+      </div>
+      <a class="entry-link" href="https://defiancegallery.com/artworks/" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">Art2Muse Gallery</p>
+        <p class="entry-desc">A broad online and in-gallery collection spanning around 50 established Australian artists.</p>
+      </div>
+      <a class="entry-link" href="https://art2muse.com.au/" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">Arthouse Gallery</p>
+        <p class="entry-desc">Rushcutters Bay, NSW. Emerging and established Australian and First Nations artists.</p>
+      </div>
+      <a class="entry-link" href="https://arthousegallery.com.au/" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">Walcha Gallery of Art</p>
+        <p class="entry-desc">Walcha, NSW. A regional gallery with a rotating contemporary program.</p>
+      </div>
+      <a class="entry-link" href="https://walchagallery.com.au/artists/" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">Michael Reid</p>
+        <p class="entry-desc">Sydney, Berlin and regional NSW. Contemporary Australian art with a strength in photography and First Nations artists.</p>
+      </div>
+      <a class="entry-link" href="https://michaelreid.com.au/" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">The Toowoomba Gallery</p>
+        <p class="entry-desc">Toowoomba, QLD. A privately owned regional gallery focused on emerging and mid-career Australian artists.</p>
+      </div>
+      <a class="entry-link" href="https://www.thetoowoombagallery.com/" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">Paper Pear</p>
+        <p class="entry-desc">Wagga Wagga, NSW. Paintings, ceramics and artisan pieces from more than forty Australian artists.</p>
+      </div>
+      <a class="entry-link" href="https://paperpear.com/" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">Project Gallery</p>
+        <p class="entry-desc">Woollahra, NSW. Curated fine art exhibitions from local emerging artists.</p>
+      </div>
+      <a class="entry-link" href="https://www.projectgallery90.com/" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">AK Bellinger Gallery</p>
+        <p class="entry-desc">Inverell, NSW. Established and emerging Australian artists, with a national and international program.</p>
+      </div>
+      <a class="entry-link" href="https://www.akbellingergallery.com/" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+  </section>
+
+  <section class="list-section">
+    <p class="eyebrow">02 &nbsp;—&nbsp; Individual Artists</p>
+    <h2>Individual Artists</h2>
+    <p class="note">Artists I follow directly, worth subscribing to for new releases.</p>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">Jane Canfield</p>
+        <p class="entry-desc">Oil, acrylic and gouache paintings of the Australian landscape.</p>
+      </div>
+      <a class="entry-link" href="https://www.janecanfield.com/" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">Paula Jenkins</p>
+        <p class="entry-desc">Large-scale oil paintings and works on paper.</p>
+      </div>
+      <a class="entry-link" href="https://www.paulajenkinsart.com/" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">Ashlea van Riet</p>
+        <p class="entry-desc">Abstract paintings inspired by the Australian landscape.</p>
+      </div>
+      <a class="entry-link" href="https://www.ashleavanriet.com/" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">Julz Beresford</p>
+        <p class="entry-desc">Plein air landscape painting, worked up from the Hawkesbury River and the Snowy Mountains.</p>
+      </div>
+      <a class="entry-link" href="https://www.julzberesford.com/" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">Ingrid Daniell</p>
+        <p class="entry-desc">Paintings and recent works, exhibited under her own name.</p>
+      </div>
+      <a class="entry-link" href="https://www.ingriddaniell.com/" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">Suzie Riley</p>
+        <p class="entry-desc">Original paintings, viewable through her artist website.</p>
+      </div>
+      <a class="entry-link" href="https://www.suzierileyartist.com.au/" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">Anna Fitzpatrick</p>
+        <p class="entry-desc">Contemporary Australian painter.</p>
+      </div>
+      <a class="entry-link" href="https://www.annafitzpaint.com/" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">Debbie Mackenzie</p>
+        <p class="entry-desc">Landscape paintings built around a sense of place, expansive skies and open land.</p>
+      </div>
+      <a class="entry-link" href="https://www.debbiemackenzieartist.com/" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">John Lloyd</p>
+        <p class="entry-desc">Oil on canvas and acrylic on board landscapes, from small studies to large-scale works.</p>
+      </div>
+      <a class="entry-link" href="https://johnlloydgallery.com.au/" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">Trish Crampton</p>
+        <p class="entry-desc">Calm, monochromatic still life studies of everyday vessels, in the spirit of Morandi.</p>
+      </div>
+      <a class="entry-link" href="https://trishcrampton.com.au/" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+    <div class="entry">
+      <div>
+        <p class="entry-name">Small Stills</p>
+        <p class="entry-desc">Affordable still life and seascape pieces from the Hawkesbury River.</p>
+      </div>
+      <a class="entry-link" href="https://www.onthehawkesbury.com/art-on-the-river.html" target="_blank" rel="noopener">Visit ↗</a>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>
+      +61 407 487 498
+      &nbsp;|&nbsp; <a href="mailto:emily@thestyleworkshop.com.au">emily@thestyleworkshop.com.au</a>
+      &nbsp;|&nbsp; <a href="https://www.thestyleworkshop.com.au" target="_blank" rel="noopener">thestyleworkshop.com.au</a>
+      &nbsp;|&nbsp; ABN 91 611 289 462
+    </p>
+  </footer>
+
+</div>
+
+</body>
+</html>
