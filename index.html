@@ -1045,45 +1045,37 @@
       border-bottom: 1px solid var(--dusty-blue);
       padding-bottom: 2px;
     }
-    /* Bespoke 5th package */
+    /* The Tailored Programme (4th package, full-width panel) */
     .service-card-bespoke {
       background: var(--dusty-blue);
       margin: 16px 0 0;
     }
     .bespoke-inner {
+      padding: 48px 40px 40px;
+    }
+    .bespoke-head { margin-bottom: 24px; }
+    .bespoke-copy {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
-      padding: 48px 40px;
     }
-    .bespoke-combos-label {
-      font-family: 'Jost', sans-serif;
-      font-size: 10px; font-weight: 400;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--warm-tan);
-      margin-bottom: 20px;
+    .bespoke-copy .service-desc {
+      color: rgba(245,243,239,0.9);
+      margin: 0;
     }
-    .bespoke-combos {
-      list-style: none;
-      padding: 0; margin: 0;
-      display: flex; flex-direction: column; gap: 18px;
+    .bespoke-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(245,243,239,0.25);
     }
-    .bespoke-combos li {
-      font-family: 'Jost', sans-serif;
-      font-size: 13px; font-weight: 400; line-height: 1.7;
-      color: rgba(245,243,239,0.72);
-      padding-left: 16px;
-      border-left: 2px solid rgba(189,160,111,0.4);
-    }
-    .bespoke-combos li span {
-      display: block;
-      font-family: 'Jost', sans-serif;
-      font-size: 13px;
-      letter-spacing: 0.03em;
-      color: var(--off-white);
-      font-weight: 600;
-      margin-bottom: 5px;
-    }
+    .bespoke-cta .service-price,
+    .bespoke-cta .service-price-note { margin: 0; }
+    .bespoke-cta .service-price-note { margin-top: 6px; }
+    .bespoke-cta .btn-service { flex-shrink: 0; margin: 0; display: inline-block; width: auto; }
     /* T&Cs note */
     .pkg-tc-note {
       font-family: 'Jost', sans-serif;
@@ -1452,7 +1444,6 @@
     .about-content p,
     .process-desc,
     .faq-a p,
-    .bespoke-combos li,
     .addons-sub,
     .hero-sub,
     .sov-body,
@@ -2097,7 +2088,9 @@
       .addon-card h4 { font-size: 16px; }
       .addon-card p { font-size: 12px; }
       .services-note { padding: 16px; font-size: 12px; }
-      .bespoke-inner { grid-template-columns: 1fr; gap: 24px; padding: 32px 20px; }
+      .bespoke-inner { padding: 32px 20px; }
+      .bespoke-copy { grid-template-columns: 1fr; gap: 16px; }
+      .bespoke-cta { flex-direction: column; align-items: flex-start; gap: 20px; }
       .process-steps { grid-template-columns: 1fr; gap: 20px; }
       .process-step:first-child::before { display: none; }
       .process-step h3 { font-size: 18px; }
@@ -2348,9 +2341,9 @@
     <div class="desc">From kitchen transformations to whole-home refurbishments.</div>
   </div>
   <div class="intro-stat">
-    <div class="number">3</div>
+    <div class="number">4</div>
     <div class="label">Ways to Work Together</div>
-    <div class="desc">Three pre-paid packages designed to meet you wherever you are in your design journey.</div>
+    <div class="desc">Four packages designed to meet you wherever you are in your design journey.</div>
   </div>
 </div>
 
@@ -2752,26 +2745,24 @@
 
   </div>
 
-  <!-- 5th Package: Bespoke -->
+  <!-- 4th Package: The Tailored Programme -->
   <div class="service-card-bespoke">
     <div class="bespoke-inner">
-      <div class="bespoke-left">
+      <div class="bespoke-head">
         <div class="service-num" style="color:var(--warm-tan);">04</div>
         <div class="service-name" style="color:var(--off-white);">The Tailored Programme</div>
         <div class="service-tag" style="color:var(--warm-tan);">Designed entirely around your brief</div>
-        <p class="service-desc" style="color:rgba(245,243,239,0.9);">Not every project fits a single package, and we wouldn't want it to. If you have a specific brief, a combination of services in mind, or a scope that spans multiple rooms and stages, we'll design a package around you.</p>
-        <div class="service-price" style="color:var(--off-white);">Tailored programmes, from $7,950</div>
-        <div class="service-price-note" style="color:rgba(245,243,239,0.75);">incl. GST · Scaled to the size of your project · Begin with a complimentary discovery call</div>
-        <p class="service-desc" style="color:rgba(245,243,239,0.8); font-size:13px; margin-top:16px; margin-bottom:0;">The exact investment depends on scope. What we can tell you upfront is exactly how we work: a clear proposal before anything begins, payments staged to each part of the project, and never a surprise invoice.</p>
       </div>
-      <div class="bespoke-right">
-        <div class="bespoke-combos-label">Popular combinations</div>
-        <ul class="bespoke-combos">
-          <li><span>Consultation + Sourcing &amp; Procurement</span> For those with a clear direction who need help executing it with access to trade suppliers</li>
-          <li><span>Design Edit + Furniture Selection Upgrade</span> A fully resolved design elevated with curated, exclusive pieces</li>
-          <li><span>Signature Experience + Additional Rooms</span> Whole-home transformation delivered with cohesion across every space</li>
-        </ul>
-        <a href="#enquiry" class="btn-service btn-service-solid" style="margin-top:32px; display:inline-block;">Book a Discovery Call</a>
+      <div class="bespoke-copy">
+        <p class="service-desc">Not every project fits a single package, and we wouldn't want it to. If you have a specific brief, a combination of services in mind, or a scope that spans multiple rooms and stages, we'll design a package around you.</p>
+        <p class="service-desc">The exact investment depends on scope. What we can tell you upfront is exactly how we work: a clear proposal before anything begins, payments staged to each part of the project, and never a surprise invoice.</p>
+      </div>
+      <div class="bespoke-cta">
+        <div class="bespoke-price">
+          <div class="service-price" style="color:var(--off-white);">Tailored programmes, from $7,950</div>
+          <div class="service-price-note" style="color:rgba(245,243,239,0.75);">incl. GST · Scaled to the size of your project · Begin with a complimentary discovery call</div>
+        </div>
+        <a href="#enquiry" class="btn-service btn-service-solid">Book a Discovery Call</a>
       </div>
     </div>
   </div>
